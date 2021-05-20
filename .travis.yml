@@ -36,7 +36,11 @@ branches:
   only: 
     - hexo
 env: 
+<<<<<<< HEAD
   global: 
+=======
+ global: 
+>>>>>>> 83d2710ad6518d9c0686ad3053175813525e7979
    - GH_REF: git@two.github.com:51228/51228.github.io.git
 
 notifications: 
