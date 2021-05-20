@@ -37,7 +37,7 @@ after_script:
 
 branches:
   only:
-    - master
+    - hexo
 env:
  global:
    - GH_REF: git@two.github.com:51228/51228.github.io.git
