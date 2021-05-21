@@ -1,36 +1,34 @@
 ﻿language: node_js
 node_js: stable
 
-cache: 
+cache:  
   apt: true
-  directories: 
+  directories:  
     - node_modules
 
-before_install: 
-  - npm install -g hexo-cli
+before_install:
+    - export TZ='Asia/Shanghai' # 更改时区
+    - npm install -g hexo-cli
 
-# S: Build Lifecycle
 install: 
-  - npm install
-
-
-#before_script: 
- # - npm install -g gulp
+    - npm install  #安装hexo及插件
 
 script: 
-  - hexo clean
-  - hexo g
+  - hexo clean  #清除
+  - hexo g && gulp  #生成
 
 after_script: 
+  - git clone https://${GH_REF} .deploy_git  # GH_REF是最下面配置的仓库地址
+  - cd .deploy_git
+  - git checkout master
+  - cd ../
+  - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留master分支的提交记录，不然每次git init的话只有1条commit
   - cd ./public
-  - git init
-  - git config user.name "51228"
-  - git config user.email 3051688@qq.com
+  - git config user.name "51228"  #修改name
+  - git config user.email "3051688@qq.com"  #修改email
   - git add .
-  - git commit -m "TravisCI 自动部署"
-  ## Github Pages
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-# E: Build LifeCycle
+  - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间 跟上面更改时区配合
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master  #GH_TOKEN是在Travis中配置token的名称
 
 branches: 
   only: 
