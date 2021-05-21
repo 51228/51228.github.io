@@ -145,7 +145,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/21/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/21/hexo%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E6%AD%A5%E9%AA%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -159,7 +159,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/21/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/2021/05/21/hexo%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">hexo部署的原理和步骤</a>
         </h2>
 
         <div class="post-meta">
@@ -168,8 +168,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-05-21 14:38:25" itemprop="dateCreated datePublished" datetime="2021-05-21T14:38:25+08:00">2021-05-21</time>
+              <time title="Created: 2021-05-21 17:54:25 / Modified: 17:55:07" itemprop="dateCreated datePublished" datetime="2021-05-21T17:54:25+08:00">2021-05-21</time>
             </span>
 
           
@@ -183,19 +184,391 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+          <h1 id="hexo部署的原理和步骤"><a href="#hexo部署的原理和步骤" class="headerlink" title="hexo部署的原理和步骤"></a>hexo部署的原理和步骤</h1><hr>
+<blockquote>
+<h4 id="Hexo-是一个快速、简洁且高效的博客框架。Hexo-使用-Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。"><a href="#Hexo-是一个快速、简洁且高效的博客框架。Hexo-使用-Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。" class="headerlink" title="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。"></a>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</h4></blockquote>
+<h2 id="本文将从以下几个方面尝试分析。"><a href="#本文将从以下几个方面尝试分析。" class="headerlink" title="本文将从以下几个方面尝试分析。"></a>本文将从以下几个方面尝试分析。</h2><ul>
+<li><p>hexo原理</p>
+<ul>
+<li>hexo的文件夹结构</li>
+<li>hexo的工作原理</li>
+</ul>
+</li>
+<li><p>hexo模板引擎</p>
+<ul>
+<li>hexo的模板引擎</li>
+<li>数据填充</li>
+<li>使用yaml编写的配置文件</li>
+<li>配置文件中数据的使用</li>
+<li>使用markdown编写的博客文章</li>
+</ul>
+</li>
+<li><p>hexo发布</p>
+</li>
+<li><p>hexo常用命令</p>
+</li>
+<li><p>hexo变量</p>
+<ul>
+<li><p>hexo变量</p>
+</li>
+<li><p>页面变量</p>
+</li>
+<li><p>Post(post) 变量</p>
+</li>
+<li><p>首页(index)</p>
+</li>
+<li><p>归档页(archive)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="一、原理"><a href="#一、原理" class="headerlink" title="一、原理"></a>一、原理</h2><p>内容是一个博客的灵魂。</p>
+<h4 id="1-hexo的文件夹结构"><a href="#1-hexo的文件夹结构" class="headerlink" title="1. hexo的文件夹结构"></a>1. hexo的文件夹结构</h4><p>├── _config.yml<br>├── db.json<br>├── node_modules<br>├── package.json<br>├── public<br>├── scaffolds<br>├── source #所有文章文件放在这里<br>└── themes #主题文件夹</p>
+<ul>
+<li><p><strong>_config.yml</strong>：该文件是hexo 的<code>站</code>级配置文件。所谓站级配置文件是指，对整个站点起效果的配置文件。</p>
+</li>
+<li><p><strong>source目录</strong>：该目录存放源文件。即用户编写的博文都放在该目录下。在该目录下又有几个子目录我们来分别看一下。</p>
+</li>
+<li><ul>
+<li><strong>_post</strong>：用于存放博文，基本上每篇文章都是由Markdown语法编写的。</li>
+<li><strong>tags</strong>：存放tag 的文件。hexo中的tags是自动生成的，所以我们不用手动修改tags目录下的index.md文件，在发布时它会自动生成。</li>
+<li><strong>categories</strong>：存放<strong>分类</strong>。它与tags是类似的，也是自动生成的，所以不需要我们手工修改。</li>
+</ul>
+</li>
+<li><p><strong>themes目录</strong>：该目录用于存放主题，目前hexo中最热门的主题就是<strong>next</strong>了。最近的 next release 版本是 7.8 。</p>
+</li>
+<li><p><strong>public目录</strong>：该目录存放hexo转出的文件，如html、css、js等。</p>
+</li>
+<li><p><strong>scaffolds目录</strong>：它里面存放了一些<strong>“脚手架”</strong>程序，用于生成模板页面，如执行<code>hexo new &quot;title&quot;</code>时，就会生成一个Markdown文件模板。</p>
+</li>
+<li><p><strong>db.json</strong> ： 缓存文件</p>
+</li>
+<li><p><strong>node_modules</strong>：  安装的插件以及hexo所需的一些node.js模块。</p>
+</li>
+<li><p><strong>package.json</strong>： 应用程序信息，配置hexo运行需要的js包。</p>
+</li>
+</ul>
+<h4 id="2-Hexo-的工作原理"><a href="#2-Hexo-的工作原理" class="headerlink" title="2. Hexo 的工作原理"></a>2. Hexo 的工作原理</h4><h5 id="1-hexo最基本的功能是将Markdown程序转成HTML页面，而这个转换并不是一次完成的，要经历两步"><a href="#1-hexo最基本的功能是将Markdown程序转成HTML页面，而这个转换并不是一次完成的，要经历两步" class="headerlink" title="1) hexo最基本的功能是将Markdown程序转成HTML页面，而这个转换并不是一次完成的，要经历两步:"></a>1) hexo最基本的功能是将Markdown程序转成HTML页面，而这个转换并不是一次完成的，要经历两步:</h5><ul>
+<li>第一步，将Markdown翻译成下面格式的JSON对象：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">article: &#123;</span><br><span class="line">  title:</span><br><span class="line">  date:</span><br><span class="line">  tags:</span><br><span class="line">  categories:</span><br><span class="line">  content:</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二步，根据上面生成的JSON对象生成 HTML 页面。</li>
+</ul>
+<p>对于我们来说，清楚了上面hexo将Markdown转HTML页面的过程后，我们就很容易理解hexo 在执行不同命令时它都在做什么事儿了。</p>
+<p>下面我们再来看看<strong>hexo</strong>的组成，它由三部分组成: <strong>hexo-cli</strong>、<strong>hexo-core</strong>以及<strong>hexo plugs</strong>。在这三部分中最核心的是hexo-core模块，它的作用就是执行上面讲的两步转换，从而生成目标文件；hexo-cli为我们供了一些非常方便的命令。当我们敲入命令时，它会根据命令调用不同的模块；hexo plugin是hexo的扩展，当hexo本身不能完成某项任务时，它允许你自己开发一个插件来完成。当然你也可以使用其它人写好的插件。</p>
+<h5 id="2-这里我们来分析一下-Hexo-每次部署的流程"><a href="#2-这里我们来分析一下-Hexo-每次部署的流程" class="headerlink" title="2) 这里我们来分析一下 Hexo 每次部署的流程"></a>2) 这里我们来分析一下 Hexo 每次部署的流程</h5><ol>
+<li>hexo g：生成静态文件。将我们的数据和界面相结合生成静态文件的过程：会遍历主题文件中的 source 文件夹（js、css、img 等静态资源），然后建立索引，然后根据索引生成 pubild 文件夹中，此时的 publid 文件是由 html、 js、css、img 建立的纯静态文件可以通过 index.html 作为入口访问你的博客。</li>
+<li>hexo d：部署文件。部署主要是根据在 _config.yml 中配置的 git 仓库或者 coding 的地址，将 public 文件上传至 github 或者 coding 中。然后再根据上面的 github 提供的 pages 服务呈现出页面。当然你也可以直接将你生成的 public 文件上传至你自己的服务器上。</li>
+<li>在node_modules中有一系列的文件用于对hexo中的各类页面进行默认的渲染，如果要启动个性化主页，需要删除hexo-generator-index,同时，将主题目录下的source目录作为你个性化页面的根目录。</li>
+</ol>
+<h2 id="二、模板引擎"><a href="#二、模板引擎" class="headerlink" title="二、模板引擎"></a>二、模板引擎</h2><p>表现是一个博客的个性。</p>
+<h4 id="1-hexo的模板引擎"><a href="#1-hexo的模板引擎" class="headerlink" title="1. hexo的模板引擎"></a>1. hexo的模板引擎</h4><blockquote>
+<h5 id="模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。"><a href="#模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。" class="headerlink" title="模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。"></a>模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。</h5></blockquote>
+<ul>
+<li><p>我们可以注意到，在 Hexo 中，source 文件夹和 themes 文件夹是在同级的，我们就可以将 source 文件夹理解为数据库，而主题文件夹相当于 界面。然后我们 hexo g 就将我们的数据和界面相结合生成静态文件 public。</p>
+</li>
+<li><p>hexo默认的是使用ejs，同类型的东西还有很多，比如jade，swig。我选用主题是用jade的。<br>hexo首先会解析md文件，然后根据layout判断布局类型，再调用其他的文件，这样每一块的内容都是独立的，提高代码的复用性。最终会生成一个html页面。</p>
+</li>
+<li><p>jade采用缩进语法格式，和python比较类似，看上去也很舒服，我比较喜欢这种风格。在hexo中使用jade需要安装相应的模块，否则无法使用。</p>
+</li>
+<li><p>模板文件在 layout 文件夹下，layout 文件文档结构如下：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _custom                           // 通用布局</span><br><span class="line">├── _layout.swig                      // 默认布局布局</span><br><span class="line">├── _macro                            // 插件模板</span><br><span class="line">├── _partials                         // 局部布局</span><br><span class="line">├── _scripts                          // script模板</span><br><span class="line">├── _third-party                      // 第三方插件模板</span><br><span class="line">├── archive.swig                      // 归档模板</span><br><span class="line">├── category.swig                     // 分类模板</span><br><span class="line">├── index.swig                        // 首页模板</span><br><span class="line">├── page.swig                         // 其他模板</span><br><span class="line">├── photo.swig                        // 照片模板（自定义）</span><br><span class="line">├── post.swig                         // 文章模板</span><br><span class="line">├── schedule.swig                     // 归档模板</span><br><span class="line">└── tag.swig                          // 标签模板</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h5 id="每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在-config-yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。"><a href="#每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在-config-yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。" class="headerlink" title="每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在_config.yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。"></a>每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在_config.yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。</h5></blockquote>
+<ul>
+<li><p>在我们新建页面或者新建文章的使用可以选定我们使用的模板。hexo new [layout] <title>就会使用对应的模板。</p>
+</li>
+<li><p>其中 _layout.swig 是通用模板，里面引入了 head、footer 等公共组件，然后在其他的模板中会引入这个 _layout.swig 通用模板，比如 post.swig 模板</p>
+</li>
+</ul>
+<h4 id="2-数据的填充"><a href="#2-数据的填充" class="headerlink" title="2. 数据的填充"></a>2. 数据的填充</h4><p>数据的填充主要是 hexo -g 的时候将数据传递给 swig 模板，然后再由 swig 模板填充到 HTML 中。</p>
+<h4 id="3-使用yaml编写的配置文件"><a href="#3-使用yaml编写的配置文件" class="headerlink" title="3. 使用yaml编写的配置文件"></a>3. 使用yaml编写的配置文件</h4><ul>
+<li><p>yaml是专门用来写配置文件的语言。它用首行缩进表示层级关系，便于读写理解。</p>
+</li>
+<li><p>配置文件一般用来对所需环境进行设置。hexo中涉及到两个配置文件，一个是位于主目录下的，另一个是位于主题目录下的。</p>
+</li>
+<li><p>通常主目录下的配置文件用于对全站的配置，比如站点的基本信息，文章的布局，写作的格式，部署到github上的参数等等。</p>
+</li>
+<li><p>而主题目录下的配置文件用于对该主题的配置，比如站点导航栏的设置，一些插件的设置等。</p>
+</li>
+</ul>
+<p>Hexo 的配置文件 _config.yml 使用 yml语法 。例如博客的名字、副标题等等之类。这些数据项组织在 config 对象中。可以数字、字符串、对象、数组，</p>
+<h4 id="4-配置文件中数据的使用"><a href="#4-配置文件中数据的使用" class="headerlink" title="4. 配置文件中数据的使用"></a>4. 配置文件中数据的使用</h4><p>如果要在模板中使用某个具体的值，比如字符串、数字、逻辑变量或者对象的某个成员，可以在主题的模板文件 swig 中直接使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block title %&#125; &#123;&#123; page.title &#125;&#125; | &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h4 id="5-使用markdown编写的博客文章"><a href="#5-使用markdown编写的博客文章" class="headerlink" title="5. 使用markdown编写的博客文章"></a>5. 使用markdown编写的博客文章</h4><p>之所以选择hexo做博客一个原因就是它支持markdown。用markdown写文章感觉特别爽，只需要记住简单的几个语法，而且可以把全部的注意力放在文字本身上，而不用去过多的关注排版。</p>
+<h1 id="三、hexo发布页面"><a href="#三、hexo发布页面" class="headerlink" title="三、hexo发布页面"></a>三、<strong>hexo发布页面</strong></h1><p>我们可以使用<code>hexo d</code>命令将生成的目标文件发布出来，但在使用它之前，你需要在站节点的_config.yml文件中配置发布的方法。我们举个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git #leancloud_counter_security_sync #git</span><br><span class="line">  repo: git@github.com:avdance/avdance.github.io.git</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>当我们执行<code>hexo d</code>命令时，它会调用 hexo 中的 <code>hexo-deployer-git</code> 插件。在该插件内部会启动一个进程调用<code>git</code>命令，从而将生成的html等代码上传到 github上。</p>
+<p>这里可能有些同学会有疑问，为什么上传到github上就算是发布了呢？这是因为github为我们提供了免费的个人博客空间。只要你在github上创建一个<code>用户名.github.io</code>的项目，github就会自动将这个项目中的文件发布出来。</p>
+<p>当然你也可以采用传输的方式，自己购买台云主机，然后在云主机上用ngnix、nodejs等搭建一个Web服务，最终将页面发布出来。</p>
+<h2 id="四、hexo的常用命令"><a href="#四、hexo的常用命令" class="headerlink" title="四、hexo的常用命令"></a>四、<strong>hexo的常用命令</strong></h2><p><strong>hexo</strong> 提供了几个常用命令，如<code>hexo clean</code>、<code>hexo g</code>、<code>hexo s</code>等等。下面我们分别看一下这几个命令的具体作用是什么：</p>
+<ul>
+<li>hexo clean: 删除 hexo 生成的所有文档。当我们执行这个命令后，你会发现public目录被删除了。</li>
+<li>hexo g: 根据 source 目录中的文件生成html等可以发布的文件。</li>
+<li>hexo s: 在本地起动 <strong>http</strong> 服务，将生成的 html 等输出文件布署到本地服务器上。</li>
+<li>hexo d: 将生成的html代码推送到 github 上</li>
+</ul>
+<h2 id="五、Hexo-中的变量"><a href="#五、Hexo-中的变量" class="headerlink" title="五、Hexo 中的变量"></a>五、Hexo 中的变量</h2><h4 id="1、Hexo-中的变量"><a href="#1、Hexo-中的变量" class="headerlink" title="1、Hexo 中的变量"></a>1、Hexo 中的变量</h4><p>Hexo 提供了很多的变量，比如我们上面使用的 page 变量，还有 site 变量等，这些都是Hexo 提供的，我们可以拿来直接使用的，常用的变量有：</p>
+<ul>
+<li>site：对应整个网站的变量，一般会用到 site.posts.length 制作分页器。</li>
+</ul>
+<ol>
+<li>site.posts 所有文章</li>
+<li>site.pages 所有分页</li>
+<li>site.categories 所有分类</li>
+<li>site.tags 所有标签</li>
+</ol>
+<ul>
+<li>page：存放当前页面的信息，例如我在 index.ejs 中使用 page.posts 获取了当前页面的所有文章而不是使用 site.posts。</li>
+<li>config：config 变量我们在主目录下配置文件 _config.yml 中保存的信息。</li>
+<li>theme：theme 变量是我们在主题目录下配置文件 _config.yml 中保存的信息。</li>
+<li>path：当前页面的路径（不含根路径）。</li>
+<li>url：页面完整网址。</li>
+</ul>
+<h4 id="2、页面变量"><a href="#2、页面变量" class="headerlink" title="2、页面变量"></a>2、页面变量</h4><p>Page(page) 这里指的是<code>hexo new page</code>创建的那个页面</p>
+<ul>
+<li>page.title：文章标题</li>
+<li><a href="https://link.zhihu.com/?target=http://page.date">page.date</a>：文章建立日期</li>
+<li>page.updated：文章更新日期</li>
+<li>page.comments：留言是否开启</li>
+<li>page.layout：布局名称</li>
+<li>page.content：文章完整内容</li>
+<li>page.excerpt：文章摘要</li>
+<li>page.more：除了摘要的其他内容</li>
+<li>page.source：文章原始路劲</li>
+<li>page.full_source：文章完整原始路径</li>
+<li>page.path：文章网址（不含根路径），通常在主题中使用url_for(page.path)</li>
+<li>page.permalink：文章永久网址</li>
+<li>page.prev：上一篇文章，如果此为第一篇文章则为null</li>
+<li><a href="https://link.zhihu.com/?target=http://page.next">page.next</a>：下一篇文章，如果此为最后一篇文章则为null</li>
+<li>page.raw：文章原始内容</li>
+<li><a href="https://link.zhihu.com/?target=http://page.photos">page.photos</a>：文章的照片（用于相册）</li>
+<li><a href="https://link.zhihu.com/?target=http://page.link">page.link</a>：文章的外链（用于链接文章）</li>
+</ul>
+<h4 id="3、Post-post-变量"><a href="#3、Post-post-变量" class="headerlink" title="3、Post(post) 变量"></a>3、Post(post) 变量</h4><p>这里指的是文章页面，与page布局相同，添加如下变量：</p>
+<ul>
+<li>page.pulished：文章非草稿为true</li>
+<li>page.categories：文章分类</li>
+<li>page.tags：文章标签</li>
+</ul>
+<h4 id="4、首页-index"><a href="#4、首页-index" class="headerlink" title="4、首页(index)"></a>4、首页(index)</h4><ul>
+<li>page.per_page：每一页显示的文章数</li>
+<li><a href="https://link.zhihu.com/?target=http://page.total">page.total</a>：文章数量</li>
+<li>page.current：当前页码</li>
+<li>page.current_url：当前页的URL</li>
+<li>page.posts：当前页的文章</li>
+<li>page.prev：前一页页码，如果为第一页，该值为0</li>
+<li>page.prev_link：前一页URL，如果为第一页，则为’’</li>
+<li><a href="https://link.zhihu.com/?target=http://page.next">page.next</a>：后一页页码，如果为最后一页，则为0</li>
+<li>page.next_link：后一页URL，如果为最后一页，则为’’</li>
+<li>page.path：当前页网址（不含根路径），通常在主题中使用url_for(page.path)</li>
+</ul>
+<h4 id="5、归档页-archive"><a href="#5、归档页-archive" class="headerlink" title="5、归档页(archive)"></a>5、归档页(archive)</h4><p>与index布局相同，但是新增如下变量：</p>
+<ul>
+<li><code>archive</code> 为true</li>
+<li><code>year</code> 归档年份（4位）</li>
+<li><code>month</code> 归档月份（不包含0）</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/21/yaml%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养家河">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/21/yaml%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">yaml语法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-21 15:36:49 / Modified: 15:38:44" itemprop="dateCreated datePublished" datetime="2021-05-21T15:36:49+08:00">2021-05-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="一、yaml语法简介："><a href="#一、yaml语法简介：" class="headerlink" title="一、yaml语法简介："></a>一、yaml语法简介：</h3><p>YAML（/ˈjæməl/，尾音类似 camel 骆驼）是一个可读性高，用来表达数据序列化的格式。YAML 参考了其他多种语言，包括： C 语言、 Python、Perl，并从 XML、电子邮件的数据格式（RFC 2822）中获得灵感。Clark Evans 在 2001 年首次发表了这种语言 ，另外 Ingy döt Net 与 Oren Ben-Kiki 也是这语言的共同设计者 。当前已经有数种编程语言或脚本语言支持（或者说解析）这种语言。</p>
+<p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。YAML (YAML Aint Markup Language)是一种标记语言，通常以.yml或者.yaml为后缀的文件，是一种直观的能够被电脑识别的数据序列化格式，并且容易被人类阅读，容易和脚本语言交互的，可以被支持YAML库的不同的编程语言程序导入，一种专门用来写配置文件的语言。可用于如： Java，C/C++, Ruby, Python, Perl, C#, PHP等。</p>
+<h3 id="二、YML的优点"><a href="#二、YML的优点" class="headerlink" title="二、YML的优点"></a>二、YML的优点</h3><ol>
+<li>YAML易于人们阅读。</li>
+<li>YAML数据在编程语言之间是可移植的。</li>
+<li>YAML匹配敏捷语言的本机数据结构。</li>
+<li>YAML具有一致的模型来支持通用工具。</li>
+<li>YAML支持单程处理。</li>
+<li>YAML具有表现力和可扩展性。</li>
+<li>YAML易于实现和使用。</li>
+</ol>
+<h3 id="三、YML语法"><a href="#三、YML语法" class="headerlink" title="三、YML语法"></a>三、YML语法</h3><h4 id="1-语法"><a href="#1-语法" class="headerlink" title="1.语法"></a>1.<strong>语法</strong></h4><ul>
+<li><p>k: v 表示键值对关系，<strong>冒号后面必须有一个空格</strong></p>
+</li>
+<li><p>使用空格的缩进表示层级关系，空格数目不重要，只要是左对齐的一列数据，都是同一个层级的</p>
+</li>
+<li><p>大小写敏感</p>
+</li>
+<li><p><em><strong>缩进时不允许使用Tab键，只允许使用空格。</strong></em></p>
+</li>
+<li><p>YAML 使用可打印的 Unicode 字符，可使用 UTF-8 或 UTF-16。</p>
+</li>
+<li><p>注解由井字号（ # ）开始，可以出现在一行中的任何位置，而且范围只有一行（也就是一般所谓的单行注解）</p>
+</li>
+<li><p>每个清单成员以单行表示，并用短杠 + 空白（ -   ）起始。或使用方括号（ [ ] ），并用逗号 + 空白（ ,   ）分开成员。</p>
+</li>
+<li><p>每个散列表的成员用冒号 + 空白（ :   ）分开键值和内容。或使用大括号（ {   } ），并用逗号 + 空白（ ,   ）分开。</p>
+</li>
+<li><p>散列表的键值可以用问号 ( ? ) 起始，用来明确的表示多个词汇组成的键值。</p>
+</li>
+<li><p>字符串平常并不使用引号，但必要的时候可以用双引号 ( “ ) 或单引号 ( ‘ ) 框住。</p>
+</li>
+<li><p>使用双引号表示字符串时，可用倒斜线（ \ ）开始的转义字符（这跟 C 语言类似）表示特殊字符。</p>
+</li>
+<li><p>区块的字符串用缩进和修饰符（非必要）来和其他数据分隔，有新行保留（preserve）（使用符号 | ）或新行折叠（flod）（使用符号 &gt; ）两种方式。</p>
+</li>
+<li><p>在单一文件中，可用连续三个连字号（—）区分多个文件。</p>
+</li>
+<li><p>另外，还有选择性的连续三个点号（ … ）用来表示文件结尾。</p>
+</li>
+<li><p>重复的内容可使从参考标记星号 ( * ) 复制到锚点标记（ &amp; ）。</p>
+</li>
+<li><p>指定格式可以使用两个惊叹号 ( !! )，后面接上名称。</p>
+</li>
+<li><p>文件中的单一文件可以使用指导指令，使用方法是百分比符号 ( % )。有两个指导指令在 YAML1.1 版中被定义：</p>
+</li>
+<li><p>% YAML 指导指令，用来识别文件的 YAML 版本。</p>
+</li>
+<li><p>% TAG 指导指令，被用在 URI 的前缀标记。这个方法在标记节点的类型时相当有用。</p>
+</li>
+<li><p>YAML 在使用逗号及冒号时，后面都必须接一个空白字符，所以可以在字符串或数值中自由加入分隔符号（例如：5,280 或 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://www.wikipedia.org">http://www.wikipedia.org</a>）而不  需要使用引号。</p>
+</li>
+</ul>
+<h4 id="2、基本类型："><a href="#2、基本类型：" class="headerlink" title="2、基本类型："></a>2、基本类型：</h4><p>yaml中有以下基本类型：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">字符串</span><br><span class="line">整型</span><br><span class="line">浮点型</span><br><span class="line">布尔型</span><br><span class="line">null</span><br><span class="line">时间</span><br><span class="line">日期</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-键值关系"><a href="#3-键值关系" class="headerlink" title="3. 键值关系"></a>3. <strong>键值关系</strong></h4><p>(以Java语言为例，其它语言类似)对于键与值主要是看能否表示以下内容。普通的值(数字、字符串、布尔)、日期、对象、数组、集合等。</p>
+<h5 id="1-普通值-字面量"><a href="#1-普通值-字面量" class="headerlink" title="1) 普通值(字面量)"></a>1) 普通值(字面量)</h5><ul>
+<li><p>k: v：字面量直接写；</p>
+</li>
+<li><p>字符串默认不用加上单引号或者双引号；</p>
+</li>
+<li><p>“”: 双引号；不会转义字符串里面的特殊字符；特殊字符会作为本身想表示的意思</p>
+</li>
+<li><p>name: “zhangsan \n lisi”：输出；zhangsan 换行 lisi</p>
+</li>
+<li><p>‘’：单引号；会转义特殊字符，特殊字符最终只是一个普通的字符串数据</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name1: zhangsan</span><br><span class="line">name2: &#x27;zhangsan \n lisi&#x27;</span><br><span class="line">name3: &quot;zhangsan \n lisi&quot;</span><br><span class="line">age: 18</span><br><span class="line">flag: true</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2-日期"><a href="#2-日期" class="headerlink" title="2)日期"></a>2)日期</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date: 2019/01/01</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="3）清单（数组）"><a href="#3）清单（数组）" class="headerlink" title="3）清单（数组）"></a>3）清单（数组）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--- # 最喜爱的电影</span><br><span class="line">- Casablanca</span><br><span class="line">- North by Northwest</span><br><span class="line">- Notorious</span><br></pre></td></tr></table></figure>
+
+<p>行内写法：另外还有一种内置格式（inline format）可以选择用方括号围住，并用逗号 + 空白区隔（类似 JSON 的语法）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--- # 购物清单</span><br><span class="line">[milk, pumpkin pie, eggs, juice]</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="4）散列表"><a href="#4）散列表" class="headerlink" title="4）散列表"></a>4）散列表</h5><p>键值和数据由冒号及空白字符分开。区块形式（常使用与 YAML 数据文档中）使用缩进和换行符分隔 key: value 对。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--- # 区块形式</span><br><span class="line">   name: John Smith</span><br><span class="line">   age: 33</span><br></pre></td></tr></table></figure>
+
+<p>内置形式（常使用与 YAML 数据流中）在大括号中使用逗号 + 空白字符分隔 key: value 对。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--- # 內置形式</span><br><span class="line"> &#123;name: John Smith, age: 33&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="5-对象-属性和值-、Map-键值对"><a href="#5-对象-属性和值-、Map-键值对" class="headerlink" title="5)对象(属性和值)、Map(键值对)"></a>5)对象(属性和值)、Map(键值对)</h5><p>在下一行来写对象的属性和值的关系，注意缩进</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">people:</span><br><span class="line">    name: zhangsan</span><br><span class="line">    age: 20</span><br></pre></td></tr></table></figure>
+
+<p>行内写法：另外还有一种内置格式（inline format）可使用大括号（ {   } ），并用逗号 + 空白（ ,   ）分开（类似 JSON 的语法）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">people: &#123;name: zhangsan,age: 20&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="6-数组、list、set"><a href="#6-数组、list、set" class="headerlink" title="6)数组、list、set"></a>6)数组、list、set</h5><p>用- 值表示数组中的一个元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pets:</span><br><span class="line">    - dog</span><br><span class="line">    - pig</span><br><span class="line">    - cat</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>行内写法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pets: [dog,pig,cat]</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="7-数组对象、list对象、set对象"><a href="#7-数组对象、list对象、set对象" class="headerlink" title="7)数组对象、list对象、set对象"></a>7)数组对象、list对象、set对象</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">peoples:</span><br><span class="line">    - name: zhangsan</span><br><span class="line">      age: 22</span><br><span class="line">    - name: lisi</span><br><span class="line">      age: 20</span><br><span class="line">    - &#123;name: wangwu,age: 18&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="8）区块的字符"><a href="#8）区块的字符" class="headerlink" title="8）区块的字符"></a>8）区块的字符</h5><p>再次强调，字符串不需要包在引号之内。有两种方法书写多行文字（multi-line strings），一种可以保存新行（使用 | 字符），另一种可以折叠新行（使用 &gt; 字符）。</p>
+<h6 id="保存新行-Newlines-preserved"><a href="#保存新行-Newlines-preserved" class="headerlink" title="保存新行 (Newlines preserved)"></a>保存新行 (Newlines preserved)</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data: |                                     # 译者注：这是一首著名的五行民谣(limerick)</span><br><span class="line">   There once was a man from Darjeeling     # 这里曾有一个人來自大吉岭</span><br><span class="line">   Who got on a bus bound for Ealing        # 他搭上一班往伊灵的公车</span><br><span class="line">       It said on the door                  # 门上这么说的</span><br><span class="line">       &quot;Please don&#x27;t spit on the floor&quot;     # &quot;请勿在地上吐痰&quot;</span><br><span class="line">   So he carefully spat on the ceiling      # 所以他小心翼翼的吐在天花板上</span><br></pre></td></tr></table></figure>
+
+<p>根据设置，前方的引领空白符号（leading white space）必须排成条状，以便和其他数据或是行为（如示例中的缩进）明显区分。</p>
+<h6 id="折叠新行-Newlines-folded"><a href="#折叠新行-Newlines-folded" class="headerlink" title="折叠新行 (Newlines folded)"></a>折叠新行 (Newlines folded)</h6><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data: &gt;</span><br><span class="line">   Wrapped text         <span class="meta"># 摺疊的文字</span></span><br><span class="line">   will be folded       <span class="meta"># 將會被收</span></span><br><span class="line">   <span class="keyword">into</span> a single        <span class="meta"># 進單一一個</span></span><br><span class="line">   paragraph            <span class="meta"># 段落</span></span><br><span class="line">   </span><br><span class="line">   Blank lines denote   <span class="meta"># 空白的行代表</span></span><br><span class="line">   paragraph breaks     <span class="meta"># 段落之間的區隔</span></span><br></pre></td></tr></table></figure>
+
+<p>和保存新行不同的是，换行字符会被转换成空白字符。而引领空白字符则会被自动消去。</p>
+<h5 id="9）层次结构化的元素"><a href="#9）层次结构化的元素" class="headerlink" title="9）层次结构化的元素"></a>9）层次结构化的元素</h5><p>清单中使用散列表</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- &#123;name: John Smith, age: <span class="number">33</span>&#125;</span><br><span class="line">- name: Mary Smith</span><br><span class="line">  age: <span class="number">27</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="散列表中使用清单"><a href="#散列表中使用清单" class="headerlink" title="散列表中使用清单"></a>散列表中使用清单</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">men: [John Smith, Bill Jones]</span><br><span class="line">women:</span><br><span class="line">  - Mary Smith</span><br><span class="line">  - Susan Williams</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、YAML-的高级组件"><a href="#四、YAML-的高级组件" class="headerlink" title="四、YAML 的高级组件"></a>四、YAML 的高级组件</h3><p>这部分算是一个后续的讨论，在比较各种数数据列语言时，YAML 最常被提到的特色有两个：关系树和数据形态。</p>
+<h4 id="树状结构之间的交互引用"><a href="#树状结构之间的交互引用" class="headerlink" title="树状结构之间的交互引用"></a>树状结构之间的交互引用</h4><h5 id="数据合并和参考"><a href="#数据合并和参考" class="headerlink" title="数据合并和参考"></a>数据合并和参考</h5><p>为了维持文件的简洁，并避免数据输入的错误，YAML 提供了结点参考（*）和散列合并（&lt;&lt;）参考到其他结点标签的锚点标记（&amp;）。参考会将树状结构加入锚点标记的内容，并可以在所有数据结构中运作（可以参考上面 “ship-to” 的示例）合并只有散列表可以使用，可以将键值自锚点标记复制到指定的散列表中。</p>
+<p>当数据被 instantiate 合并和参考会被剖析器自动展开。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#眼部雷射手術之標準程序</span><br><span class="line">---</span><br><span class="line">- step:  &amp;id001                  # 定義錨點標籤 &amp;id001</span><br><span class="line">    instrument:      Lasik 2000</span><br><span class="line">    pulseEnergy:     5.4</span><br><span class="line">    pulseDuration:   12</span><br><span class="line">    repetition:      1000</span><br><span class="line">    spotSize:        1mm</span><br><span class="line"></span><br><span class="line">- step:</span><br><span class="line">     &lt;&lt;: *id001                  # 合併鍵值：使用在錨點標籤定義的內容</span><br><span class="line">     spotSize:       2mm         # 覆寫&quot;spotSize&quot;鍵值</span><br><span class="line"></span><br><span class="line">- step:</span><br><span class="line">     &lt;&lt;: *id001                  # 合併鍵值：使用在錨點標籤定義的內容</span><br><span class="line">     pulseEnergy:    500.0       # 覆寫鍵值</span><br><span class="line">     alert: &gt;                    # 加入其他鍵值</span><br><span class="line">           warn patient of </span><br><span class="line">           audible pop</span><br></pre></td></tr></table></figure>
+
+<h5 id="数据形态"><a href="#数据形态" class="headerlink" title="数据形态"></a>数据形态</h5><p>由于自动判定数据形态的功能，严格类型（也就是用户有宣告的数据形态）很难在大部分的 YAML 文件中看到。数据类型可以被区分成三大类：原码（core），定义（defined），用户定义（user-defined）。原码可以自动被解析器分析（例如：浮点数，整数，字符串，清单，映射，…）。有一些高级的数据形态──例如比特数据──在 YAML 中有被 “定义”，但不是每一种解析器都有支持。最后，YAML 支持用户自定的区域变量，包括：自定义的类别，结构或基本类型（例如：四倍精度的浮点数）。</p>
+<h5 id="强制转型"><a href="#强制转型" class="headerlink" title="强制转型"></a>强制转型</h5><p>YAML 的自动判定数据形态是哪一种实体。但有时用户会想要将数据强制转型成自定的某种类型。最常见的状况是字符串，有时候可能看起来像数字或布尔值，这种时候可以使用双引号，或是使用严格类型标签。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">a: <span class="number">123</span>                     # 整數</span><br><span class="line">b: <span class="string">&quot;123&quot;</span>                   # 字串（使用雙括號）</span><br><span class="line">c: <span class="number">123.0</span>                   # 浮點數</span><br><span class="line">d: !!<span class="keyword">float</span> <span class="number">123</span>             # 浮點數，使用!!表達的嚴格型態</span><br><span class="line">e: !!str <span class="number">123</span>               # 字串，使用嚴格型態</span><br><span class="line">f: !!str Yes               # 字串，使用嚴格型態</span><br><span class="line">g: Yes                     # 布林值<span class="string">&quot;真&quot;</span></span><br><span class="line">h: Yes we have No bananas  # 字串（包含<span class="string">&quot;Yes&quot;</span>和<span class="string">&quot;No&quot;</span>）</span><br></pre></td></tr></table></figure>
+
+<h5 id="其他特殊数据形态"><a href="#其他特殊数据形态" class="headerlink" title="其他特殊数据形态"></a>其他特殊数据形态</h5><p>除了一般的数据形态之外，用户也可以使用一些较为高级的类型，但不保证可被每种解析器分析。使用时和强制转型类似，要在形态名称之前加上两个惊叹号（!!）。有几种重要的形态在本篇没有讨论，包括集合（sets），有序映照（ordered maps），时间戳记（timestamps）以及十六进制数据（hexadecimal）。</p>
 
       
     </div>
@@ -277,7 +650,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
