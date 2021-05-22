@@ -1,14 +1,26 @@
 ---
 title: yaml语法
-date: 2021-05-21 15:36:49
+categories:
+  - web前端
+  - 语法
 tags:
+  - yaml
+type: 'categories'
+date: 2021-05-22 22:22:03
+update: 2021-05-22 22:22:03   
 ---
+
+
+
+在用hexo和github搭建博客的过程中遇到config.yml文件，这种文件的格式看起来非常简单明了，但这个文件到处都是坑，最大的坑是冒号“：”后的空格；缩进的空格。
+
+<!-- more -->
 
 ### 一、yaml语法简介：
 
 YAML（/ˈjæməl/，尾音类似 camel 骆驼）是一个可读性高，用来表达数据序列化的格式。YAML 参考了其他多种语言，包括： C 语言、 Python、Perl，并从 XML、电子邮件的数据格式（RFC 2822）中获得灵感。Clark Evans 在 2001 年首次发表了这种语言 ，另外 Ingy döt Net 与 Oren Ben-Kiki 也是这语言的共同设计者 。当前已经有数种编程语言或脚本语言支持（或者说解析）这种语言。
 
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。YAML (YAML Aint Markup Language)是一种标记语言，通常以.yml或者.yaml为后缀的文件，是一种直观的能够被电脑识别的数据序列化格式，并且容易被人类阅读，容易和脚本语言交互的，可以被支持YAML库的不同的编程语言程序导入，一种专门用来写配置文件的语言。可用于如： Java，C/C++, Ruby, Python, Perl, C#, PHP等。
+YAML (YAML Aint Markup Language)是一种标记语言，通常以.yml或者.yaml为后缀的文件，是一种直观的能够被电脑识别的数据序列化格式，并且容易被人类阅读，容易和脚本语言交互的，可以被支持YAML库的不同的编程语言程序导入，一种专门用来写配置文件的语言。可用于如： Java，C/C++, Ruby, Python, Perl, C#, PHP等。
 
 
 
