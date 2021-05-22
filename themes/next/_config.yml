@@ -96,11 +96,11 @@ creative_commons:
 # Scheme Settings
 # ---------------------------------------------------------------
 
-# Schemes
+Schemes
 #scheme: Muse
 #scheme: Mist
-scheme: Pisces
-#scheme: Geminif
+#scheme: Pisces
+scheme: Geminif
 
 # Dark Mode
 darkmode: false
