@@ -4,11 +4,19 @@
 
 # Site
 title: 养家河的博客
-subtitle: ''
-description: ''
+subtitle: '自由自在————荡漾在书的海洋里'
+description: '———— 与时间、空间无关，矛盾始终存在'
 keywords: 
+  - Python
+  - Mysql
+  - Redis
+  - MongoDB
+  - Java
+  - Javascript
+  - HTML
+  - CSS
 author: 养家河
-language: Zh-cn
+language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
@@ -99,10 +107,25 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: next
 
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+#RSS订阅
+plugin: 
+  - hexo-generator-feed
+#Feed Atom
+feed: 
+  type: atom
+  path: atom.xml
+  limit: 20
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy: 
   type: git
-  repository: git@two.github.com:51228/51228.github.io.git
+  repository: https://github.com:51228/51228.github.io.git
   branch: master
 
