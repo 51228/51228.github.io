@@ -1,8 +1,14 @@
 ---
-title: yaml语法
-date: 2021-05-21 15:36:49
-tags:
+title: yaml语法1
+date: 2021-05-22 20:45:20
+update: 2021-05-22 20:45:20
+tags: 
+  - yaml
+categories: 
+  - 语法
 ---
+
+<!-- more -->
 
 ### 一、yaml语法简介：
 
