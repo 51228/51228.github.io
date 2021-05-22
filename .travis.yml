@@ -36,7 +36,7 @@ branches:
 
 env: 
   global: 
-   - GH_REF: git@two.github.com:51228/51228.github.io.git
+   - GH_REF: github.com:51228/51228.github.io.git
 
 notifications: 
   email: 
