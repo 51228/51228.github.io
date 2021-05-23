@@ -1,12 +1,11 @@
 ---
 title: {{ title }}
-date: {{ date }}
-update:  {{date}}
 categories: 
   - 
 tags: 
   - 
-type: "categories" 
+date: {{ date }}
+update:  {{date}}
 ---
 
 <!-- more -->
