@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在用hexo和github搭建博客的过程中遇到config.yml文件，这种文件的格式看起来非常简单明了，但这个文件到处都是坑，最大的坑是冒号“：”后的空格；缩进的空格。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yaml语法">
+<meta property="og:url" content="http://example.com/2021/05/22/yaml%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="养家河的博客">
+<meta property="og:description" content="在用hexo和github搭建博客的过程中遇到config.yml文件，这种文件的格式看起来非常简单明了，但这个文件到处都是坑，最大的坑是冒号“：”后的空格；缩进的空格。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-22T14:22:03.000Z">
+<meta property="article:modified_time" content="2021-05-23T01:26:45.687Z">
+<meta property="article:author" content="养家何">
+<meta property="article:tag" content="yaml">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/05/22/yaml%E8%AF%AD%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>yaml语法 | 养家河的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="养家河的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">养家河的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我喜欢沉浸在书的海洋中</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/22/yaml%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="养家何">
+      <meta itemprop="description" content="无关时间和空间，矛盾一直存在">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养家河的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          yaml语法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-22 22:22:03" itemprop="dateCreated datePublished" datetime="2021-05-22T22:22:03+08:00">2021-05-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E5%89%8D%E7%AB%AF/%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">语法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在用hexo和github搭建博客的过程中遇到config.yml文件，这种文件的格式看起来非常简单明了，但这个文件到处都是坑，最大的坑是冒号“：”后的空格；缩进的空格。</p>
+<span id="more"></span>
+
+
+<h3><span id="一-yaml语法简介">一、yaml语法简介：</span></h3><p>YAML（/ˈjæməl/，尾音类似 camel 骆驼）是一个可读性高，用来表达数据序列化的格式。YAML 参考了其他多种语言，包括： C 语言、 Python、Perl，并从 XML、电子邮件的数据格式（RFC 2822）中获得灵感。Clark Evans 在 2001 年首次发表了这种语言 ，另外 Ingy döt Net 与 Oren Ben-Kiki 也是这语言的共同设计者 。当前已经有数种编程语言或脚本语言支持（或者说解析）这种语言。</p>
+<p>YAML (YAML Aint Markup Language)是一种标记语言，通常以.yml或者.yaml为后缀的文件，是一种直观的能够被电脑识别的数据序列化格式，并且容易被人类阅读，容易和脚本语言交互的，可以被支持YAML库的不同的编程语言程序导入，一种专门用来写配置文件的语言。可用于如： Java，C/C++, Ruby, Python, Perl, C#, PHP等。</p>
+<h3><span id="二-yml的优点">二、YML的优点</span></h3><ol>
+<li>YAML易于人们阅读。</li>
+<li>YAML数据在编程语言之间是可移植的。</li>
+<li>YAML匹配敏捷语言的本机数据结构。</li>
+<li>YAML具有一致的模型来支持通用工具。</li>
+<li>YAML支持单程处理。</li>
+<li>YAML具有表现力和可扩展性。</li>
+<li>YAML易于实现和使用。</li>
+</ol>
+<h3><span id="三-yml语法">三、YML语法</span></h3><h4><span id="1语法">1.<strong>语法</strong></span></h4><ul>
+<li>k: v 表示键值对关系，<strong>冒号后面必须有一个空格</strong></li>
+<li>使用空格的缩进表示层级关系，空格数目不重要，只要是左对齐的一列数据，都是同一个层级的</li>
+<li>大小写敏感</li>
+<li><em><strong>缩进时不允许使用Tab键，只允许使用空格。</strong></em></li>
+<li>YAML 使用可打印的 Unicode 字符，可使用 UTF-8 或 UTF-16。</li>
+<li>注解由井字号（ # ）开始，可以出现在一行中的任何位置，而且范围只有一行（也就是一般所谓的单行注解）</li>
+<li>每个清单成员以单行表示，并用短杠 + 空白（ -   ）起始。或使用方括号（ [ ] ），并用逗号 + 空白（ ,   ）分开成员。</li>
+<li>每个散列表的成员用冒号 + 空白（ :   ）分开键值和内容。或使用大括号（ {   } ），并用逗号 + 空白（ ,   ）分开。</li>
+<li>散列表的键值可以用问号 ( ? ) 起始，用来明确的表示多个词汇组成的键值。</li>
+<li>字符串平常并不使用引号，但必要的时候可以用双引号 ( “ ) 或单引号 ( ‘ ) 框住。</li>
+<li>使用双引号表示字符串时，可用倒斜线（ \ ）开始的转义字符（这跟 C 语言类似）表示特殊字符。</li>
+<li>区块的字符串用缩进和修饰符（非必要）来和其他数据分隔，有新行保留（preserve）（使用符号 | ）或新行折叠（flod）（使用符号 &gt; ）两种方式。</li>
+<li>在单一文件中，可用连续三个连字号（—）区分多个文件。</li>
+<li>另外，还有选择性的连续三个点号（ … ）用来表示文件结尾。</li>
+<li>重复的内容可使从参考标记星号 ( * ) 复制到锚点标记（ &amp; ）。</li>
+<li>指定格式可以使用两个惊叹号 ( !! )，后面接上名称。</li>
+<li>文件中的单一文件可以使用指导指令，使用方法是百分比符号 ( % )。有两个指导指令在 YAML1.1 版中被定义：</li>
+<li>% YAML 指导指令，用来识别文件的 YAML 版本。</li>
+<li>% TAG 指导指令，被用在 URI 的前缀标记。这个方法在标记节点的类型时相当有用。</li>
+<li>YAML 在使用逗号及冒号时，后面都必须接一个空白字符，所以可以在字符串或数值中自由加入分隔符号（例如：5,280 或 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://www.wikipedia.org">http://www.wikipedia.org</a>）而不  需要使用引号。</li>
+</ul>
+<h4><span id="2-基本类型">2、基本类型：</span></h4><p>yaml中有以下基本类型：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">字符串</span><br><span class="line">整型</span><br><span class="line">浮点型</span><br><span class="line">布尔型</span><br><span class="line">null</span><br><span class="line">时间</span><br><span class="line">日期</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4><span id="3-键值关系">3. <strong>键值关系</strong></span></h4><p>(以Java语言为例，其它语言类似)对于键与值主要是看能否表示以下内容。普通的值(数字、字符串、布尔)、日期、对象、数组、集合等。</p>
+<h5><span id="1-普通值字面量">1)  普通值(字面量)</span></h5><ul>
+<li><p>k: v：字面量直接写；</p>
+</li>
+<li><p>字符串默认不用加上单引号或者双引号；</p>
+</li>
+<li><p>“”: 双引号；不会转义字符串里面的特殊字符；特殊字符会作为本身想表示的意思</p>
+</li>
+<li><p>name: “zhangsan \n lisi”：输出；zhangsan 换行 lisi</p>
+</li>
+<li><p>‘’：单引号；会转义特殊字符，特殊字符最终只是一个普通的字符串数据</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name1: zhangsan</span><br><span class="line">name2: &#x27;zhangsan \n lisi&#x27;</span><br><span class="line">name3: &quot;zhangsan \n lisi&quot;</span><br><span class="line">age: 18</span><br><span class="line">flag: true</span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="2-日期">2) 日期</span></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date: 2019/01/01</span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="3-清单数组">3) 清单（数组）</span></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--- # 最喜爱的电影</span><br><span class="line">- Casablanca</span><br><span class="line">- North by Northwest</span><br><span class="line">- Notorious</span><br></pre></td></tr></table></figure>
+
+<p>行内写法：另外还有一种内置格式（inline format）可以选择用方括号围住，并用逗号 + 空白区隔（类似 JSON 的语法）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--- # 购物清单</span><br><span class="line">[milk, pumpkin pie, eggs, juice]</span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="4-散列表">4) 散列表</span></h5><p>键值和数据由冒号及空白字符分开。区块形式（常使用与 YAML 数据文档中）使用缩进和换行符分隔 key: value 对。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--- # 区块形式</span><br><span class="line">   name: John Smith</span><br><span class="line">   age: 33</span><br></pre></td></tr></table></figure>
+
+<p>内置形式（常使用与 YAML 数据流中）在大括号中使用逗号 + 空白字符分隔 key: value 对。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--- # 內置形式</span><br><span class="line"> &#123;name: John Smith, age: 33&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="5-对象属性和值-map键值对">5) 对象(属性和值)、Map(键值对)</span></h5><p>在下一行来写对象的属性和值的关系，注意缩进</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">people:</span><br><span class="line">    name: zhangsan</span><br><span class="line">    age: 20</span><br></pre></td></tr></table></figure>
+
+<p>行内写法：另外还有一种内置格式（inline format）可使用大括号（ {   } ），并用逗号 + 空白（ ,   ）分开（类似 JSON 的语法）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">people: &#123;name: zhangsan,age: 20&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="6-数组-list-set">6) 数组、list、set</span></h5><p>用- 值表示数组中的一个元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pets:</span><br><span class="line">    - dog</span><br><span class="line">    - pig</span><br><span class="line">    - cat</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>行内写法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pets: [dog,pig,cat]</span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="7-数组对象-list对象-set对象">7) 数组对象、list对象、set对象</span></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">peoples:</span><br><span class="line">    - name: zhangsan</span><br><span class="line">      age: 22</span><br><span class="line">    - name: lisi</span><br><span class="line">      age: 20</span><br><span class="line">    - &#123;name: wangwu,age: 18&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="8-区块的字符">8) 区块的字符</span></h5><p>再次强调，字符串不需要包在引号之内。有两种方法书写多行文字（multi-line strings），一种可以保存新行（使用 | 字符），另一种可以折叠新行（使用 &gt; 字符）。</p>
+<h6><span id="保存新行-newlines-preserved">保存新行 (Newlines preserved)</span></h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data: |                                     # 译者注：这是一首著名的五行民谣(limerick)</span><br><span class="line">   There once was a man from Darjeeling     # 这里曾有一个人來自大吉岭</span><br><span class="line">   Who got on a bus bound for Ealing        # 他搭上一班往伊灵的公车</span><br><span class="line">       It said on the door                  # 门上这么说的</span><br><span class="line">       &quot;Please don&#x27;t spit on the floor&quot;     # &quot;请勿在地上吐痰&quot;</span><br><span class="line">   So he carefully spat on the ceiling      # 所以他小心翼翼的吐在天花板上</span><br></pre></td></tr></table></figure>
+
+<p>根据设置，前方的引领空白符号（leading white space）必须排成条状，以便和其他数据或是行为（如示例中的缩进）明显区分。</p>
+<h6><span id="折叠新行-newlines-folded">折叠新行 (Newlines folded)</span></h6><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data: &gt;</span><br><span class="line">   Wrapped text         <span class="meta"># 摺疊的文字</span></span><br><span class="line">   will be folded       <span class="meta"># 將會被收</span></span><br><span class="line">   <span class="keyword">into</span> a single        <span class="meta"># 進單一一個</span></span><br><span class="line">   paragraph            <span class="meta"># 段落</span></span><br><span class="line">   </span><br><span class="line">   Blank lines denote   <span class="meta"># 空白的行代表</span></span><br><span class="line">   paragraph breaks     <span class="meta"># 段落之間的區隔</span></span><br></pre></td></tr></table></figure>
+
+<p>和保存新行不同的是，换行字符会被转换成空白字符。而引领空白字符则会被自动消去。</p>
+<h5><span id="9-层次结构化的元素">9) 层次结构化的元素</span></h5><p>清单中使用散列表</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- &#123;name: John Smith, age: <span class="number">33</span>&#125;</span><br><span class="line">- name: Mary Smith</span><br><span class="line">  age: <span class="number">27</span></span><br></pre></td></tr></table></figure>
+
+<h6><span id="散列表中使用清单">散列表中使用清单</span></h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">men: [John Smith, Bill Jones]</span><br><span class="line">women:</span><br><span class="line">  - Mary Smith</span><br><span class="line">  - Susan Williams</span><br></pre></td></tr></table></figure>
+
+
+
+<h3><span id="四-yaml-的高级组件">四、YAML 的高级组件</span></h3><p>这部分算是一个后续的讨论，在比较各种数数据列语言时，YAML 最常被提到的特色有两个：关系树和数据形态。</p>
+<h4><span id="树状结构之间的交互引用">树状结构之间的交互引用</span></h4><h5><span id="数据合并和参考">数据合并和参考</span></h5><p>为了维持文件的简洁，并避免数据输入的错误，YAML 提供了结点参考（*）和散列合并（&lt;&lt;）参考到其他结点标签的锚点标记（&amp;）。参考会将树状结构加入锚点标记的内容，并可以在所有数据结构中运作（可以参考上面 “ship-to” 的示例）合并只有散列表可以使用，可以将键值自锚点标记复制到指定的散列表中。</p>
+<p>当数据被 instantiate 合并和参考会被剖析器自动展开。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#眼部雷射手術之標準程序</span><br><span class="line">---</span><br><span class="line">- step:  &amp;id001                  # 定義錨點標籤 &amp;id001</span><br><span class="line">    instrument:      Lasik 2000</span><br><span class="line">    pulseEnergy:     5.4</span><br><span class="line">    pulseDuration:   12</span><br><span class="line">    repetition:      1000</span><br><span class="line">    spotSize:        1mm</span><br><span class="line"></span><br><span class="line">- step:</span><br><span class="line">     &lt;&lt;: *id001                  # 合併鍵值：使用在錨點標籤定義的內容</span><br><span class="line">     spotSize:       2mm         # 覆寫&quot;spotSize&quot;鍵值</span><br><span class="line"></span><br><span class="line">- step:</span><br><span class="line">     &lt;&lt;: *id001                  # 合併鍵值：使用在錨點標籤定義的內容</span><br><span class="line">     pulseEnergy:    500.0       # 覆寫鍵值</span><br><span class="line">     alert: &gt;                    # 加入其他鍵值</span><br><span class="line">           warn patient of </span><br><span class="line">           audible pop</span><br></pre></td></tr></table></figure>
+
+<h5><span id="数据形态">数据形态</span></h5><p>由于自动判定数据形态的功能，严格类型（也就是用户有宣告的数据形态）很难在大部分的 YAML 文件中看到。数据类型可以被区分成三大类：原码（core），定义（defined），用户定义（user-defined）。原码可以自动被解析器分析（例如：浮点数，整数，字符串，清单，映射，…）。有一些高级的数据形态──例如比特数据──在 YAML 中有被 “定义”，但不是每一种解析器都有支持。最后，YAML 支持用户自定的区域变量，包括：自定义的类别，结构或基本类型（例如：四倍精度的浮点数）。</p>
+<h5><span id="强制转型">强制转型</span></h5><p>YAML 的自动判定数据形态是哪一种实体。但有时用户会想要将数据强制转型成自定的某种类型。最常见的状况是字符串，有时候可能看起来像数字或布尔值，这种时候可以使用双引号，或是使用严格类型标签。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">a: <span class="number">123</span>                     # 整數</span><br><span class="line">b: <span class="string">&quot;123&quot;</span>                   # 字串（使用雙括號）</span><br><span class="line">c: <span class="number">123.0</span>                   # 浮點數</span><br><span class="line">d: !!<span class="keyword">float</span> <span class="number">123</span>             # 浮點數，使用!!表達的嚴格型態</span><br><span class="line">e: !!str <span class="number">123</span>               # 字串，使用嚴格型態</span><br><span class="line">f: !!str Yes               # 字串，使用嚴格型態</span><br><span class="line">g: Yes                     # 布林值<span class="string">&quot;真&quot;</span></span><br><span class="line">h: Yes we have No bananas  # 字串（包含<span class="string">&quot;Yes&quot;</span>和<span class="string">&quot;No&quot;</span>）</span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="其他特殊数据形态">其他特殊数据形态</span></h5><p>除了一般的数据形态之外，用户也可以使用一些较为高级的类型，但不保证可被每种解析器分析。使用时和强制转型类似，要在形态名称之前加上两个惊叹号（!!）。有几种重要的形态在本篇没有讨论，包括集合（sets），有序映照（ordered maps），时间戳记（timestamps）以及十六进制数据（hexadecimal）。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/yaml/" rel="tag"># yaml</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/22/github-pages/" rel="next" title="github pages">
+      github pages <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">一、yaml语法简介：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">二、YML的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">三、YML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">1.语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">2、基本类型：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.3.</span> <span class="nav-text">3. 键值关系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.1.</span> <span class="nav-text">1)  普通值(字面量)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.2.</span> <span class="nav-text">2) 日期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.3.</span> <span class="nav-text">3) 清单（数组）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.4.</span> <span class="nav-text">4) 散列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.5.</span> <span class="nav-text">5) 对象(属性和值)、Map(键值对)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.6.</span> <span class="nav-text">6) 数组、list、set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.7.</span> <span class="nav-text">7) 数组对象、list对象、set对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.8.</span> <span class="nav-text">8) 区块的字符</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.8.1.</span> <span class="nav-text">保存新行 (Newlines preserved)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.8.2.</span> <span class="nav-text">折叠新行 (Newlines folded)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.9.</span> <span class="nav-text">9) 层次结构化的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.9.1.</span> <span class="nav-text">散列表中使用清单</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">四、YAML 的高级组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">4.1.</span> <span class="nav-text">树状结构之间的交互引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.1.1.</span> <span class="nav-text">数据合并和参考</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.1.2.</span> <span class="nav-text">数据形态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.1.3.</span> <span class="nav-text">强制转型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.1.4.</span> <span class="nav-text">其他特殊数据形态</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">养家何</p>
+  <div class="site-description" itemprop="description">无关时间和空间，矛盾一直存在</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">养家何</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
