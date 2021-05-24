@@ -290,3 +290,32 @@ Page(page) 这里指的是`hexo new page`创建的那个页面
 - `year` 归档年份（4位）
 - `month` 归档月份（不包含0）
 
+
+
+- 目录存放hexo转出的文件，如html、css、js等。
+- **scaffolds目录**：它里面存放了一些**“脚手架”**程序，用于生成模板页面，如执行`hexo new "title"`时，就会生成一个Markdown文件模板。
+- **db.json** ： 缓存文件
+- **node_modules**： 安装的插件以及hexo所需的一些node.js模块。
+- **package.json**： 应用程序信息，配置hexo运行需要的js包。
+
+#### 2. Hexo 的工作原理
+
+
+
+说，清楚了上面hexo将Markdown转HTML页面的过程后，我们就很容易理解hexo 在执行不同命令时它都在做什么事儿了。
+
+下面我们再来看看**hexo**的组成，它由三部分组成: **hexo-cli**、**hexo-core**以及**hexo plugs**。在这三部分中最核心的是hexo-core模块，它的作用就是执行上面讲的两步转换，从而生成目标文件；hexo-cli为我们供了一些非常方便的命令。当我们敲入命令时，它会根据命令调用不同的模块；hexo plugin是hexo的扩展，当hexo本身不能完成某项任务时，它允许你自己开发一个插件来完成。当然你也可以使用其它人写好的插件。
+
+##### 2) 这里我们来分析一下 Hexo 每次部署的流程
+
+1. hexo g：生成静态文件。将我们的数据和界面相结合生成静态文件的过程：会遍历主题文件中的 source 文件夹（js、css、img 等静态资源），然后建立索引，然后根据索引生成 pubild 文件夹中，此时的 publid 文件是由 html、 js、css、img 建立的纯静态文件可以通过 index.html 作为入口访问你的博客。
+2. hexo d：部署文件。部署主要是根据在 _config.yml 中配置的 git 仓库或者 coding 的地址，将 public 文件上传至 github 或者 coding 中。然后再根据上面的 github 提供的 pages 服务呈现出页面。当然你也可以直接将你生成的 public 文件上传至你自己的服务器上。
+3. 在node_modules中有一系列的文件用于对hexo中的各类页面进行默认的渲染，如果要启动个性化主页，需要删除hexo-generator-index,同时，将主题目录下的source目录作为你个性化页面的根目录。
+
+## 二、模板引擎
+
+表现是一个博客的个性。
+
+#### 1. hexo的模板引擎
+
+> 
