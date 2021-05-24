@@ -290,3 +290,4 @@ Page(page) 这里指的是`hexo new page`创建的那个页面
 - `archive` 为true
 - `year` 归档年份（4位）
 - `month` 归档月份（不包含0）
+
