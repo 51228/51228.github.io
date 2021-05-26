@@ -123,3 +123,75 @@ deploy:
   repository: https://github.com/51228/51228.github.io.git
   branch: master
 
+# 可选组件配置
+components: 
+    # 分享
+    # weibo,qq,wechat,douban,qzone,linkedin,facebook,twitter
+    share: 
+        enabled: false
+        hide-platforms: qq,facebook
+    # 不蒜子访问统计
+    busuanzi: 
+        enabled: false
+        start_date: 2020-05-03
+    # My Popular Repositories
+    side_bar_repo: 
+        enabled: true
+        limit: 5
+    # 文章字数统计
+    word_count: 
+        enabled: true
+    # 页面右上角，以及「关于」页面的二维码
+    # 修改图片请替换 assets/images/qrcode.jpg
+
+# ---------------- #
+#    cdn               #
+# ---------------- #
+cdn: 
+    jsdelivr: 
+        enabled: true
+
+
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs: 
+  -
+    href: /
+    label: 首页
+
+  -
+    href: /categories/
+    label: 分类
+
+#   -
+#     href: /archives/
+#     label: 归档
+
+#   -
+#     href: /open-source/
+#     label: 开源
+
+  -
+    href: /wiki/
+    label: 维基
+
+  -
+    href: /links/
+    label: 链接
+
+  -
+    href: /about/
+    label: 关于
+
+
+# ---------------- #
+#      Google      #
+# ---------------- #
+google: 
+    analytics_id: UA-80669434-1
+    adsense: 
+        footer: true
+        sidebar: true 
+        content_header: true
+        content_footer: false
