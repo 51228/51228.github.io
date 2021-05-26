@@ -1,9 +1,10 @@
 ---
 title: hexo部署的原理和步骤
 categories:
-  - null
+  - blog
+  - web前端
 tags:
-  - null
+  - hexo
 date: 2021-05-23 09:48:29
 update: 2021-05-23 09:48:29
 ---
@@ -183,7 +184,7 @@ Hexo 的配置文件 _config.yml 使用 yml语法 。例如博客的名字、副
 如果要在模板中使用某个具体的值，比如字符串、数字、逻辑变量或者对象的某个成员，可以在主题的模板文件 swig 中直接使用：
 
 ```text
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
+- {% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 ```
 
 #### 5. 使用markdown编写的博客文章
