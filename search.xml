@@ -180,7 +180,7 @@
 </ul>
 <p>Hexo 的配置文件 _config.yml 使用 yml语法 。例如博客的名字、副标题等等之类。这些数据项组织在 config 对象中。可以数字、字符串、对象、数组，</p>
 <h4 id="4-配置文件中数据的使用"><a href="#4-配置文件中数据的使用" class="headerlink" title="4. 配置文件中数据的使用"></a>4. 配置文件中数据的使用</h4><p>如果要在模板中使用某个具体的值，比如字符串、数字、逻辑变量或者对象的某个成员，可以在主题的模板文件 swig 中直接使用：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% block title %&#125; &#123;&#123; page.title &#125;&#125; | &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- &#123;% block title %&#125; &#123;&#123; page.title &#125;&#125; | &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-使用markdown编写的博客文章"><a href="#5-使用markdown编写的博客文章" class="headerlink" title="5. 使用markdown编写的博客文章"></a>5. 使用markdown编写的博客文章</h4><p>之所以选择hexo做博客一个原因就是它支持markdown。用markdown写文章感觉特别爽，只需要记住简单的几个语法，而且可以把全部的注意力放在文字本身上，而不用去过多的关注排版。</p>
 <h1 id="三、hexo发布页面"><a href="#三、hexo发布页面" class="headerlink" title="三、hexo发布页面"></a>三、<strong>hexo发布页面</strong></h1><p>我们可以使用<code>hexo d</code>命令将生成的目标文件发布出来，但在使用它之前，你需要在站节点的_config.yml文件中配置发布的方法。我们举个例子：</p>
@@ -258,6 +258,13 @@
 <li><code>month</code> 归档月份（不包含0）</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>blog</category>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>yaml语法</title>

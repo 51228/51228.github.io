@@ -28,8 +28,9 @@
 <meta property="og:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-23T01:48:29.000Z">
-<meta property="article:modified_time" content="2021-05-26T07:18:36.941Z">
+<meta property="article:modified_time" content="2021-05-26T07:27:22.893Z">
 <meta property="article:author" content="养家何">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2021/05/23/hexo%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E6%AD%A5%E9%AA%A4/">
@@ -221,6 +222,19 @@
 
               <time title="创建时间：2021-05-23 09:48:29" itemprop="dateCreated datePublished" datetime="2021-05-23T09:48:29+08:00">2021-05-23</time>
             </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -361,7 +375,7 @@
 </ul>
 <p>Hexo 的配置文件 _config.yml 使用 yml语法 。例如博客的名字、副标题等等之类。这些数据项组织在 config 对象中。可以数字、字符串、对象、数组，</p>
 <h4 id="4-配置文件中数据的使用"><a href="#4-配置文件中数据的使用" class="headerlink" title="4. 配置文件中数据的使用"></a>4. 配置文件中数据的使用</h4><p>如果要在模板中使用某个具体的值，比如字符串、数字、逻辑变量或者对象的某个成员，可以在主题的模板文件 swig 中直接使用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block title %&#125; &#123;&#123; page.title &#125;&#125; | &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- &#123;% block title %&#125; &#123;&#123; page.title &#125;&#125; | &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-使用markdown编写的博客文章"><a href="#5-使用markdown编写的博客文章" class="headerlink" title="5. 使用markdown编写的博客文章"></a>5. 使用markdown编写的博客文章</h4><p>之所以选择hexo做博客一个原因就是它支持markdown。用markdown写文章感觉特别爽，只需要记住简单的几个语法，而且可以把全部的注意力放在文字本身上，而不用去过多的关注排版。</p>
 <h1 id="三、hexo发布页面"><a href="#三、hexo发布页面" class="headerlink" title="三、hexo发布页面"></a>三、<strong>hexo发布页面</strong></h1><p>我们可以使用<code>hexo d</code>命令将生成的目标文件发布出来，但在使用它之前，你需要在站节点的_config.yml文件中配置发布的方法。我们举个例子：</p>
@@ -465,6 +479,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i>hexo</a>
+          </div>
 
         
 
@@ -555,13 +572,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
