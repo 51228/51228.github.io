@@ -98,14 +98,14 @@ update: 2021-05-23 09:48:29
 - 第一步，将Markdown翻译成下面格式的JSON对象：
 
 ```text
-article: {
+article: &#023
   title:
   date:
   tags:
   categories:
   content:
   ...
-}
+&#025
 ```
 
 - 第二步，根据上面生成的JSON对象生成 HTML 页面。
@@ -184,7 +184,7 @@ Hexo 的配置文件 _config.yml 使用 yml语法 。例如博客的名字、副
 如果要在模板中使用某个具体的值，比如字符串、数字、逻辑变量或者对象的某个成员，可以在主题的模板文件 swig 中直接使用：
 
 ```text
-- {% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
+{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
 ```
 
 #### 5. 使用markdown编写的博客文章
@@ -193,7 +193,7 @@ Hexo 的配置文件 _config.yml 使用 yml语法 。例如博客的名字、副
 
 
 
-# 三、**hexo发布页面**
+## 三、**hexo发布页面**
 
 我们可以使用`hexo d`命令将生成的目标文件发布出来，但在使用它之前，你需要在站节点的_config.yml文件中配置发布的方法。我们举个例子：
 
