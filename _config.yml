@@ -121,7 +121,7 @@ search:
 deploy: 
   type: git
   repository: https://github.com/51228/51228.github.io.git
-  branch: master
+  branch: next
 
 # 可选组件配置
 components: 
