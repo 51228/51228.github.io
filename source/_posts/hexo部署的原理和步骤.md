@@ -138,7 +138,6 @@ article: {
 
 - 模板文件在 layout 文件夹下，layout 文件文档结构如下：
 
-```text
 .
 ├── _custom                           // 通用布局
 ├── _layout.swig                      // 默认布局布局
@@ -154,7 +153,6 @@ article: {
 ├── post.swig                         // 文章模板
 ├── schedule.swig                     // 归档模板
 └── tag.swig                          // 标签模板
-```
 
 > ####每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在_config.yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。
 
