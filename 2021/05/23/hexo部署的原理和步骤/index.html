@@ -28,7 +28,7 @@
 <meta property="og:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-23T01:48:29.000Z">
-<meta property="article:modified_time" content="2021-05-28T01:50:26.461Z">
+<meta property="article:modified_time" content="2021-05-28T01:55:56.857Z">
 <meta property="article:author" content="养家何">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -345,7 +345,7 @@
 <li><p>jade采用缩进语法格式，和python比较类似，看上去也很舒服，我比较喜欢这种风格。在hexo中使用jade需要安装相应的模块，否则无法使用。</p>
 </li>
 <li><p>模板文件在 layout 文件夹下，layout 文件文档结构如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">├── _custom                           #通用布局</span><br><span class="line">├── _layout.swig                      #默认布局布局</span><br><span class="line">├── _macro                            #插件模板</span><br><span class="line">├── _partials                         #局部布局</span><br><span class="line">├── _scripts                         # script模板</span><br><span class="line">├── _third-party                      # 第三方插件模板</span><br><span class="line">├── archive.swig                      # 归档模板</span><br><span class="line">├── category.swig                     # 分类模板</span><br><span class="line">├── index.swig                        # 首页模板</span><br><span class="line">├── page.swig                         # 其他模板</span><br><span class="line">├── photo.swig                        # 照片模板（自定义）</span><br><span class="line">├── post.swig                         #文章模板</span><br><span class="line">├── schedule.swig                   # 归档模板</span><br><span class="line">└── tag.swig                          #标签模板</span><br></pre></td></tr></table></figure></li>
+</li>
 <li><p>每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在_config.yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。</p>
 </li>
 <li><p>在我们新建页面或者新建文章的使用可以选定我们使用的模板。hexo new [layout] <title>就会使用对应的模板。</p>
