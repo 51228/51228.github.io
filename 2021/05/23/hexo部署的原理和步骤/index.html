@@ -28,7 +28,7 @@
 <meta property="og:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-23T01:48:29.000Z">
-<meta property="article:modified_time" content="2021-05-28T00:41:19.240Z">
+<meta property="article:modified_time" content="2021-05-28T00:47:46.369Z">
 <meta property="article:author" content="养家何">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -358,20 +358,80 @@
 <li><p> 其中 _layout.swig 是通用模板，里面引入了 head、footer 等公共组件，然后在其他的模板中会引入这个 _layout.swig 通用模板，比如 post.swig 模板</p>
 </li>
 </ul>
-<h4 id="2-数据的填充"><a href="#2-数据的填充" class="headerlink" title="2. 数据的填充"></a>2. 数据的填充</h4><p>数据的填充主要是 hexo -g 的时候将数据传递给 swig 模板，然后再由 swig 模板填充到 HTML 中。</p>
-<h4 id="3-使用yaml编写的配置文件"><a href="#3-使用yaml编写的配置文件" class="headerlink" title="3. 使用yaml编写的配置文件"></a>3. 使用yaml编写的配置文件</h4><ul>
-<li><p>yaml是专门用来写配置文件的语言。它用首行缩进表示层级关系，便于读写理解。</p>
-</li>
-<li><p>配置文件一般用来对所需环境进行设置。hexo中涉及到两个配置文件，一个是位于主目录下的，另一个是位于主题目录下的。</p>
-</li>
-<li><p>通常主目录下的配置文件用于对全站的配置，比如站点的基本信息，文章的布局，写作的格式，部署到github上的参数等等。</p>
-</li>
-<li><p>而主题目录下的配置文件用于对该主题的配置，比如站点导航栏的设置，一些插件的设置等。</p>
-</li>
+<h2 id="三、hexo发布页面"><a href="#三、hexo发布页面" class="headerlink" title="三、hexo发布页面"></a>三、<strong>hexo发布页面</strong></h2><p>我们可以使用<code>hexo d</code>命令将生成的目标文件发布出来，但在使用它之前，你需要在站节点的_config.yml文件中配置发布的方法。我们举个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git #leancloud_counter_security_sync #git</span><br><span class="line">  repo: git@github.com:avdance/avdance.github.io.git</span><br></pre></td></tr></table></figure>
+
+<p>当我们执行<code>hexo d</code>命令时，它会调用 hexo 中的 <code>hexo-deployer-git</code> 插件。在该插件内部会启动一个进程调用<code>git</code>命令，从而将生成的html等代码上传到 github上。</p>
+<p>这里可能有些同学会有疑问，为什么上传到github上就算是发布了呢？这是因为github为我们提供了免费的个人博客空间。只要你在github上创建一个<code>用户名.github.io</code>的项目，github就会自动将这个项目中的文件发布出来。</p>
+<p>当然你也可以采用传输的方式，自己购买台云主机，然后在云主机上用ngnix、nodejs等搭建一个Web服务，最终将页面发布出来。</p>
+<h2 id="四、hexo的常用命令"><a href="#四、hexo的常用命令" class="headerlink" title="四、hexo的常用命令"></a>四、<strong>hexo的常用命令</strong></h2><p><strong>hexo</strong> 提供了几个常用命令，如<code>hexo clean</code>、<code>hexo g</code>、<code>hexo s</code>等等。下面我们分别看一下这几个命令的具体作用是什么：</p>
+<ul>
+<li>hexo clean: 删除 hexo 生成的所有文档。当我们执行这个命令后，你会发现public目录被删除了。</li>
+<li>hexo g: 根据 source 目录中的文件生成html等可以发布的文件。</li>
+<li>hexo s: 在本地起动 <strong>http</strong> 服务，将生成的 html 等输出文件布署到本地服务器上。</li>
+<li>hexo d: 将生成的html代码推送到 github 上</li>
 </ul>
-<p>Hexo 的配置文件 _config.yml 使用 yml语法 。例如博客的名字、副标题等等之类。这些数据项组织在 config 对象中。可以数字、字符串、对象、数组，</p>
-<h4 id="4-配置文件中数据的使用"><a href="#4-配置文件中数据的使用" class="headerlink" title="4. 配置文件中数据的使用"></a>4. 配置文件中数据的使用</h4><p>如果要在模板中使用某个具体的值，比如字符串、数字、逻辑变量或者对象的某个成员，可以在主题的模板文件 swig 中直接使用：</p>
-<h4 id="5-使用markdown编写的博客文章"><a href="#5-使用markdown编写的博客文章" class="headerlink" title="5. 使用markdown编写的博客文章"></a>5. 使用markdown编写的博客文章</h4><p>之所以选择hexo做博客一个原因就是它支持markdown。用markdown写文章感觉特别爽，只需要记住简单的几个语法，而且可以把全部的注意力放在文字本身上，而不用去过多的关注排版。</p>
+<h2 id="五、Hexo-中的变量"><a href="#五、Hexo-中的变量" class="headerlink" title="五、Hexo 中的变量"></a>五、Hexo 中的变量</h2><h4 id="1、Hexo-中的变量"><a href="#1、Hexo-中的变量" class="headerlink" title="1、Hexo 中的变量"></a>1、Hexo 中的变量</h4><p>Hexo 提供了很多的变量，比如我们上面使用的 page 变量，还有 site 变量等，这些都是Hexo 提供的，我们可以拿来直接使用的，常用的变量有：</p>
+<ul>
+<li>site：对应整个网站的变量，一般会用到 site.posts.length 制作分页器。</li>
+</ul>
+<ol>
+<li>site.posts 所有文章</li>
+<li>site.pages 所有分页</li>
+<li>site.categories 所有分类</li>
+<li>site.tags 所有标签</li>
+</ol>
+<ul>
+<li>page：存放当前页面的信息，例如我在 index.ejs 中使用 page.posts 获取了当前页面的所有文章而不是使用 site.posts。</li>
+<li>config：config 变量我们在主目录下配置文件 _config.yml 中保存的信息。</li>
+<li>theme：theme 变量是我们在主题目录下配置文件 _config.yml 中保存的信息。</li>
+<li>path：当前页面的路径（不含根路径）。</li>
+<li>url：页面完整网址。</li>
+</ul>
+<h4 id="2、页面变量"><a href="#2、页面变量" class="headerlink" title="2、页面变量"></a>2、页面变量</h4><p>Page(page) 这里指的是<code>hexo new page</code>创建的那个页面</p>
+<ul>
+<li>page.title：文章标题</li>
+<li><a href="https://link.zhihu.com/?target=http://page.date">page.date</a>：文章建立日期</li>
+<li>page.updated：文章更新日期</li>
+<li>page.comments：留言是否开启</li>
+<li>page.layout：布局名称</li>
+<li>page.content：文章完整内容</li>
+<li>page.excerpt：文章摘要</li>
+<li>page.more：除了摘要的其他内容</li>
+<li>page.source：文章原始路劲</li>
+<li>page.full_source：文章完整原始路径</li>
+<li>page.path：文章网址（不含根路径），通常在主题中使用url_for(page.path)</li>
+<li>page.permalink：文章永久网址</li>
+<li>page.prev：上一篇文章，如果此为第一篇文章则为null</li>
+<li><a href="https://link.zhihu.com/?target=http://page.next">page.next</a>：下一篇文章，如果此为最后一篇文章则为null</li>
+<li>page.raw：文章原始内容</li>
+<li><a href="https://link.zhihu.com/?target=http://page.photos">page.photos</a>：文章的照片（用于相册）</li>
+<li><a href="https://link.zhihu.com/?target=http://page.link">page.link</a>：文章的外链（用于链接文章）</li>
+</ul>
+<h4 id="3、Post-post-变量"><a href="#3、Post-post-变量" class="headerlink" title="3、Post(post) 变量"></a>3、Post(post) 变量</h4><p>这里指的是文章页面，与page布局相同，添加如下变量：</p>
+<ul>
+<li>page.pulished：文章非草稿为true</li>
+<li>page.categories：文章分类</li>
+<li>page.tags：文章标签</li>
+</ul>
+<h4 id="4、首页-index"><a href="#4、首页-index" class="headerlink" title="4、首页(index)"></a>4、首页(index)</h4><ul>
+<li>page.per_page：每一页显示的文章数</li>
+<li><a href="https://link.zhihu.com/?target=http://page.total">page.total</a>：文章数量</li>
+<li>page.current：当前页码</li>
+<li>page.current_url：当前页的URL</li>
+<li>page.posts：当前页的文章</li>
+<li>page.prev：前一页页码，如果为第一页，该值为0</li>
+<li>page.prev_link：前一页URL，如果为第一页，则为’’</li>
+<li><a href="https://link.zhihu.com/?target=http://page.next">page.next</a>：后一页页码，如果为最后一页，则为0</li>
+<li>page.next_link：后一页URL，如果为最后一页，则为’’</li>
+<li>page.path：当前页网址（不含根路径），通常在主题中使用url_for(page.path)</li>
+</ul>
+<h4 id="5、归档页-archive"><a href="#5、归档页-archive" class="headerlink" title="5、归档页(archive)"></a>5、归档页(archive)</h4><p>与index布局相同，但是新增如下变量：</p>
+<ul>
+<li><code>archive</code> 为true</li>
+<li><code>year</code> 归档年份（4位）</li>
+<li><code>month</code> 归档月份（不包含0）</li>
+</ul>
 
     </div>
 
