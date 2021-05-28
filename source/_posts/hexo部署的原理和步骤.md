@@ -134,10 +134,26 @@ article: {
   - jade采用缩进语法格式，和python比较类似，看上去也很舒服，我比较喜欢这种风格。在hexo中使用jade需要安装相应的模块，否则无法使用。
 
   - 模板文件在 layout 文件夹下，layout 文件文档结构如下：
+  ~~~
+├── _custom                           #通用布局
+├── _layout.swig                      #默认布局布局
+├── _macro                            #插件模板
+├── _partials                         #局部布局
+├── _scripts                         # script模板
+├── _third-party                      # 第三方插件模板
+├── archive.swig                      # 归档模板
+├── category.swig                     # 分类模板
+├── index.swig                        # 首页模板
+├── page.swig                         # 其他模板
+├── photo.swig                        # 照片模板（自定义）
+├── post.swig                         #文章模板
+├── schedule.swig                   # 归档模板
+└── tag.swig                          #标签模板
+~~~
 
   - 每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在_config.yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。
 
-  - 在我们新建页面或者新建文章的使用可以选定我们使用的模板。hexo new [layout] <title>就会使用对应的模板。
+  - 在我们新建页面或者新建文章的使用可以选定我们使用的模板。`hexo new [layout] <title>`就会使用对应的模板。
 
   -  其中 _layout.swig 是通用模板，里面引入了 head、footer 等公共组件，然后在其他的模板中会引入这个 _layout.swig 通用模板，比如 post.swig 模板
 
