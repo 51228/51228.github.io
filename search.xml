@@ -141,26 +141,7 @@
 <li>hexo d：部署文件。部署主要是根据在 _config.yml 中配置的 git 仓库或者 coding 的地址，将 public 文件上传至 github 或者 coding 中。然后再根据上面的 github 提供的 pages 服务呈现出页面。当然你也可以直接将你生成的 public 文件上传至你自己的服务器上。</li>
 <li>在node_modules中有一系列的文件用于对hexo中的各类页面进行默认的渲染，如果要启动个性化主页，需要删除hexo-generator-index,同时，将主题目录下的source目录作为你个性化页面的根目录。</li>
 </ol>
-<h2 id="二、模板引擎"><a href="#二、模板引擎" class="headerlink" title="二、模板引擎"></a>二、模板引擎</h2><p>表现是一个博客的个性。</p>
-<h4 id="1-hexo的模板引擎"><a href="#1-hexo的模板引擎" class="headerlink" title="1. hexo的模板引擎"></a>1. hexo的模板引擎</h4><blockquote>
-<h5 id="模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。"><a href="#模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。" class="headerlink" title="模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。"></a>模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。</h5></blockquote>
-<ul>
-<li><p>我们可以注意到，在 Hexo 中，source 文件夹和 themes 文件夹是在同级的，我们就可以将 source 文件夹理解为数据库，而主题文件夹相当于 界面。然后我们 hexo g 就将我们的数据和界面相结合生成静态文件 public。</p>
-</li>
-<li><p>hexo默认的是使用ejs，同类型的东西还有很多，比如jade，swig。我选用主题是用jade的。hexo首先会解析md文件，然后根据layout判断布局类型，再调用其他的文件，这样每一块的  内容都是独立的，提高代码的复用性。最终会生成一个html页面。</p>
-</li>
-<li><p>jade采用缩进语法格式，和python比较类似，看上去也很舒服，我比较喜欢这种风格。在hexo中使用jade需要安装相应的模块，否则无法使用。</p>
-</li>
-<li><p>模板文件在 layout 文件夹下，layout 文件文档结构如下：</p>
-</li>
-<li><p>每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在_config.yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。</p>
-</li>
-<li><p>在我们新建页面或者新建文章的使用可以选定我们使用的模板。hexo new [layout] <title>就会使用对应的模板。</p>
-</li>
-<li><p> 其中 _layout.swig 是通用模板，里面引入了 head、footer 等公共组件，然后在其他的模板中会引入这个 _layout.swig 通用模板，比如 post.swig 模板</p>
-</li>
-</ul>
-<h4 id="2-数据的填充"><a href="#2-数据的填充" class="headerlink" title="2. 数据的填充"></a>2. 数据的填充</h4><p>数据的填充主要是 hexo -g 的时候将数据传递给 swig 模板，然后再由 swig 模板填充到 HTML 中。</p>
+<h2 id="二、模板引擎"><a href="#二、模板引擎" class="headerlink" title="二、模板引擎"></a>二、模板引擎</h2><h4 id="2-数据的填充"><a href="#2-数据的填充" class="headerlink" title="2. 数据的填充"></a>2. 数据的填充</h4><p>数据的填充主要是 hexo -g 的时候将数据传递给 swig 模板，然后再由 swig 模板填充到 HTML 中。</p>
 <h4 id="3-使用yaml编写的配置文件"><a href="#3-使用yaml编写的配置文件" class="headerlink" title="3. 使用yaml编写的配置文件"></a>3. 使用yaml编写的配置文件</h4><ul>
 <li><p>yaml是专门用来写配置文件的语言。它用首行缩进表示层级关系，便于读写理解。</p>
 </li>
