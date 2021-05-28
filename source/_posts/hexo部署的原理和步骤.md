@@ -121,6 +121,42 @@ article: {
 
 ## 二、模板引擎
 
+模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。
+
+
+#### 1. hexo的模板引擎
+
+
+  - 我们可以注意到，在 Hexo 中，source 文件夹和 themes 文件夹是在同级的，我们就可以将 source 文件夹理解为数据库，而主题文件夹相当于 界面。然后我们 hexo g 就将我们的数据和界面相结合生成静态文件 public。
+
+  - hexo默认的是使用ejs，同类型的东西还有很多，比如jade，swig。我选用主题是用jade的。hexo首先会解析md文件，然后根据layout判断布局类型，再调用其他的文件，这样每一块的  内容都是独立的，提高代码的复用性。最终会生成一个html页面。
+
+  - jade采用缩进语法格式，和python比较类似，看上去也很舒服，我比较喜欢这种风格。在hexo中使用jade需要安装相应的模块，否则无法使用。
+
+  - 模板文件在 layout 文件夹下，layout 文件文档结构如下：
+~~~
+├── _custom                           #通用布局
+├── _layout.swig                      #默认布局布局
+├── _macro                            #插件模板
+├── _partials                         #局部布局
+├── _scripts                         # script模板
+├── _third-party                      # 第三方插件模板
+├── archive.swig                      # 归档模板
+├── category.swig                     # 分类模板
+├── index.swig                        # 首页模板
+├── page.swig                         # 其他模板
+├── photo.swig                        # 照片模板（自定义）
+├── post.swig                         #文章模板
+├── schedule.swig                   # 归档模板
+└── tag.swig                          #标签模板
+~~~
+
+  - 每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在_config.yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。
+
+  - 在我们新建页面或者新建文章的使用可以选定我们使用的模板。hexo new [layout] <title>就会使用对应的模板。
+
+  -  其中 _layout.swig 是通用模板，里面引入了 head、footer 等公共组件，然后在其他的模板中会引入这个 _layout.swig 通用模板，比如 post.swig 模板
+
 #### 2. 数据的填充
 
 数据的填充主要是 hexo -g 的时候将数据传递给 swig 模板，然后再由 swig 模板填充到 HTML 中。
