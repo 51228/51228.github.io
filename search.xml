@@ -258,6 +258,55 @@
       </tags>
   </entry>
   <entry>
+    <title>markdown如何实现锚点功能</title>
+    <url>/2021/06/20/markdown%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%94%9A%E7%82%B9%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<p>之前看了几片文章， markdown 里面设置锚点步骤及用法都比较模糊，经过实验，将markdown锚点方法做如下分享。</p>
+<span id="more"></span>
+
+<p>参考链接：</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/wangzhibo666/article/details/88731227">https://blog.csdn.net/wangzhibo666/article/details/88731227</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://blog.csdn.net/weixin_41910694/article/details/91629999">https://blog.csdn.net/weixin_41910694/article/details/91629999</a></p>
+</blockquote>
+<p><a href="#qianyan">前言</a></p>
+<p><a href="#fangfa">方法</a></p>
+<p><a href="#cankao">参考</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><a id="qianyan">前言</a></h2><p>之前看了几片文章， markdown 里面设置锚点步骤及用法都比较模糊，经过实验，将markdown锚点方法做如下分享。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a><span id="fangfa">方法</span></h2><p>MarkDown页面内跳转语法</p>
+<p>方法一:</p>
+<ul>
+<li>第一步:在需要跳转到的位置添加锚点，语法如下：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;span id=&quot;jump&quot;&gt;跳转到的地方&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第二步:在需要点击跳转的位置，使用上面的id，格式类似超链接的形式：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[点击跳转](#jump)</span><br></pre></td></tr></table></figure>
+
+<p>方法二:</p>
+<p>第一步:在需要跳转到的位置添加锚点，语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;#测试2&quot;&gt;测试2&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第二步:在需要点击跳转的位置，使用上面的id，格式类似超链接的形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a id=&quot;测试2&quot;&gt;测试2&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><a id="cankao">参考</a></h2><p>[Markdown]页面添加锚点,跳到本页指定位置</p>
+<h2 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 标题</span><br><span class="line"></span><br><span class="line">## 目录</span><br><span class="line">1. [目录1](#jump1)</span><br><span class="line">2. [目录2](#jump2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### &lt;span id=&quot;jump1&quot;&gt;1. 目录1&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">### &lt;span id=&quot;jump2&quot;&gt;2. 目录2&lt;/span&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>应用</category>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>锚点</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>yaml语法</title>
     <url>/2021/05/22/yaml%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p>在用hexo和github搭建博客的过程中遇到config.yml文件，这种文件的格式看起来非常简单明了，但这个文件到处都是坑，最大的坑是冒号“：”后的空格；缩进的空格。</p>
