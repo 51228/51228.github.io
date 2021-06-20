@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+=======
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+>>>>>>> d7905dbcc1846201f6a682989fa437de175e8663
+.deploy*/
