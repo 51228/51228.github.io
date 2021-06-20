@@ -1,9 +1,10 @@
 ---
 title: hexo部署的原理和步骤
 categories:
-  - null
+  - web前端
+  - blog
 tags:
-  - null
+  - hexo
 date: 2021-05-23 09:48:29
 update: 2021-05-23 09:48:29
 ---
