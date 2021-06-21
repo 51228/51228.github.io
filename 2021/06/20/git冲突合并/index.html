@@ -20,21 +20,26 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="之前看了几片文章， markdown 里面设置锚点步骤及用法都比较模糊，经过实验，将markdown锚点方法做如下分享。">
+  <meta name="description" content="在使用git push的过程中，经常会遇到一个问题，因为文件有冲突无法push。冲突有几种表现形式？冲突的解决方式？本文就是解决以上问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdown如何实现锚点功能">
-<meta property="og:url" content="http://example.com/2021/06/20/markdown%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%94%9A%E7%82%B9%E5%8A%9F%E8%83%BD/index.html">
+<meta property="og:title" content="git冲突合并">
+<meta property="og:url" content="http://example.com/2021/06/20/git%E5%86%B2%E7%AA%81%E5%90%88%E5%B9%B6/index.html">
 <meta property="og:site_name" content="养家河的博客">
-<meta property="og:description" content="之前看了几片文章， markdown 里面设置锚点步骤及用法都比较模糊，经过实验，将markdown锚点方法做如下分享。">
+<meta property="og:description" content="在使用git push的过程中，经常会遇到一个问题，因为文件有冲突无法push。冲突有几种表现形式？冲突的解决方式？本文就是解决以上问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-20T02:04:51.000Z">
+<meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620202729446.png">
+<meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620212217851.png">
+<meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620213323429.png">
+<meta property="article:published_time" content="2021-06-20T03:32:30.000Z">
 <meta property="article:modified_time" content="2021-06-21T13:31:34.928Z">
 <meta property="article:author" content="养家河">
-<meta property="article:tag" content="markdown">
-<meta property="article:tag" content="锚点">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="冲突解决">
+<meta property="article:tag" content="merge">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620202729446.png">
 
-<link rel="canonical" href="http://example.com/2021/06/20/markdown%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%94%9A%E7%82%B9%E5%8A%9F%E8%83%BD/">
+<link rel="canonical" href="http://example.com/2021/06/20/git%E5%86%B2%E7%AA%81%E5%90%88%E5%B9%B6/">
 
 
 <script id="page-configurations">
@@ -47,7 +52,7 @@
   };
 </script>
 
-  <title>markdown如何实现锚点功能 | 养家河的博客</title>
+  <title>git冲突合并 | 养家河的博客</title>
   
 
 
@@ -198,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/20/markdown%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%94%9A%E7%82%B9%E5%8A%9F%E8%83%BD/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/20/git%E5%86%B2%E7%AA%81%E5%90%88%E5%B9%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -211,7 +216,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          markdown如何实现锚点功能
+          git冲突合并
         </h1>
 
         <div class="post-meta">
@@ -221,7 +226,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-06-20 10:04:51" itemprop="dateCreated datePublished" datetime="2021-06-20T10:04:51+08:00">2021-06-20</time>
+              <time title="创建时间：2021-06-20 11:32:30" itemprop="dateCreated datePublished" datetime="2021-06-20T11:32:30+08:00">2021-06-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,11 +234,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">应用</span></a>
+                  <a href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">知识点</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BA%94%E7%94%A8/%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">知识点</span></a>
+                  <a href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
                 </span>
             </span>
 
@@ -255,43 +260,122 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>之前看了几片文章， markdown 里面设置锚点步骤及用法都比较模糊，经过实验，将markdown锚点方法做如下分享。</p>
+        <p>在使用<code>git push</code>的过程中，经常会遇到一个问题，因为文件有冲突无法push。冲突有几种表现形式？冲突的解决方式？本文就是解决以上问题。</p>
 <span id="more"></span>
 
-<p>参考链接：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangzhibo666/article/details/88731227">https://blog.csdn.net/wangzhibo666/article/details/88731227</a></p>
-</blockquote>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41910694/article/details/91629999">https://blog.csdn.net/weixin_41910694/article/details/91629999</a></p>
-</blockquote>
-<p><a href="#qianyan">前言</a></p>
-<p><a href="#fangfa">方法</a></p>
-<p><a href="#cankao">参考</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><a id="qianyan">前言</a></h2><p>之前看了几片文章， markdown 里面设置锚点步骤及用法都比较模糊，经过实验，将markdown锚点方法做如下分享。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a><span id="fangfa">方法</span></h2><p>MarkDown页面内跳转语法</p>
-<p>方法一:</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>一. <a href="#1">冲突类型</a></p>
+<ol>
+<li>自动合并</li>
+<li>逻辑冲突</li>
+<li>真正的冲突</li>
+<li>冲突树</li>
+</ol>
+<p>二. <a href="#2">Git如何记录冲突</a></p>
+<ol>
+<li>git冲突是通过.git目录下的几个文件记录的：</li>
+<li>版本库暂存区中则会记录冲突文件的多个不同版本，使用<code>git ls-files -s</code>命令查看</li>
+<li>工作区的版本则可能同时包含了成功合并即冲突合并，其中冲突合并会用特殊的标记</li>
+</ol>
+<p>三. <a href="#3">冲突的解决</a></p>
+<ol>
+<li>手工编辑完成冲突解决</li>
+<li>图形工具完成冲突解决</li>
+</ol>
+<p><a id=1>一. 冲突类型</a></p>
+<ol>
+<li>自动合并</li>
+</ol>
 <ul>
-<li>第一步:在需要跳转到的位置添加锚点，语法如下：</li>
+<li>修改不同的文件</li>
+<li>修改相同文件的不同区域</li>
+<li>同时更改文件名和文件内容</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;jump&quot;&gt;跳转到的地方&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-
+<ol start="2">
+<li>逻辑冲突</li>
+</ol>
 <ul>
-<li>第二步:在需要点击跳转的位置，使用上面的id，格式类似超链接的形式：</li>
+<li>典型的逻辑冲突是一个用户修改了一个文件的文件名，而另外的用户在其他文件中引用旧的文件名，这样的合并虽然能够成功但是包含着逻辑冲突。</li>
+<li>一个用户修改了函数的返回值而另外的用户使用旧的函数的返回值，虽然能够成功但是存在逻辑冲突。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[点击跳转](#jump)</span><br></pre></td></tr></table></figure>
-
-<p>方法二:</p>
-<p>第一步:在需要跳转到的位置添加锚点，语法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;#测试2&quot;&gt;测试2&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-<p>第二步:在需要点击跳转的位置，使用上面的id，格式类似超链接的形式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;测试2&quot;&gt;测试2&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><a id="cankao">参考</a></h2><p>[Markdown]页面添加锚点,跳到本页指定位置</p>
-<h2 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 标题</span><br><span class="line"></span><br><span class="line">## 目录</span><br><span class="line">1. [目录1](#jump1)</span><br><span class="line">2. [目录2](#jump2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### &lt;span id=&quot;jump1&quot;&gt;1. 目录1&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">### &lt;span id=&quot;jump2&quot;&gt;2. 目录2&lt;/span&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<ol start="3">
+<li>冲突树</li>
+</ol>
+<ul>
+<li>如果一个用户将某个文件改名，另外一个用户把文件改为另外一个名字，当两个用户提交合并操作时，产生冲突。这种因为文件名修改造成的冲突，称为树冲突。</li>
+</ul>
+<p><a id=2>二. Git如何记录冲突</a></p>
+<ol>
+<li>git冲突是通过.git目录下的几个文件记录的：</li>
+</ol>
+<ul>
+<li>文件.git/MERGE_HEAD记录所合并的提交ID</li>
+<li>文件.git/MERGE_MSG记录合并失败的信息</li>
+<li>文件.git/MERGE_MODE标识合并状态</li>
+<li>可以使用<code>cat .git/MERGE_HEAD</code>,<code>cat .git/MERGE_MSG</code>,<code>cat .git/MERGE_MODE</code>来访问。</li>
+</ul>
+<ol start="2">
+<li><p>版本库暂存区中则会记录冲突文件的多个不同版本，使用<code>git ls-files -s</code>命令查看：</p>
+<p><img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620202729446.png" alt="image-20210620202729446"></p>
+</li>
+</ol>
+<p>在上面的输出中，每一行分为四个字段，前两个分别是文件的属性和SHAI哈希值。第三个字段暂存区编号，当合并冲突发生后，会用到0以上的暂存区编号。</p>
+<ul>
+<li>编号为1的暂存区用于保存冲突文件修改之前的副本，即冲突双方共同的祖先版本。</li>
+<li>编号为2的暂存区用于保存当前冲突文件在当前分支中修改的副本。</li>
+<li>编号为3的暂存区用于保存当前冲突文件在合并版本中修改的副本。</li>
+<li>对暂存区三个副本的访问方式：git show :编号:文件名<ul>
+<li>编号：1，2，3，</li>
+<li>文件名：_config.yml</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>工作区的版本则可能同时包含了成功合并即冲突合并，其中冲突合并会用特殊的标记（&lt;&lt;&lt;&lt;&lt;&lt;======&gt;&gt;&gt;&gt;&gt;&gt;）进行标识：</li>
+</ol>
+<ul>
+<li>特殊标识&lt;&lt;&lt;&lt;&lt;&lt;和======之间的内容是当前分支更改的内容。</li>
+<li>特殊标识======和&gt;&gt;&gt;&gt;&gt;&gt;之间的内容是所合并的版本更改的内容。</li>
+</ul>
+<p><a id=3>三. 冲突的解决</a><br>冲突解决的实质就是通过编辑操作，将冲突标识符所标识的冲突内容替换为合适的内容，并去掉冲突标识符。编辑完成后执行<code>git add</code>命令将文件添加到暂存区（标号0）,然后再提交就完成了冲突解决。</p>
+<ol>
+<li><p>手工编辑完成冲突解决</p>
+<ul>
+<li><p>找到冲突的地方</p>
+</li>
+<li><p>在工作区编辑文件冲突的地方</p>
+</li>
+<li><p><code>git add -u</code>，添加到暂存区</p>
+</li>
+<li><p><code>git commit -m &quot;冲突解决&quot;</code>,提交完成后，.git目录下与合并相关的文件.git/MERGE_HEAD、.git/MERGE_MSG、.git/MERGE_MODE文件都自动删除。</p>
+</li>
+<li><p>执行推送</p>
+</li>
+</ul>
+</li>
+<li><p>图形工具完成冲突解决</p>
+<p>第一步： 在操作系统中安装图形工具：kdiff3，meld，araxis等</p>
+<p>第二步： 执行命令<code>git mergetool</code>后，会显示支持的图形工具列表。</p>
+<p>第三步：启动kdiff3后，上方窗口从左至右显示冲突文件的三个版本，分别是：</p>
+<p>​                A：暂存区1中的版本（共同的先祖版本）</p>
+<p>​                B：暂存区2中的版本（当前分支更改的版本）</p>
+<p>​                C：暂存区3中的版本（他人更改的版本）<img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620212217851.png" alt="image-20210620212217851"></p>
+</li>
+</ol>
+<p>  第四步：点击标记为“合并冲突”的一行，在弹出的菜单中出现A/B/C三个选项，分别代表从A、B、C三个窗口复制相关内容到当前位置<br>  第五步：B行代表从窗口B中复制的文件，M指手工修改的行<br>    <img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620213323429.png" alt="image-20210620213323429"></p>
+<p>  第六步：编辑完成后保存退出即完成图形化冲突解决。</p>
+<p>  第七步：<code>git status</code>显示工作区状态，会看到冲突已经解决，在工作区会遗留一个以.orig结尾的合并前的文件副本,暂存区中三个文件的副本也已经清除。</p>
+<p>  第八步：执行提交和推送，由于文件是在暂存区更改，所以不需要add，直接commit，再push。</p>
+<ol start="3">
+<li>树冲突可以采用手工操作和图形操作</li>
+</ol>
+<ul>
+<li><p>手工操作由用户决定删除文件，保留一个文件而解决冲突。<code>git rm 文件名</code>。</p>
+</li>
+<li><p>图形模式交互式解决树冲突：执行<code>git mergetool</code>命令，忽略其中的提示和警告——&gt;询问对冲突文件的处理方式——&gt;输入D删除冲突文件，输入C保留冲突文件——&gt;最终解决冲突提交。</p>
+</li>
+</ul>
+<hr>
+<h3 id="总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑玩文件在提交，减少冲突发生。"><a href="#总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑玩文件在提交，减少冲突发生。" class="headerlink" title="总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑玩文件在提交，减少冲突发生。"></a>总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先<code>pull</code>的习惯，编辑玩文件在提交，减少冲突发生。</h3>
     </div>
 
     
@@ -319,8 +403,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/markdown/" rel="tag"><i class="fa fa-tag"></i>markdown</a>
-              <a href="/tags/%E9%94%9A%E7%82%B9/" rel="tag"><i class="fa fa-tag"></i>锚点</a>
+              <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i>git</a>
+              <a href="/tags/%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3/" rel="tag"><i class="fa fa-tag"></i>冲突解决</a>
+              <a href="/tags/merge/" rel="tag"><i class="fa fa-tag"></i>merge</a>
           </div>
 
         
@@ -329,13 +414,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/23/hexo%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E6%AD%A5%E9%AA%A4/" rel="prev" title="hexo部署的原理和步骤">
-      <i class="fa fa-chevron-left"></i> hexo部署的原理和步骤
+    <a href="/2021/06/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A0%81/" rel="prev" title="计算机编码">
+      <i class="fa fa-chevron-left"></i> 计算机编码
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/06/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A0%81/" rel="next" title="计算机编码">
-      计算机编码 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -394,7 +476,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E8%AF%AD%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">标题语法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E4%B8%BA%E4%BA%86%E5%87%8F%E5%B0%91%E5%86%B2%E7%AA%81%EF%BC%8C%E5%9C%A8%E6%88%91%E4%BB%AC%E6%AF%8F%E6%AC%A1%E5%9C%A8%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E5%85%BB%E6%88%90%E4%B8%80%E4%B8%AA%E5%85%88pull%E7%9A%84%E4%B9%A0%E6%83%AF%EF%BC%8C%E7%BC%96%E8%BE%91%E7%8E%A9%E6%96%87%E4%BB%B6%E5%9C%A8%E6%8F%90%E4%BA%A4%EF%BC%8C%E5%87%8F%E5%B0%91%E5%86%B2%E7%AA%81%E5%8F%91%E7%94%9F%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑玩文件在提交，减少冲突发生。</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
