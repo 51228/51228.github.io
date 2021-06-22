@@ -38,6 +38,77 @@
       </tags>
   </entry>
   <entry>
+    <title>git diff</title>
+    <url>/2021/06/22/git-diff/</url>
+    <content><![CDATA[<p>本篇文章介绍了地方法比较的说明，git diff常用参数，git diff里程碑比较和扩展用法。</p>
+<span id="more"></span>
+
+<h3 id="diff比较说明"><a href="#diff比较说明" class="headerlink" title="diff比较说明"></a>diff比较说明</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 --- hello       2020-09-21 17:45:33.551610940 +0800  </span><br><span class="line">2 +++ world       2020-09-21 17:44:46.343610465 +0800  </span><br><span class="line">3 @@ -1，4 +1，4 @@  </span><br><span class="line">4 -应该杜绝文章中的错别子。  </span><br><span class="line">5 +应该杜绝文章中的错别字。  </span><br><span class="line">6    </span><br><span class="line">7  但是无论使用</span><br><span class="line">8  * 全拼，双拼  </span><br><span class="line">9 @@ -6，6 +6，7 @@ </span><br><span class="line">10   </span><br><span class="line">11  是人就有可能犯错，软件更是如此。 </span><br><span class="line">12   </span><br><span class="line">13 -犯了错，就要扣工资！ </span><br><span class="line">14 - </span><br><span class="line">15  改正的成本可能会很高。 </span><br><span class="line">16 + </span><br><span class="line">17 +但是“只要眼球足够多，所有Bug都好捉”， </span><br><span class="line">18 +这就是开源的哲学之一。</span><br></pre></td></tr></table></figure>
+<p>为了说明方便，为每一行增添了行号。</p>
+<ul>
+<li><p>第1行和第2行分别记录了原始文件和目标文件的文件名及时间戳。以三个减号（—）开始的行标识的是原始文件，以三个加号（+++）开始的行标识的是目标文件。</p>
+</li>
+<li><p>在比较内容中，以减号（-）开始的行是只出现在原始文件中的行，例如：第4、13、14行。</p>
+</li>
+<li><p>在比较内容中，以加号（+）开始的行是只出现在目标文件中的行，例如：第5行和16-18行。</p>
+</li>
+<li><p>在比较内容中，以空格开始的行，是在原始文件和目标文件中都出现的行，例如：第6-8、10-12和第15行。这些行是用作差异比较的上下文。</p>
+</li>
+<li><p>第3-8行是第一个差异小节。每个差异小节以一行差异定位语句开始。第3行就是一条差异定位语句，其前后分别用两个@进行标识。</p>
+</li>
+<li><p>第3行定位语句中-1，4的含义是：本差异小节的内容相当于原始文件的从第1行开始的4行。而第4、6、7、8行是原始文件中的内容，加起来刚好是4行。</p>
+</li>
+<li><p>第3行定位语句中+1，4的含义是：本差异小节的内容相当于目标文件的从第1行开始的4行。而第5、6、7、8行是目标文件中的内容，加起来刚好是4行。</p>
+</li>
+<li><p>因为命令diff是用于行比较的，所以即使改正了一个字，也显示为一整行的修改（参见差异文件第4、5行）。Git对diff进行了扩展，并且还提供一种逐词比较的差异比较方法。</p>
+</li>
+<li><p>第9-18行是第二个差异小节。第9行是一条差异定位语句。</p>
+</li>
+<li><p>第9行定位语句中-6，6的含义是：本差异小节的内容相当于原始文件的从第6行开始的6行。第10-15行是原始文件中的内容，加起来刚好是6行。</p>
+</li>
+<li><p>第9行定位语句中+6，7的含义是：本差异小节的内容相当于目标文件的从第6行开始的7行。而第10-12、15-18行是目标文件中的内容，加起来刚好是7行。</p>
+</li>
+</ul>
+<h3 id="git-diff常用参数"><a href="#git-diff常用参数" class="headerlink" title="git diff常用参数"></a>git diff常用参数</h3><ol>
+<li>不带任何选项和参数调用git diff显示工作区的最新改动，即工作区与提交任务（提交暂存区，stage）中相比的差异。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>将工作区和HEAD（当前工作分支）相比，会看到更多的差异。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></table></figure></li>
+<li><p>通过参数–cached或–staged调用git diff命令，看到的是提交暂存区（提交任务，stage）和版本库中文件的差异。 </p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210622112954.jpeg" alt="微信图片_20210622102452"></p>
+<h3 id="git-diff里程碑比较"><a href="#git-diff里程碑比较" class="headerlink" title="git diff里程碑比较"></a>git diff里程碑比较</h3><ul>
+<li>比较里程碑B和里程碑A，用命令：<code>git diff B A</code></li>
+<li>比较工作区和里程碑A，用命令：<code>git diff A</code></li>
+<li>比较暂存区和里程碑A，用命令：<code>git diff--cached A</code></li>
+</ul>
+<h3 id="git-diff扩展"><a href="#git-diff扩展" class="headerlink" title="git diff扩展"></a>git diff扩展</h3><ol>
+<li><p>文件不同版本的差异比较差异比较还可以使用路径参数，只显示不同版本间该路径下文件的差异。语法格式如下： </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff &lt;commit1&gt; &lt;commit2&gt; -- &lt;paths&gt;  </span><br></pre></td></tr></table></figure></li>
+<li><p>非Git目录/文件的差异比较命令git diff还可以在Git版本库之外执行，对非Git目录进行比较，就像GNU的diff命令一样。之所以提供这个功能是因为Git差异比较命令更为强大，提供了对二进制文件差异等的扩展支持。语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff &lt;path1&gt; &lt;path2&gt; </span><br></pre></td></tr></table></figure></li>
+<li><p>逐词比较，而非默认的逐行比较Git的差异比较默认是逐行比较，分别显示改动前的行和改动后的行，到底改动在哪里还需要仔细辨别。Git还提供一种逐词比较的输出，有的人会更喜欢。使用–word-diff参数可以显示逐词比较。 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff --word-diff diff --git a/src/book/02-use-git/080-git-history-travel.rst b/src/book/02-use-git/080-git-history-travel.rst </span><br><span class="line">index f740203..2dd3e6f 100644 </span><br><span class="line">--- a/src/book/02-use-git/080-git-history-travel.rst </span><br><span class="line">+++ b/src/book/02-use-git/080-git-history-travel.rst </span><br><span class="line">@@ -681，7 +681，7 @@</span><br><span class="line">Git的大部分命令可以使用提交版本作为参数（如：git diff），</span><br><span class="line">::</span><br><span class="line">  [-18:23:48 jiangxin@hp:~/gitwork/gitbook/src/book$-]&#123;+$+&#125; </span><br><span class="line">git log --stat --oneline  I..C</span><br><span class="line">  0cd7f2e commit C.    </span><br><span class="line">    README    |    1 +</span><br><span class="line">    doc/C.txt |    1 +</span><br></pre></td></tr></table></figure>
+<p>上面的逐词差异显示是有颜色的：删除内容[-…-]用红色表示，添加的内容{+…+}用绿色表示。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git diff</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>github pages</title>
     <url>/2021/05/22/github-pages/</url>
     <content><![CDATA[<p>在用github和hexo搭建个人博客时遇到github pages。github pages是什么呢？它就是托管在github上的静态网页。建立时注意事项：</p>
