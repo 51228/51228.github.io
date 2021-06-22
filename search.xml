@@ -25,7 +25,7 @@
 <p><img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210621222006062.png" alt="image-20210621222006062"></p>
 <h4 id="四、在克隆的目录（-home-sky-SoftWare-flameshot-）下进行编译："><a href="#四、在克隆的目录（-home-sky-SoftWare-flameshot-）下进行编译：" class="headerlink" title="四、在克隆的目录（/home/sky/SoftWare/flameshot/）下进行编译："></a>四、在克隆的目录（/home/sky/SoftWare/flameshot/）下进行编译：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
 
-<p>在这步有如果你用<code>sudo apt install cmake</code>，可能会遇到cmake版本过低的问题，在<a href="https://cmake.org/files/%E7%BD%91%E7%AB%99%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85%E5%8D%B3%E5%8F%AF%E3%80%82">https://cmake.org/files/网站下载最新版本安装即可。</a></p>
+<p>在这步有如果你用<code>sudo apt install cmake</code> 安装cmake，可能会遇到cmake版本过低的问题，在  <a href="https://cmake.org/files/">https://cmake.org/files/</a>   网站下载最新版本安装即可。</p>
 <h4 id="五、编译完成之后执行命令sudo-make-install，安装完成！"><a href="#五、编译完成之后执行命令sudo-make-install，安装完成！" class="headerlink" title="五、编译完成之后执行命令sudo make install，安装完成！"></a>五、编译完成之后执行命令<code>sudo make install</code>，安装完成！</h4><h4 id="六、使用命令which-flameshot可以得到flameshot的位置"><a href="#六、使用命令which-flameshot可以得到flameshot的位置" class="headerlink" title="六、使用命令which flameshot可以得到flameshot的位置"></a>六、使用命令<code>which flameshot</code>可以得到flameshot的位置</h4><h4 id="七、在设置中添加自定义快捷键"><a href="#七、在设置中添加自定义快捷键" class="headerlink" title="七、在设置中添加自定义快捷键"></a>七、在设置中添加自定义快捷键</h4><p><img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210621223410545.png" alt="image-20210621223410545"></p>
 <h4 id="八、现在你可以通过快捷键或者通过命令来启动flameshot，当然命令可以加入环境变量。"><a href="#八、现在你可以通过快捷键或者通过命令来启动flameshot，当然命令可以加入环境变量。" class="headerlink" title="八、现在你可以通过快捷键或者通过命令来启动flameshot，当然命令可以加入环境变量。"></a>八、现在你可以通过快捷键或者通过命令来启动flameshot，当然命令可以加入环境变量。</h4><h3 id="到此，你就有一个完整版的flameshot使用了。"><a href="#到此，你就有一个完整版的flameshot使用了。" class="headerlink" title="到此，你就有一个完整版的flameshot使用了。"></a>到此，你就有一个完整版的flameshot使用了。</h3>]]></content>
       <categories>
@@ -211,7 +211,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑玩文件在提交，减少冲突发生。"><a href="#总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑玩文件在提交，减少冲突发生。" class="headerlink" title="总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑玩文件在提交，减少冲突发生。"></a>总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先<code>pull</code>的习惯，编辑玩文件在提交，减少冲突发生。</h3>]]></content>
+<h3 id="总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑完文件再提交，减少冲突发生。"><a href="#总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑完文件再提交，减少冲突发生。" class="headerlink" title="总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先pull的习惯，编辑完文件再提交，减少冲突发生。"></a>总结：为了减少冲突，在我们每次在工作区编辑文件的时候，我们应该养成一个先<code>pull</code>的习惯，编辑完文件再提交，减少冲突发生。</h3>]]></content>
       <categories>
         <category>知识点</category>
         <category>git</category>
