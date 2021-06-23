@@ -323,6 +323,15 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global i18n.logOutputEncoding utf-8</span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>git</category>
+        <category>疑难</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>中文显示</tag>
+        <tag>log</tag>
+      </tags>
   </entry>
   <entry>
     <title>hexo部署的原理和步骤</title>
