@@ -294,6 +294,37 @@
       </tags>
   </entry>
   <entry>
+    <title>git疑难之一(中文显示问题）</title>
+    <url>/2021/06/23/git%E7%96%91%E9%9A%BE%E4%B9%8B%E4%B8%80(%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%EF%BC%89/</url>
+    <content><![CDATA[<p>解决git中文显示问题</p>
+<span id="more"></span>
+
+
+
+
+
+<ol>
+<li><p>git输出文件名时，文件名的中文不能正确显示，而是显示为八进制的字符编码，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git status -s </span><br><span class="line">?? &quot;\350\257\264\346\230\216.txt&quot; $ printf &quot;\350\257\264\346\230\216.txt\n&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p> <font size=5 color=red>解决办法：</font></p>
+<p>将git配置变量core.quotepath设置为false，就可以解决文件名中的中文在这些git输出中的显示问题</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false  </span><br><span class="line">git config --global core.quotepath off       #用这个也可以</span><br></pre></td></tr></table></figure>
+
+
+
+<p><font color=blue><strong>扩展</strong>：</font></p>
+<ul>
+<li><p>使用以下命令，提交命令的时候使用utf-8编码集提交，这样在使用<code>git commit</code>，commit对象中嵌入正确的编码说明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global i18n.commitEncoding utf-8</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
+<li><p>使用以下命令，将提交说明所使用的字符集设置为utf-8，这样使用<code>git log</code>查看提交说明时才能够正确显示其中的中文</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global i18n.logOutputEncoding utf-8</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>hexo部署的原理和步骤</title>
     <url>/2021/05/23/hexo%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E6%AD%A5%E9%AA%A4/</url>
     <content><![CDATA[<blockquote>
