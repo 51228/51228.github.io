@@ -96,7 +96,7 @@ cmake ../
 make
 ~~~
 
-在这步有如果你用`sudo apt install cmake`安装cmake，可能会遇到cmake版本过低的问题，在https://cmake.org/files/网站下载最新版本安装即可。
+在这步有如果你用`sudo apt install cmake` 安装cmake，可能会遇到cmake版本过低的问题，在  https://cmake.org/files/   网站下载最新版本安装即可。
 
 
 
