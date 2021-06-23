@@ -1,13 +1,12 @@
 ---
 title: git疑难之一(中文显示问题）
 categories:
-  - null
-  - null
-  - null
+  - git
+  - 疑难
 tags:
-  - null
-  - null
-  - null
+  - git
+  - 中文显示
+  - log
 date: 2021-06-23 19:43:11
 update: 2021-06-23 19:43:11
 ---
