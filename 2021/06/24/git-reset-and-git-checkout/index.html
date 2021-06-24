@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="重置的默认值是HEAD，而检出的默认值是暂存区。因此重置一般用于重置暂存区（除非使用–hard参数，否则不重置工作区），而检出命令主要是覆盖工作区（如果&lt;commit&gt;不省略，也会替换暂存区中相应的文件）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="## git reset and git checkout">
+<meta property="og:url" content="http://example.com/2021/06/24/git-reset-and-git-checkout/index.html">
+<meta property="og:site_name" content="养家河的博客">
+<meta property="og:description" content="重置的默认值是HEAD，而检出的默认值是暂存区。因此重置一般用于重置暂存区（除非使用–hard参数，否则不重置工作区），而检出命令主要是覆盖工作区（如果&lt;commit&gt;不省略，也会替换暂存区中相应的文件）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/4A8334536628F5AE791CDEEE34205B70.jpg">
+<meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/78689BA0FA5DEFE0D1ED902F9F97932A.jpg">
+<meta property="article:published_time" content="2021-06-24T09:03:35.000Z">
+<meta property="article:modified_time" content="2021-06-24T09:27:21.944Z">
+<meta property="article:author" content="养家河">
+<meta property="article:tag" content="git checkout">
+<meta property="article:tag" content="git reset">
+<meta property="article:tag" content="检出">
+<meta property="article:tag" content="重置">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/nsaction/blog_pic/raw/master/4A8334536628F5AE791CDEEE34205B70.jpg">
+
+<link rel="canonical" href="http://example.com/2021/06/24/git-reset-and-git-checkout/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>## git reset and git checkout | 养家河的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="养家河的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">养家河的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生命不息，学习不止！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/24/git-reset-and-git-checkout/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="养家河">
+      <meta itemprop="description" content="无关时间和空间，矛盾一直存在">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养家河的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ## git reset and git checkout
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-24 17:03:35" itemprop="dateCreated datePublished" datetime="2021-06-24T17:03:35+08:00">2021-06-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>重置的默认值是HEAD，而检出的默认值是暂存区。因此重置一般用于重置暂存区（除非使用–hard参数，否则不重置工作区），而检出命令主要是覆盖工作区（如果<code>&lt;commit&gt;</code>不省略，也会替换暂存区中相应的文件）。</p>
+</blockquote>
+<span id="more"></span>
+
+
+
+<h2 id="git-reset-and-git-checkout"><a href="#git-reset-and-git-checkout" class="headerlink" title="git reset and git checkout"></a>git reset and git checkout</h2><p>重置的默认值是HEAD，而检出的默认值是暂存区。因此重置一般用于重置暂存区（除非使用–hard参数，否则不重置工作区），而检出命令主要是覆盖工作区（如果<code>&lt;commit&gt;</code>不省略，也会替换暂存区中相应的文件）。</p>
+<h3 id="一、git-reset"><a href="#一、git-reset" class="headerlink" title="一、git reset"></a>一、git reset</h3><ol>
+<li><h4 id="git-reset命令格式"><a href="#git-reset命令格式" class="headerlink" title="git reset命令格式"></a>git reset命令格式</h4></li>
+</ol>
+<p>重置命令（git reset）是Git最常用的命令之一，也是最危险最容易误用的命令。来看看git reset命令的用法。 </p>
+<ul>
+<li><p><font color=brown>用法一：<code>git reset [-q] [&lt;commit&gt;] [--] &lt;paths&gt;... </code></font></p>
+</li>
+<li><p><font color=brown>用法二：<code>git reset [--soft | --mixed | --hard | --merge | --keep] [-q] [&lt;commit&gt;]  </code></font></p>
+</li>
+</ul>
+<ol start="2">
+<li><h4 id="git-reset命令解析"><a href="#git-reset命令解析" class="headerlink" title="git reset命令解析"></a>git reset命令解析</h4></li>
+</ol>
+<p>上面列出了两个用法，其中<code>&lt;commit&gt;</code>都是可选项，可以使用引用或提交ID，如果省略<code>&lt;commit&gt;</code>则相当于使用了HEAD的指向作为提交ID。</p>
+<p>上面列出的两种用法的区别在于，第一种用法在命令中包含路径<code>&lt;paths&gt;</code>。为了避免路径和引用（或者提交ID）同名而发生冲突，可以在<code>&lt;paths&gt;</code>前用两个连续的短线（减号）作为分隔。</p>
+<p>第一种用法（包含了路径<code>&lt;paths&gt;</code>的用法）不会重置引用，更不会改变工作区，而是用指定提交状态（<code>&lt;commit&gt;</code>）下的文件（<code>&lt;paths&gt;</code>）替换掉暂存区中的文件。例如命令<code>git reset HEAD&lt;paths&gt;</code>相当于取消之前执行的<code>git add&lt;paths&gt;</code>命令时改变的暂存区。</p>
+<p>第二种用法（不使用路径<code>&lt;paths&gt;</code>的用法）则会重置引用。根据不同的选项，可以对暂存区或工作区进行重置。参照下面的版本库模型图（图1），来看一看不同的参数对第二种重置语法的影响。</p>
+<p>图1：</p>
+<p><img src="https://gitee.com/nsaction/blog_pic/raw/master/4A8334536628F5AE791CDEEE34205B70.jpg" alt="4A8334536628F5AE791CDEEE34205B70"></p>
+<ol start="3">
+<li><h4 id="git-reset-命令的三个重要参数"><a href="#git-reset-命令的三个重要参数" class="headerlink" title="git reset 命令的三个重要参数"></a>git reset 命令的三个重要参数</h4></li>
+</ol>
+<p>命令格式:<code>git reset [--soft | --mixed | --hard ] [&lt;commit&gt;]</code>。 </p>
+<ul>
+<li><p>使用参数–hard，如：<code>git reset--hard&lt;commit&gt;</code>。会执行上图中的全部动作①、②、③，即：</p>
+<ul>
+<li><p>①替换引用的指向。引用指向新的提交ID。</p>
+</li>
+<li><p>②替换暂存区。替换后，暂存区的内容和引用指向的目录树一致。</p>
+</li>
+<li><p>③替换工作区。替换后，工作区的内容变得和暂存区一致，也和HEAD所指向的目录树内容相同。</p>
+</li>
+</ul>
+</li>
+<li><p>使用参数–soft，如：<code>git reset--soft&lt;commit&gt;</code>。会执行上图中的操作①。即只更改引用的指向，不改变暂存区和工作区。</p>
+</li>
+<li><p>使用参数–mixed或不使用参数（默认为–mixed），如：<code>git reset&lt;commit&gt;</code>。会执行上图中的操作①和操作②。即更改引用的指向及重置暂存区，但是不改变工作区。</p>
+</li>
+</ul>
+<ol start="4">
+<li><h4 id="git-reset命令。"><a href="#git-reset命令。" class="headerlink" title="git reset命令。"></a>git reset命令。</h4></li>
+</ol>
+<ul>
+<li><p><font color = red>命令：<code>git reset</code>仅用HEAD指向的目录树重置暂存区，工作区不会受到影响，相当于将之前用git add命令更新到暂存区的内容撤出暂存区。引用也未改变，因为引用重置到HEAD相当于没有重置。</font></p>
+</li>
+<li><p>命令：<code>git reset HEAD</code>同上。</p>
+</li>
+<li><p>命令：<code>git reset--filename</code>仅将文件filename的改动撤出暂存区，暂存区中其他文件不改变。相当于对命令<code>git add filename</code>的反向操作。</p>
+</li>
+<li><p>命令：<code>git reset HEAD filename</code>同上。</p>
+</li>
+<li><p>命令：<code>git reset--soft HEAD^</code>工作区和暂存区不改变，但是引用向前回退一次。当对最新提交的提交说明或提交的更改不满意时，撤销最新的提交以便重新提交。</p>
+</li>
+</ul>
+<p> 修补提交命令<code>git commit--amend</code>，用于对最新的提交进行重新提交以修补错误的提交说明或错误的提交文件。修补提交命令实际上相当于执行了下面两条命令。（注：文件<code>.git/COMMIT_EDITMSG</code>保存了上次的提交日志。）</p>
+<pre><code>$git reset --soft HEAD^
+$ git commit -e -F .git/COMMIT_EDITMSG  
+</code></pre>
+<ul>
+<li>命令：<code>git reset HEAD^</code>工作区不改变，但是暂存区会回退到上一次提交之前，引用也会回退一次。</li>
+<li>命令：<code>git reset--mixed HEAD^</code>同上。</li>
+<li>命令：<code>git reset--hard HEAD^</code>彻底撤销最近的提交。引用回退到前一次，而且工作区和暂存区都会回退到上一次提交的状态。自上一次以来的提交全部丢失。</li>
+</ul>
+<h3 id="二、git-checkout"><a href="#二、git-checkout" class="headerlink" title="二、git checkout"></a>二、git checkout</h3><ol>
+<li><h4 id="git-checkout命令格式"><a href="#git-checkout命令格式" class="headerlink" title="git checkout命令格式"></a>git checkout命令格式</h4><p>检出命令（git checkout）是Git最常用的命令之一，同时也是一个很危险的命令，因为这条命令会重写工作区。检出命令的用法如下： </p>
+<ul>
+<li><p>用法一： git checkout [-q] [<commit>] [–] <paths>… </p>
+</li>
+<li><p>用法二： git checkout [<branch>] </p>
+</li>
+<li><p>用法三： git checkout [-m] [[-b|–orphan] <new_branch>] [<start_point>]  </p>
+</li>
+</ul>
+</li>
+<li><h4 id="git-checkout命令解析"><a href="#git-checkout命令解析" class="headerlink" title="git checkout命令解析"></a>git checkout命令解析</h4></li>
+</ol>
+<ul>
+<li><p>上面列出的第一种用法和第二种用法的区别在于，第一种用法在命令中包含路径<code>&lt;paths&gt;</code>。为了避免路径和引用（或者提交ID）同名而发生冲突，可以在<code>&lt;paths&gt;</code>前用两个连续的短线（减号）作为分隔。<code>&lt;commit&gt;</code>是可选项，如果省略则相当于从暂存区（index）进行检出。</p>
+</li>
+<li><p>第一种用法（包含了路径<code>&lt;paths&gt;</code>的用法）不会改变HEAD头指针，主要是用于指定版本的文件覆盖工作区中对应的文件。如果省略<code>&lt;commit&gt;</code>，则会用暂存区的文件覆盖工作区的文件，否则用指定提交中的文件覆盖暂存区和工作区中对应的文件。</p>
+</li>
+<li><p>第二种用法（不使用路径<code>&lt;paths&gt;</code>的用法）则会改变HEAD头指针。之所以后面的参数写作<code>&lt;branch&gt;</code>，是因为只有HEAD切换到一个分支才可以对提交进行跟踪，否则仍然会进入“分离头指针”的状态。在“分离头指针”状态下的提交不能被引用关联到，从而可能丢失。所以用法二最主要的作用就是切换到分支。如果省略<code>&lt;branch&gt;</code>则相当于对工作区进行状态检查。</p>
+</li>
+<li><p>第三种用法主要是创建和切换到新的分支（<code>&lt;new_branch&gt;</code>），新的分支从<code>&lt;start_point&gt;</code>指定的提交开始创建。新分支和我们熟悉的master分支没有什么实质的不同，都是在<code>refs/heads</code>命名空间下的引用。</p>
+</li>
+</ul>
+<p>  如图2所示的版本库模型图描述了<code>git checkout</code>实际完成的操作。 </p>
+<pre><code>   图2：
+</code></pre>
+<p><img src="https://gitee.com/nsaction/blog_pic/raw/master/78689BA0FA5DEFE0D1ED902F9F97932A.jpg" alt="78689BA0FA5DEFE0D1ED902F9F97932A"></p>
+<ol start="3">
+<li><h4 id="git-checkout命令"><a href="#git-checkout命令" class="headerlink" title="git checkout命令"></a>git checkout命令</h4></li>
+</ol>
+<p>检出命令与版本库关系图下面通过一些示例来具体看一下检出命令的不同用法。</p>
+<ul>
+<li><p>命令：<code>git checkout branch</code>检出branch分支。要完成如图2中的三个步骤，更新HEAD以指向branch分支，以及用branch指向的树更新暂存区和工作区。</p>
+</li>
+<li><p>命令：<code>git checkout</code>汇总显示工作区、暂存区与HEAD的差异。</p>
+</li>
+<li><p>命令：<code>git checkout HEAD</code>同上。</p>
+</li>
+<li><p>命令：<code>git checkout--filename</code>用暂存区中filename文件来覆盖工作区中的filename文件。相当于取消自上次执行git add filename以来（如果执行过）的本地修改。这个命令很危险，因为对于本地的修改会悄无声息地覆盖，毫不留情。</p>
+</li>
+<li><p>命令：<code>git checkout branch--filename</code>维持HEAD的指向不变。用branch所指向的提交中的filename替换暂存区和工作区中相应的文件。注意会将暂存区和工作区中的filename文件直接覆盖。</p>
+</li>
+<li><p>命令：<code>git checkout--.</code>或写作<code>git checkout.</code>注意　<code>git checkout</code>命令后的参数为一个点（“.”）。这条命令最危险！会取消所有本地的修改（相对于暂存区）。相当于用暂存区的所有文件直接覆盖本地文件，不给用户任何确认的机会！</p>
+</li>
+<li><p>命令：<code>git rm--cached</code>会直接从暂存区删除文件，工作区则不做出改变。</p>
+</li>
+<li><p>当执行git checkout HEAD.或git checkout HEAD命令时，会用HEAD指向的master分支中的全部或部分文件替换暂存区和工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。</p>
+</li>
+</ul>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展 "></a><font color=blue><strong>扩展</strong> </font></h4><p><font size =4 color=blue>Git提供了很多方法可以方便地访问Git库中的对象：</font></p>
+<ul>
+<li><p>采用部分的SHA1哈希值。不必把40位的哈希值写全，只采用开头的部分（4位以上），只要不与现有的其他哈希值冲突即可。</p>
+</li>
+<li><p>使用master代表分支master中最新的提交，也可以使用全称<code>refs/heads/master</code>或<code>heads/master</code>。</p>
+</li>
+<li><p>使用HEAD代表版本库中最近的一次提交。</p>
+</li>
+<li><p>符号^可以用于指代父提交。例如：<code>HEAD^</code>代表版本库中的上一次提交，即最近一次提交的父提交。</p>
+</li>
+<li><p><code>HEAD^^</code> 则代表<code>HEAD^</code>的父提交。</p>
+</li>
+<li><p>对于一个提交有多个父提交，可以在符号^后面用数字表示是第几个父提交。</p>
+</li>
+</ul>
+<p>例如：·<code>a573106^2</code>的含义是提交a573106的多个父提交中的第二个父提交。</p>
+<ul>
+<li><p><code>HEAD^1</code>相当于<code>HEAD^</code>，含义是HEAD的多个父提交中的第一个父提交。</p>
+</li>
+<li><p><code>HEAD^^2</code>的含义是<code>HEAD^</code>(HEAD父提交)的多个父提交中的第二个父提交。</p>
+</li>
+<li><p>符号<del>也可以用于指代祖先提交。例如：`a573106</del>5<code>即相当于</code>a573106^^^^^`。</p>
+</li>
+<li><p>提交所对应的树对象，可以用类似如下的语法访问：<code>a573106^&#123;tree&#125;</code></p>
+</li>
+<li><p>某一次提交对应的文件对象，可以用如下的语法访问：<code>a573106:path/to/file</code></p>
+</li>
+<li><p>暂存区中的文件对象，可以用如下的语法访问：<code>:path/to/file</code></p>
+</li>
+</ul>
+<p><font size =4 color=blue>git reflog命令的输出中还提供了一个方便易记的表达式：</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;refname&gt;@&#123;&lt;n&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个表达式的含义是应用<refname>之前第<n>次改变时的SHAI哈希值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard master@&#123;2&#125;   #重置master为两次改变之前的值</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>重置命令的一个用途就是修改引用（如master）的游标指向。实际上在执行重置命令的时候没有使用任何参数对所要重置的分支名（如master）进行设置，这是因为重置命令实际上所针对的是头指针HEAD。重置的默认值是HEAD，而检出的默认值是暂存区。因此重置一般用于重置暂存区（除非使用–hard参数，否则不重置工作区），而检出命令主要是覆盖工作区（如果<code>&lt;commit&gt;</code>不省略，也会替换暂存区中相应的文件）。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git-checkout/" rel="tag"><i class="fa fa-tag"></i>git checkout</a>
+              <a href="/tags/git-reset/" rel="tag"><i class="fa fa-tag"></i>git reset</a>
+              <a href="/tags/%E6%A3%80%E5%87%BA/" rel="tag"><i class="fa fa-tag"></i>检出</a>
+              <a href="/tags/%E9%87%8D%E7%BD%AE/" rel="tag"><i class="fa fa-tag"></i>重置</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/24/git%E9%97%AE%E9%A2%98%E4%B9%8B%E4%BA%8C%E2%80%94git%E6%8F%90%E7%A4%BA%E2%80%9Cwarning%20LF%20will%20be%20replaced%20by%20CRLF%E2%80%9D%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev" title="# git问题之二—git提示“warning: LF will be replaced by CRLF”的解决办法">
+      <i class="fa fa-chevron-left"></i> # git问题之二—git提示“warning: LF will be replaced by CRLF”的解决办法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-reset-and-git-checkout"><span class="nav-number">1.</span> <span class="nav-text">git reset and git checkout</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81git-reset"><span class="nav-number">1.1.</span> <span class="nav-text">一、git reset</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-reset%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">git reset命令格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-reset%E5%91%BD%E4%BB%A4%E8%A7%A3%E6%9E%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">git reset命令解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-reset-%E5%91%BD%E4%BB%A4%E7%9A%84%E4%B8%89%E4%B8%AA%E9%87%8D%E8%A6%81%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.3.</span> <span class="nav-text">git reset 命令的三个重要参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-reset%E5%91%BD%E4%BB%A4%E3%80%82"><span class="nav-number">1.1.4.</span> <span class="nav-text">git reset命令。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81git-checkout"><span class="nav-number">1.2.</span> <span class="nav-text">二、git checkout</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-checkout%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">git checkout命令格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-checkout%E5%91%BD%E4%BB%A4%E8%A7%A3%E6%9E%90"><span class="nav-number">1.2.2.</span> <span class="nav-text">git checkout命令解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-checkout%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.3.</span> <span class="nav-text">git checkout命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">1.2.4.</span> <span class="nav-text">扩展 </span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">养家河</p>
+  <div class="site-description" itemprop="description">无关时间和空间，矛盾一直存在</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">养家河</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
