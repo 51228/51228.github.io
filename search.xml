@@ -334,6 +334,89 @@
       </tags>
   </entry>
   <entry>
+    <title># git问题之二—git提示“warning: LF will be replaced by CRLF”的解决办法</title>
+    <url>/2021/06/24/git%E9%97%AE%E9%A2%98%E4%B9%8B%E4%BA%8C%E2%80%94git%E6%8F%90%E7%A4%BA%E2%80%9Cwarning%20LF%20will%20be%20replaced%20by%20CRLF%E2%80%9D%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<blockquote>
+<p>windows平台下使用git add，git deploy 文件时经常出现“warning: LF will be replaced by CRLF” 的提示。</p>
+</blockquote>
+<span id="more"></span>
+
+
+
+<blockquote>
+<p><strong>参考</strong>：<a href="https://blog.csdn.net/u012757419/article/details/105614028/">https://blog.csdn.net/u012757419/article/details/105614028/</a></p>
+</blockquote>
+<h4 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h4><p><font size=4 color=red>windows平台下使用git add，git deploy 文件时经常出现“warning: LF will be replaced by CRLF” 的提示。</p>
+</font>
+
+<h4 id="二、分析问题"><a href="#二、分析问题" class="headerlink" title="二、分析问题"></a>二、分析问题</h4><p>其实，这是因为在文本处理中，CR（CarriageReturn），LF（LineFeed），CR/LF是不同操作系统上使用的换行符，具体如下：</p>
+<p>换行符‘\n’和回车符‘\r’</p>
+<ul>
+<li>回车符就是回到一行的开头，用符号r表示，十进制ASCII代码是13，十六进制代码为0x0D，回车（return）；</li>
+<li>换行符就是另起一行，用n符号表示，ASCII代码是10，十六制为0x0A， 换行（newline）。</li>
+</ul>
+<p>所以我们平时编写文件的回车符应该确切来说叫做回车换行符。</p>
+<p>应用情况</p>
+<ul>
+<li>Dos和Windows平台： 使用回车（CR）和换行（LF）两个字符来结束一行，回车+换行(CR+LF)，即“\r\n”；</li>
+<li>Mac 和 Linux平台：只使用换行（LF）一个字符来结束一行，即“\n”；</li>
+<li>最早Mac每行结尾是回车CR 即’\r’，后mac os x 也投奔了 unix。</li>
+</ul>
+<p>许多 Windows 上的编辑器会悄悄把行尾的换行（LF）字符转换成回车（CR）和换行（LF），或在用户按下 Enter 键时，插入回车（CR）和换行（LF）两个字符。</p>
+<p>影响：</p>
+<ul>
+<li>一个直接后果是，Unix/Mac系统下的文件在Windows里打开的话，所有文字会变成一行；</li>
+<li>而Windows里的文件在Unix/Mac下打开的话，在每行的结尾可能会多出一个^M符号。</li>
+<li>Linux保存的文件在windows上用记事本看的话会出现黑点。</li>
+</ul>
+<p>这些问题都可以通过一定方式进行转换统一，例如，在linux下，命令unix2dos 是把linux文件格式转换成windows文件格式，命令dos2unix 是把windows格式转换成linux文件格式。</p>
+<h4 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a><font color=red>解决办法：</font></h4><h5 id="情况一："><a href="#情况一：" class="headerlink" title="情况一："></a>情况一：</h5><p>Git 可以在你提交时自动地把回车（CR）和换行（LF）转换成换行（LF），而在检出代码时把换行（LF）转换成回车（CR）和换行（LF）。 你可以用 git config –global core.autocrlf true 来打开此项功能。 如果是在 Windows 系统上，把它设置成 true，这样在检出代码时，换行会被转换成回车和换行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#提交时转换为LF，检出时转换为CRLF</span><br><span class="line">$ git config --global core.autocrlf true</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="情况二："><a href="#情况二：" class="headerlink" title="情况二："></a>情况二：</h5><p>如果使用以换行（LF）作为行结束符的 Linux 或 Mac，你不需要 Git 在检出文件时进行自动的转换。然而当一个以回车（CR）和换行（LF）作为行结束符的文件不小心被引入时，你肯定想让 Git 修正。 所以，你可以把 core.autocrlf 设置成 input 来告诉 Git 在提交时把回车和换行转换成换行，检出时不转换：（这样在 Windows 上的检出文件中会保留回车和换行，而在 Mac 和 Linux 上，以及版本库中会保留换行。）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#提交时转换为LF，检出时不转换</span><br><span class="line">$ git config --global core.autocrlf input</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="情况三："><a href="#情况三：" class="headerlink" title="情况三："></a>情况三：</h5><p>如果你是 Windows 程序员，且正在开发仅运行在 Windows 上的项目，可以设置 false 取消此功能，把回车保留在版本库中：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#提交检出均不转换</span><br><span class="line">$ git config --global core.autocrlf false</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>你也可以在文件提交时进行safecrlf检查</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#拒绝提交包含混合换行符的文件</span><br><span class="line">git config --global core.safecrlf true   </span><br><span class="line"></span><br><span class="line">#允许提交包含混合换行符的文件</span><br><span class="line">git config --global core.safecrlf false   </span><br><span class="line"></span><br><span class="line">#提交包含混合换行符的文件时给出警告</span><br><span class="line">git config --global core.safecrlf warn</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="通俗解释"><a href="#通俗解释" class="headerlink" title="通俗解释"></a>通俗解释</h4><ul>
+<li><blockquote>
+<p><font size=4 color=purple>git 的 Windows 客户端基本都会默认设置 core.autocrlf=true，设置core.autocrlf=true, 只要保持工作区都是纯 CRLF 文件，编辑器用 CRLF 换行，就不会出现警告了；</font></p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><font size=4 color=purple>Linux 最好不要设置 core.autocrlf，因为这个配置算是为 Windows 平台定制；</font></p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><font size=4 color=purple>Windows 上设置 core.autocrlf=false，仓库里也没有配置 .gitattributes，很容易引入 CRLF 或者混合换行符（Mixed Line Endings，一个文件里既有 LF 又有CRLF）到版本库，这样就可能产生各种奇怪的问题。</font></p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>git</category>
+        <category>疑难</category>
+      </categories>
+      <tags>
+        <tag>LF</tag>
+        <tag>CR</tag>
+        <tag>git add</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo部署的原理和步骤</title>
     <url>/2021/05/23/hexo%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E6%AD%A5%E9%AA%A4/</url>
     <content><![CDATA[<blockquote>
@@ -716,6 +799,50 @@
       </categories>
       <tags>
         <tag>yaml</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何将文件夹固定到Windows任务栏</title>
+    <url>/2021/06/24/%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%9B%BA%E5%AE%9A%E5%88%B0Windows%E4%BB%BB%E5%8A%A1%E6%A0%8F/</url>
+    <content><![CDATA[<p>经常频繁的用到某个文件夹，从盘符点进入麻烦而且又耽搁时间，我们直接把频繁用到的文件夹固定到桌面任务栏，就很方便的来进行我们的操作。</p>
+<span id="more"></span>
+
+<hr>
+<p>Windows不允许您将文件夹直接固定到任务栏。 不过，有一个简单的解决方法。 您要做的就是为文件夹创建一个新的快捷方式，然后将该快捷方式固定在任务栏上。</p>
+<p>具体步骤如下：</p>
+<ol>
+<li><p>右键单击桌面上或文件浏览器中的任意位置，然后从上下文菜单中选择“新建&gt;快捷方式”。</p>
+<p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624153145.png" alt="image-20210624153138112"></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>“创建快捷方式”向导的第一页上，单击“浏览”按钮以找到要固定的文件夹。 但是，选择文件夹后，请不要单击“下一步”。</p>
+<p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624153713.png" alt="image-20210624153713114"></p>
+</li>
+<li><p>现在添加“ Explorer”(不带引号)，然后在您选择的文件夹路径之前添加一个空格。 之后，继续并单击“下一步”按钮。</p>
+<p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624153835.png" alt="image-20210624153835259"></p>
+</li>
+</ol>
+<ol start="4">
+<li><p>输入快捷方式的名称，然后单击“完成”以在您选择的位置创建快捷方式。</p>
+</li>
+<li><p>更改快捷方式的图标。</p>
+<p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624154248.png" alt="image-20210624154248814"></p>
+</li>
+</ol>
+<ol start="6">
+<li><p>把图标拖到任务栏将其固定，删除桌面的快捷方式任务栏的文件夹快捷方式就建立好了。</p>
+<p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624155528.png" alt="image-20210624155528477"></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>windows</category>
+        <category>快捷方式</category>
+      </categories>
+      <tags>
+        <tag>任务栏</tag>
+        <tag>文件夹</tag>
       </tags>
   </entry>
   <entry>
