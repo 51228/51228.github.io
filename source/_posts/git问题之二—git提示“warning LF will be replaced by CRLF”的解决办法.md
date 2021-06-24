@@ -1,5 +1,5 @@
 ---
-title: '# git问题之二—git提示“warning: LF will be replaced by CRLF”的解决办法'
+title: 'git问题之二—git提示“warning: LF will be replaced by CRLF”的解决办法'
 categories:
   - git
   - 疑难
