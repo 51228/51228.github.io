@@ -109,7 +109,7 @@
       </tags>
   </entry>
   <entry>
-    <title>## git reset and git checkout</title>
+    <title>git reset and git checkout</title>
     <url>/2021/06/24/git-reset-and-git-checkout/</url>
     <content><![CDATA[<blockquote>
 <p>重置的默认值是HEAD，而检出的默认值是暂存区。因此重置一般用于重置暂存区（除非使用–hard参数，否则不重置工作区），而检出命令主要是覆盖工作区（如果<code>&lt;commit&gt;</code>不省略，也会替换暂存区中相应的文件）。</p>
@@ -513,7 +513,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
       </tags>
   </entry>
   <entry>
-    <title># git问题之二—git提示“warning: LF will be replaced by CRLF”的解决办法</title>
+    <title>git问题之二—git提示“warning: LF will be replaced by CRLF”的解决办法</title>
     <url>/2021/06/24/git%E9%97%AE%E9%A2%98%E4%B9%8B%E4%BA%8C%E2%80%94git%E6%8F%90%E7%A4%BA%E2%80%9Cwarning%20LF%20will%20be%20replaced%20by%20CRLF%E2%80%9D%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
     <content><![CDATA[<blockquote>
 <p>windows平台下使用git add，git deploy 文件时经常出现“warning: LF will be replaced by CRLF” 的提示。</p>
