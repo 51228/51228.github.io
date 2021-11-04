@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-06T17:11:59.469Z</updated>
+  <updated>2021-11-04T03:52:48.809Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2021/06/24/git-reset-and-git-checkout/"/>
     <id>http://example.com/2021/06/24/git-reset-and-git-checkout/</id>
     <published>2021-06-24T09:03:35.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -48,7 +48,7 @@
     <link href="http://example.com/2021/06/24/git%E9%97%AE%E9%A2%98%E4%B9%8B%E4%BA%8C%E2%80%94git%E6%8F%90%E7%A4%BA%E2%80%9Cwarning%20LF%20will%20be%20replaced%20by%20CRLF%E2%80%9D%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
     <id>http://example.com/2021/06/24/git%E9%97%AE%E9%A2%98%E4%B9%8B%E4%BA%8C%E2%80%94git%E6%8F%90%E7%A4%BA%E2%80%9Cwarning%20LF%20will%20be%20replaced%20by%20CRLF%E2%80%9D%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
     <published>2021-06-24T08:28:05.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -75,7 +75,7 @@
     <link href="http://example.com/2021/06/24/%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%9B%BA%E5%AE%9A%E5%88%B0Windows%E4%BB%BB%E5%8A%A1%E6%A0%8F/"/>
     <id>http://example.com/2021/06/24/%E5%A6%82%E4%BD%95%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%9B%BA%E5%AE%9A%E5%88%B0Windows%E4%BB%BB%E5%8A%A1%E6%A0%8F/</id>
     <published>2021-06-24T07:47:07.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;p&gt;经常频繁的用到某个文件夹，从盘符点进入麻烦而且又耽搁时间，我们直接把频繁用到的文件夹固定到桌面任务栏，就很方便的来进行我们的操作。&lt;/p&gt;</summary>
@@ -98,7 +98,7 @@
     <link href="http://example.com/2021/06/23/git%E7%96%91%E9%9A%BE%E4%B9%8B%E4%B8%80(%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%EF%BC%89/"/>
     <id>http://example.com/2021/06/23/git%E7%96%91%E9%9A%BE%E4%B9%8B%E4%B8%80(%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%EF%BC%89/</id>
     <published>2021-06-23T11:43:11.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;p&gt;解决git中文显示问题&lt;/p&gt;</summary>
@@ -123,7 +123,7 @@
     <link href="http://example.com/2021/06/22/git-diff/"/>
     <id>http://example.com/2021/06/22/git-diff/</id>
     <published>2021-06-22T03:26:20.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇文章介绍了地方法比较的说明，git diff常用参数，git diff里程碑比较和扩展用法。&lt;/p&gt;</summary>
@@ -142,7 +142,7 @@
     <link href="http://example.com/2021/06/21/Ubuntu%E7%B3%BB%E7%BB%9F%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7Flameshot%E5%AE%89%E8%A3%85/"/>
     <id>http://example.com/2021/06/21/Ubuntu%E7%B3%BB%E7%BB%9F%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7Flameshot%E5%AE%89%E8%A3%85/</id>
     <published>2021-06-21T13:43:24.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -166,7 +166,7 @@
     <link href="http://example.com/2021/06/20/git%E5%86%B2%E7%AA%81%E5%90%88%E5%B9%B6/"/>
     <id>http://example.com/2021/06/20/git%E5%86%B2%E7%AA%81%E5%90%88%E5%B9%B6/</id>
     <published>2021-06-20T03:32:30.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;p&gt;在使用&lt;code&gt;git push&lt;/code&gt;的过程中，经常会遇到一个问题，因为文件有冲突无法push。冲突有几种表现形式？冲突的解决方式？本文就是解决以上问题。&lt;/p&gt;</summary>
@@ -191,7 +191,7 @@
     <link href="http://example.com/2021/06/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A0%81/"/>
     <id>http://example.com/2021/06/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A0%81/</id>
     <published>2021-06-20T03:25:55.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;p&gt;经常遇到Unicode和UTF-8，具体是什么意思，他们之间有什么区别呢？本编文章简要的解密计算机编码问题&lt;/p&gt;</summary>
@@ -216,7 +216,7 @@
     <link href="http://example.com/2021/06/20/markdown%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%94%9A%E7%82%B9%E5%8A%9F%E8%83%BD/"/>
     <id>http://example.com/2021/06/20/markdown%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%94%9A%E7%82%B9%E5%8A%9F%E8%83%BD/</id>
     <published>2021-06-20T02:04:51.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前看了几片文章， markdown 里面设置锚点步骤及用法都比较模糊，经过实验，将markdown锚点方法做如下分享。&lt;/p&gt;</summary>
@@ -239,7 +239,7 @@
     <link href="http://example.com/2021/05/23/hexo%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E6%AD%A5%E9%AA%A4/"/>
     <id>http://example.com/2021/05/23/hexo%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E6%AD%A5%E9%AA%A4/</id>
     <published>2021-05-23T01:48:29.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -261,7 +261,7 @@
     <link href="http://example.com/2021/05/22/github-pages/"/>
     <id>http://example.com/2021/05/22/github-pages/</id>
     <published>2021-05-22T14:22:03.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;p&gt;在用github和hexo搭建个人博客时遇到github pages。github pages是什么呢？它就是托管在github上的静态网页。建立时注意事项：&lt;/p&gt;
@@ -286,7 +286,7 @@
     <link href="http://example.com/2021/05/22/yaml%E8%AF%AD%E6%B3%95/"/>
     <id>http://example.com/2021/05/22/yaml%E8%AF%AD%E6%B3%95/</id>
     <published>2021-05-22T14:22:03.000Z</published>
-    <updated>2021-09-06T17:11:59.469Z</updated>
+    <updated>2021-11-04T03:52:48.809Z</updated>
     
     
     <summary type="html">&lt;p&gt;在用hexo和github搭建博客的过程中遇到config.yml文件，这种文件的格式看起来非常简单明了，但这个文件到处都是坑，最大的坑是冒号“：”后的空格；缩进的空格。&lt;/p&gt;</summary>
