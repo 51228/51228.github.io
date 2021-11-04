@@ -1027,7 +1027,10 @@ $ git commit -e -F .git/COMMIT_EDITMSG
   <entry>
     <title>常用电线电缆型号含义</title>
     <url>/2021/11/04/%E5%B8%B8%E7%94%A8%E7%94%B5%E7%BA%BF%E7%94%B5%E7%BC%86%E5%9E%8B%E5%8F%B7%E5%90%AB%E4%B9%89/</url>
-    <content><![CDATA[<h1 id="电缆的型号表示含义："><a href="#电缆的型号表示含义：" class="headerlink" title="电缆的型号表示含义："></a>电缆的型号表示含义：</h1><ul>
+    <content><![CDATA[<p>本文通过在网上寻找资料，自己整理的电线电缆的型号含义，以便在日常工作中使用。</p>
+<span id="more"></span>
+
+<h1 id="电缆的型号表示含义："><a href="#电缆的型号表示含义：" class="headerlink" title="电缆的型号表示含义："></a>电缆的型号表示含义：</h1><ul>
 <li><p>一、用途代码－不标为电力电缆，K为控制缆，P为信号缆;W无卤，D低烟，Z阻燃，N耐火，B代表的含义是布线用电线，。    </p>
 </li>
 <li><p>二、绝缘代码－Z油浸纸，X橡胶，V聚氯乙烯，YJ交联聚乙烯（Y表示聚乙烯，J表示交联），B－平型（扁形），S－双绞型；    </p>
