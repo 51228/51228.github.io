@@ -9,7 +9,7 @@ tags:
   - 
   - 
 date: {{ date }}
-update:  {{date}}
+update: {{date}}
 ---
 
 
