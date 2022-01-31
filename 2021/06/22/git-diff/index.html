@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/20210622112954.jpeg">
 <meta property="article:published_time" content="2021-06-22T03:26:20.000Z">
-<meta property="article:modified_time" content="2022-01-03T17:15:58.112Z">
+<meta property="article:modified_time" content="2022-01-31T17:16:50.551Z">
 <meta property="article:author" content="养家河">
 <meta property="article:tag" content="git diff">
 <meta name="twitter:card" content="summary">
@@ -288,8 +288,9 @@
 
 <ol start="2">
 <li><p>将工作区和HEAD（当前工作分支）相比，会看到更多的差异。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></table></figure></li>
-<li><p>通过参数–cached或–staged调用git diff命令，看到的是提交暂存区（提交任务，stage）和版本库中文件的差异。 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过参数–cached或–staged调用git diff命令，看到的是提交暂存区（提交任务，stage）和版本库中文件的差异。</p>
 </li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure>
@@ -304,8 +305,9 @@
 </ul>
 <h3 id="git-diff扩展"><a href="#git-diff扩展" class="headerlink" title="git diff扩展"></a>git diff扩展</h3><ol>
 <li><p>文件不同版本的差异比较差异比较还可以使用路径参数，只显示不同版本间该路径下文件的差异。语法格式如下： </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;commit1&gt; &lt;commit2&gt; -- &lt;paths&gt;  </span><br></pre></td></tr></table></figure></li>
-<li><p>非Git目录/文件的差异比较命令git diff还可以在Git版本库之外执行，对非Git目录进行比较，就像GNU的diff命令一样。之所以提供这个功能是因为Git差异比较命令更为强大，提供了对二进制文件差异等的扩展支持。语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;commit1&gt; &lt;commit2&gt; -- &lt;paths&gt;  </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>非Git目录&#x2F;文件的差异比较命令git diff还可以在Git版本库之外执行，对非Git目录进行比较，就像GNU的diff命令一样。之所以提供这个功能是因为Git差异比较命令更为强大，提供了对二进制文件差异等的扩展支持。语法格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;path1&gt; &lt;path2&gt; </span><br></pre></td></tr></table></figure></li>
 <li><p>逐词比较，而非默认的逐行比较Git的差异比较默认是逐行比较，分别显示改动前的行和改动后的行，到底改动在哪里还需要仔细辨别。Git还提供一种逐词比较的输出，有的人会更喜欢。使用–word-diff参数可以显示逐词比较。 </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git diff --word-diff diff --git a/src/book/02-use-git/080-git-history-travel.rst b/src/book/02-use-git/080-git-history-travel.rst </span><br><span class="line">index f740203..2dd3e6f 100644 </span><br><span class="line">--- a/src/book/02-use-git/080-git-history-travel.rst </span><br><span class="line">+++ b/src/book/02-use-git/080-git-history-travel.rst </span><br><span class="line">@@ -681，7 +681，7 @@</span><br><span class="line">Git的大部分命令可以使用提交版本作为参数（如：git diff），</span><br><span class="line">::</span><br><span class="line">  [-18:23:48 jiangxin@hp:~/gitwork/gitbook/src/book$-]&#123;+$+&#125; </span><br><span class="line">git log --stat --oneline  I..C</span><br><span class="line">  0cd7f2e commit C.    </span><br><span class="line">    README    |    1 +</span><br><span class="line">    doc/C.txt |    1 +</span><br></pre></td></tr></table></figure>

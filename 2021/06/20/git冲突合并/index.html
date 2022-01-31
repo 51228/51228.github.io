@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620212217851.png">
 <meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620213323429.png">
 <meta property="article:published_time" content="2021-06-20T03:32:30.000Z">
-<meta property="article:modified_time" content="2022-01-03T17:15:58.112Z">
+<meta property="article:modified_time" content="2022-01-31T17:16:50.551Z">
 <meta property="article:author" content="养家河">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="冲突解决">
@@ -308,9 +308,9 @@
 <li>git冲突是通过.git目录下的几个文件记录的：</li>
 </ol>
 <ul>
-<li>文件.git/MERGE_HEAD记录所合并的提交ID</li>
-<li>文件.git/MERGE_MSG记录合并失败的信息</li>
-<li>文件.git/MERGE_MODE标识合并状态</li>
+<li>文件.git&#x2F;MERGE_HEAD记录所合并的提交ID</li>
+<li>文件.git&#x2F;MERGE_MSG记录合并失败的信息</li>
+<li>文件.git&#x2F;MERGE_MODE标识合并状态</li>
 <li>可以使用<code>cat .git/MERGE_HEAD</code>,<code>cat .git/MERGE_MSG</code>,<code>cat .git/MERGE_MODE</code>来访问。</li>
 </ul>
 <ol start="2">
@@ -330,11 +330,11 @@
 </li>
 </ul>
 <ol start="3">
-<li>工作区的版本则可能同时包含了成功合并即冲突合并，其中冲突合并会用特殊的标记（&lt;&lt;&lt;&lt;&lt;&lt;======&gt;&gt;&gt;&gt;&gt;&gt;）进行标识：</li>
+<li>工作区的版本则可能同时包含了成功合并即冲突合并，其中冲突合并会用特殊的标记（&lt;&lt;&lt;&lt;&lt;&lt;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&gt;&gt;&gt;&gt;&gt;&gt;）进行标识：</li>
 </ol>
 <ul>
-<li>特殊标识&lt;&lt;&lt;&lt;&lt;&lt;和======之间的内容是当前分支更改的内容。</li>
-<li>特殊标识======和&gt;&gt;&gt;&gt;&gt;&gt;之间的内容是所合并的版本更改的内容。</li>
+<li>特殊标识&lt;&lt;&lt;&lt;&lt;&lt;和&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;之间的内容是当前分支更改的内容。</li>
+<li>特殊标识&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;和&gt;&gt;&gt;&gt;&gt;&gt;之间的内容是所合并的版本更改的内容。</li>
 </ul>
 <p><a id=3>三. 冲突的解决</a><br>冲突解决的实质就是通过编辑操作，将冲突标识符所标识的冲突内容替换为合适的内容，并去掉冲突标识符。编辑完成后执行<code>git add</code>命令将文件添加到暂存区（标号0）,然后再提交就完成了冲突解决。</p>
 <ol>
@@ -346,7 +346,7 @@
 </li>
 <li><p><code>git add -u</code>，添加到暂存区</p>
 </li>
-<li><p><code>git commit -m &quot;冲突解决&quot;</code>,提交完成后，.git目录下与合并相关的文件.git/MERGE_HEAD、.git/MERGE_MSG、.git/MERGE_MODE文件都自动删除。</p>
+<li><p><code>git commit -m &quot;冲突解决&quot;</code>,提交完成后，.git目录下与合并相关的文件.git&#x2F;MERGE_HEAD、.git&#x2F;MERGE_MSG、.git&#x2F;MERGE_MODE文件都自动删除。</p>
 </li>
 <li><p>执行推送</p>
 </li>
@@ -361,7 +361,7 @@
 <p>​                C：暂存区3中的版本（他人更改的版本）<img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620212217851.png" alt="image-20210620212217851"></p>
 </li>
 </ol>
-<p>  第四步：点击标记为“合并冲突”的一行，在弹出的菜单中出现A/B/C三个选项，分别代表从A、B、C三个窗口复制相关内容到当前位置<br>  第五步：B行代表从窗口B中复制的文件，M指手工修改的行<br>    <img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620213323429.png" alt="image-20210620213323429"></p>
+<p>  第四步：点击标记为“合并冲突”的一行，在弹出的菜单中出现A&#x2F;B&#x2F;C三个选项，分别代表从A、B、C三个窗口复制相关内容到当前位置<br>  第五步：B行代表从窗口B中复制的文件，M指手工修改的行<br>    <img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620213323429.png" alt="image-20210620213323429"></p>
 <p>  第六步：编辑完成后保存退出即完成图形化冲突解决。</p>
 <p>  第七步：<code>git status</code>显示工作区状态，会看到冲突已经解决，在工作区会遗留一个以.orig结尾的合并前的文件副本,暂存区中三个文件的副本也已经清除。</p>
 <p>  第八步：执行提交和推送，由于文件是在暂存区更改，所以不需要add，直接commit，再push。</p>

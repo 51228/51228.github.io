@@ -72,13 +72,13 @@
 <p><a href="#10">省略号</a></p>
 <hr>
 <h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a><span id="1">操作符</span></h3><p>$$<br>\begin{align*}<br>&amp; \backslash pm ：&amp;\pm \qquad<br>&amp; \backslash mp ：&amp;\mp \qquad<br>&amp; \backslash times ：&amp;\times \qquad     \<br>&amp; \backslash div ：&amp;\div \qquad<br>&amp; \backslash ast ：&amp;\ast \qquad<br>&amp; \backslash star ：&amp;\star \qquad     \<br>&amp; \backslash dagger ：&amp;\dagger  \qquad<br>&amp; \backslash ddagger ：&amp;\ddagger  \qquad<br>&amp; \backslash amalg ：&amp;\amalg  \qquad     \<br>&amp; \backslash cap ：&amp;\cap  \qquad<br>&amp; \backslash cup ：&amp;\cup  \qquad<br>&amp; \backslash uplus ：&amp;\uplus  \qquad     \<br>&amp; \backslash sqcap ：&amp;\sqcap  \qquad<br>&amp; \backslash sqcup ：&amp;\sqcup \qquad<br>&amp; \backslash  vee：&amp;\vee  \qquad     \<br>&amp; \backslash wedge ：&amp;\wedge  \qquad<br>&amp; \backslash oplus ：&amp;\oplus  \qquad<br>&amp; \backslash ominus ：&amp;\ominus  \qquad     \<br>&amp; \backslash otimes ：&amp;\otimes  \qquad<br>&amp; \backslash bullet ：&amp;\bullet  \qquad<br>&amp; \backslash diamond ：&amp;\diamond  \qquad     \<br>&amp; \backslash Diamond ：&amp;\Diamond  \qquad<br>&amp; \backslash lhd ：&amp;\lhd  \qquad<br>&amp; \backslash rhd ：&amp;\rhd  \qquad     \<br>&amp; \backslash unlhd ：&amp;\unlhd  \qquad<br>&amp; \backslash unrhd ：&amp;\unrhd  \qquad<br>&amp; \backslash oslash ：&amp;\oslash  \qquad     \<br>&amp; \backslash odot ：&amp;\odot  \qquad<br>&amp; \backslash triangleleft ：&amp;\triangleleft  \qquad<br>&amp; \backslash triangleright ：&amp;\triangleright  \qquad    \<br>&amp; \backslash bigtriangleup ：&amp;\bigtriangleup  \qquad<br>&amp; \backslash triangledown ：&amp;\triangledown  \qquad<br>&amp; \backslash Box ：&amp;\Box  \qquad     \<br>&amp; \backslash setminus ：&amp;\setminus  \qquad<br>&amp; \backslash bigcup ：&amp;\bigcup  \qquad<br>&amp; \backslash bigcap ：&amp;\bigcap  \qquad<br>\end{align*}<br>$$</p>
-<h3 id="关系符及否定形式"><a href="#关系符及否定形式" class="headerlink" title="关系符及否定形式"></a><span id="2">关系符及否定形式</span></h3><p>$$<br>\begin{align*}<br>&amp; \backslash = ：&amp;=  \qquad<br>&amp; \backslash ne ：&amp;\ne  \qquad<br>&amp; \backslash ： ：&amp;:  \qquad          \<br>&amp; \backslash &gt; ：&amp;&gt;  \qquad<br>&amp; \backslash nless ：&amp;\nless  \qquad<br>&amp; \backslash  &gt;：&amp;&gt;  \qquad         \<br>&amp; \backslash  ngtr：&amp;\ngtr  \qquad<br>&amp; \backslash  le：&amp;\le  \qquad<br>&amp; \backslash  nleq：&amp;\nleq  \qquad         \<br>&amp; \backslash  ge：&amp;\ge  \qquad<br>&amp; \backslash  ngeq：&amp;\ngeq  \qquad<br>&amp; \backslash  in：&amp;\in  \qquad           \<br>&amp; \backslash  notin：&amp;\notin  \qquad<br>&amp; \backslash  ni：&amp;\ni  \qquad<br>&amp; \backslash  ll：&amp;\ll  \qquad         \<br>&amp; \backslash  gg：&amp;\gg  \qquad<br>&amp; \backslash  prec：&amp;\prec  \qquad<br>&amp; \backslash  nprec：&amp;\nprec  \qquad         \<br>&amp; \backslash  succ：&amp;\succ  \qquad<br>&amp; \backslash nsucc：&amp;\nsucc  \qquad<br>&amp; \backslash  preceq：&amp;\preceq  \qquad         \<br>&amp; \backslash  npreceq：&amp;\npreceq  \qquad<br>&amp; \backslash  precneqq：&amp;\precneqq  \qquad<br>&amp; \backslash  succeq：&amp;\succeq  \qquad           \<br>&amp; \backslash  nsucceq：&amp;\nsucceq  \qquad<br>&amp; \backslash  succneqq：&amp;\succneqq  \qquad<br>&amp; \backslash  sim：&amp;\sim  \qquad          \<br>&amp; \backslash  nsim：&amp;\nsim  \qquad<br>&amp; \backslash  approx：&amp;\approx  \qquad<br>&amp; \backslash  simeq：&amp;\simeq  \qquad         \<br>&amp; \backslash  cong：&amp;\cong  \qquad<br>&amp; \backslash  ncong：&amp;\ncong  \qquad<br>&amp; \backslash  equiv：&amp;\equiv  \qquad         \<br>&amp; \backslash  doteq：&amp;\doteq  \qquad<br>&amp; \backslash  subset：&amp;\subset  \qquad<br>&amp; \backslash  supset：&amp;\supset  \qquad           \<br>&amp; \backslash  subseteq：&amp;\subseteq  \qquad<br>&amp; \backslash  supseteq：&amp;\supseteq  \qquad<br>&amp; \backslash  nsubseteq：&amp;\nsubseteq  \qquad         \<br>&amp; \backslash  nsupseteq：&amp;\nsupseteq  \qquad<br>&amp; \backslash  varsubsetneq：&amp;\varsubsetneq  \qquad<br>&amp; \backslash  varsupsetneq：&amp;\varsubsetneq  \qquad         \<br>&amp; \backslash  subsetneq：&amp;\subsetneq  \qquad<br>&amp; \backslash  supsetneq：&amp;\supsetneq  \qquad<br>&amp; \backslash  smile：&amp;\smile  \qquad         \<br>&amp; \backslash  frown：&amp;\frown  \qquad<br>&amp; \backslash  perp：&amp;\perp  \qquad<br>&amp; \backslash  models：&amp;\models  \qquad           \<br>&amp; \backslash  mid：&amp;\mid  \qquad<br>&amp; \backslash  nmid：&amp;\nmid  \qquad<br>&amp; \backslash  parallel：&amp;\parallel  \qquad          \<br>&amp; \backslash  nparallel：&amp;\nparallel  \qquad<br>&amp; \backslash  vdash：&amp;\vdash  \qquad<br>&amp; \backslash  nvdash：&amp;\nvdash  \qquad         \<br>&amp; \backslash  dashv：&amp;\dashv  \qquad<br>&amp; \backslash  propto：&amp;\propto  \qquad<br>&amp; \backslash  asymp：&amp;\asymp  \qquad         \<br>&amp; \backslash  bowtie：&amp;\bowtie  \qquad         </p>
+<h3 id="关系符及否定形式"><a href="#关系符及否定形式" class="headerlink" title="关系符及否定形式"></a><span id="2">关系符及否定形式</span></h3><p>$$<br>\begin{align*}<br>&amp; \backslash &#x3D; ：&amp;&#x3D;  \qquad<br>&amp; \backslash ne ：&amp;\ne  \qquad<br>&amp; \backslash ： ：&amp;:  \qquad          \<br>&amp; \backslash &gt; ：&amp;&gt;  \qquad<br>&amp; \backslash nless ：&amp;\nless  \qquad<br>&amp; \backslash  &gt;：&amp;&gt;  \qquad         \<br>&amp; \backslash  ngtr：&amp;\ngtr  \qquad<br>&amp; \backslash  le：&amp;\le  \qquad<br>&amp; \backslash  nleq：&amp;\nleq  \qquad         \<br>&amp; \backslash  ge：&amp;\ge  \qquad<br>&amp; \backslash  ngeq：&amp;\ngeq  \qquad<br>&amp; \backslash  in：&amp;\in  \qquad           \<br>&amp; \backslash  notin：&amp;\notin  \qquad<br>&amp; \backslash  ni：&amp;\ni  \qquad<br>&amp; \backslash  ll：&amp;\ll  \qquad         \<br>&amp; \backslash  gg：&amp;\gg  \qquad<br>&amp; \backslash  prec：&amp;\prec  \qquad<br>&amp; \backslash  nprec：&amp;\nprec  \qquad         \<br>&amp; \backslash  succ：&amp;\succ  \qquad<br>&amp; \backslash nsucc：&amp;\nsucc  \qquad<br>&amp; \backslash  preceq：&amp;\preceq  \qquad         \<br>&amp; \backslash  npreceq：&amp;\npreceq  \qquad<br>&amp; \backslash  precneqq：&amp;\precneqq  \qquad<br>&amp; \backslash  succeq：&amp;\succeq  \qquad           \<br>&amp; \backslash  nsucceq：&amp;\nsucceq  \qquad<br>&amp; \backslash  succneqq：&amp;\succneqq  \qquad<br>&amp; \backslash  sim：&amp;\sim  \qquad          \<br>&amp; \backslash  nsim：&amp;\nsim  \qquad<br>&amp; \backslash  approx：&amp;\approx  \qquad<br>&amp; \backslash  simeq：&amp;\simeq  \qquad         \<br>&amp; \backslash  cong：&amp;\cong  \qquad<br>&amp; \backslash  ncong：&amp;\ncong  \qquad<br>&amp; \backslash  equiv：&amp;\equiv  \qquad         \<br>&amp; \backslash  doteq：&amp;\doteq  \qquad<br>&amp; \backslash  subset：&amp;\subset  \qquad<br>&amp; \backslash  supset：&amp;\supset  \qquad           \<br>&amp; \backslash  subseteq：&amp;\subseteq  \qquad<br>&amp; \backslash  supseteq：&amp;\supseteq  \qquad<br>&amp; \backslash  nsubseteq：&amp;\nsubseteq  \qquad         \<br>&amp; \backslash  nsupseteq：&amp;\nsupseteq  \qquad<br>&amp; \backslash  varsubsetneq：&amp;\varsubsetneq  \qquad<br>&amp; \backslash  varsupsetneq：&amp;\varsubsetneq  \qquad         \<br>&amp; \backslash  subsetneq：&amp;\subsetneq  \qquad<br>&amp; \backslash  supsetneq：&amp;\supsetneq  \qquad<br>&amp; \backslash  smile：&amp;\smile  \qquad         \<br>&amp; \backslash  frown：&amp;\frown  \qquad<br>&amp; \backslash  perp：&amp;\perp  \qquad<br>&amp; \backslash  models：&amp;\models  \qquad           \<br>&amp; \backslash  mid：&amp;\mid  \qquad<br>&amp; \backslash  nmid：&amp;\nmid  \qquad<br>&amp; \backslash  parallel：&amp;\parallel  \qquad          \<br>&amp; \backslash  nparallel：&amp;\nparallel  \qquad<br>&amp; \backslash  vdash：&amp;\vdash  \qquad<br>&amp; \backslash  nvdash：&amp;\nvdash  \qquad         \<br>&amp; \backslash  dashv：&amp;\dashv  \qquad<br>&amp; \backslash  propto：&amp;\propto  \qquad<br>&amp; \backslash  asymp：&amp;\asymp  \qquad         \<br>&amp; \backslash  bowtie：&amp;\bowtie  \qquad         </p>
 <p>\end{align*}<br>$$</p>
 <h3 id="数学普通符号"><a href="#数学普通符号" class="headerlink" title="数学普通符号"></a><span id="3">数学普通符号</span></h3><p>$$<br>\begin{alignat*}{3}<br>\backslash partial ：&amp;\partial  \hspace{30mm} &amp; \backslash infty ：&amp;\infty \hspace{30mm} &amp;\backslash surd ：\surd\<br>\backslash triangle ： &amp;\triangle     &amp;\backslash top ：&amp;\top &amp;\backslash nabla：&amp;\nabla \<br>\backslash  forall： &amp;\forall &amp;\backslash  ell：&amp;\ell  &amp;\backslash  mho：&amp;\mho \<br>\backslash  varnothing： &amp;\varnothing  &amp;\backslash  circledS：&amp;\circledS  &amp;\backslash  angle：&amp;\angle \<br>\backslash  star： &amp;\star &amp;\backslash bigstar ：&amp;\bigstar  &amp;\backslash eth ：&amp;\eth \<br>\backslash  clubsuit： &amp;\clubsuit &amp;\backslash spadesuit ：&amp;\spadesuit  &amp;\backslash heartsuit ：&amp;\heartsuit \<br>\backslash  diamondsuit： &amp;\diamondsuit &amp;\backslash sphericalangle ：&amp;\sphericalangle  &amp;\backslash measuredangle ：&amp;\measuredangle \<br>\backslash  circledR： &amp;\circledR&amp;\backslash circ：&amp;\circ   &amp;\backslash bigcirc：&amp;\bigcirc\\<br>\end{alignat*}<br>$$</p>
 <h3 id="小写希腊字符："><a href="#小写希腊字符：" class="headerlink" title="小写希腊字符："></a><span id="4">小写希腊字符：</span></h3><p>$$<br>\begin{align*}<br>&amp; \backslash alpha ：&amp;\alpha \qquad  \qquad \qquad  \qquad<br>&amp; \backslash beta ：&amp;\beta \qquad  \qquad \qquad  \qquad<br>&amp; \backslash chi ：&amp;\chi \<br>&amp; \backslash delta ：&amp;\delta  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash epsilon：&amp;\epsilon   \qquad  \qquad \qquad  \qquad<br>&amp; \backslash eta：&amp;\eta \<br>&amp; \backslash gamma：&amp;\gamma  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash iota：&amp;\iota  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash lambda：&amp;\lambda \<br>&amp; \backslash nu：&amp;\nu  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash mu：&amp;\mu  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash o &amp;o \<br>&amp; \backslash omega：&amp;\omega  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash phi：&amp;\phi  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash pi：&amp;\pi \<br>&amp; \backslash psi：&amp;\psi  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash rho：&amp;\rho  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash sigma：&amp;\sigma \<br>&amp; \backslash tau：&amp;\tau   \qquad  \qquad \qquad  \qquad<br>&amp; \backslash theta：&amp;\theta   \qquad  \qquad \qquad  \qquad<br>&amp; \backslash nabla： &amp;\nabla \<br>&amp; \backslash partial：&amp;\partial  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash upsilon：&amp;\upsilon  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash xi：&amp;\xi \<br>&amp; \backslash zeta：&amp;\zeta  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash digamma：&amp;\digamma  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash varepsilon：&amp;\varepsilon \<br>&amp; \backslash varkappa：&amp;\varkappa  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash varphi：&amp;\varphi  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash varpi：&amp;\varpi \<br>&amp; \backslash varrho：&amp;\varrho  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash varsigma：&amp;\varsigma  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash vartheta：&amp;\vartheta \<br>&amp; \backslash aleph：&amp;\aleph  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash beth：&amp;\beth  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash daleth：&amp;\daleth \<br>&amp; \backslash gimel：&amp;\gimel \qquad  \qquad \qquad  \qquad<br>\end{align*}<br>$$</p>
 <h3 id="大写希腊字符："><a href="#大写希腊字符：" class="headerlink" title="大写希腊字符："></a><span id="5">大写希腊字符：</span></h3><p>$$<br>\begin{align*}<br>&amp; \backslash  Delta：&amp;\Delta  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash  Gamma：&amp;\Gamma  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash  Lambda：&amp;\Lambda \<br>&amp; \backslash  Omega：&amp;\Omega  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash  Phi：&amp;\Phi  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash  Pi：&amp;\Pi \<br>&amp; \backslash  Psi：&amp;\Psi  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash  Sigma：&amp;\Sigma  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash  Theta：&amp;\Theta \<br>&amp; \backslash  Upsilon：&amp;\Upsilon  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash  Xi：&amp;\Xi  \qquad  \qquad \qquad  \qquad\<br>\end{align*}<br>$$</p>
 <h3 id="数学模式重音符"><a href="#数学模式重音符" class="headerlink" title="数学模式重音符:"></a><span id="6">数学模式重音符:</span></h3><p>$$<br>\begin{align*}<br>&amp; \backslash hat{a}：&amp;\hat{a}  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash check{a}：&amp;\check{a}  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash tilde{a}：&amp;\tilde{a}\<br>&amp; \backslash acute{a}：&amp;\acute{a}  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash grave{a}：&amp;\grave{a}  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash dot{a}：&amp;\dot{a}\<br>&amp; \backslash ddot{a}：&amp;\ddot{a}  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash breve{a}：&amp;\breve{a}  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash bar{a}：&amp;\bar{a}\<br>&amp; \backslash vec{a}：&amp;\vec{a}  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash widehat{a}：&amp;\widehat{a}  \qquad  \qquad \qquad  \qquad<br>&amp; \backslash widetilde{a}：&amp;\widetilde{a}\<br>\end{align*}<br>$$</p>
-<h3 id="空格"><a href="#空格" class="headerlink" title="空格"></a><span id="7">空格</span></h3><p>$$<br>\begin{align*}<br>&amp; 两个quad空格：\qquad\qquad &amp;a \backslash qquad \ b \qquad \qquad  \qquad &amp;a\qquad b \qquad \qquad&amp;两个m的宽度 \<br>&amp; quad空格：\qquad\qquad &amp;a \backslash quad \ b  \qquad\qquad \qquad &amp;a\quad b \qquad   \qquad&amp;一个m的宽度 \<br>&amp; 大空格：\qquad\qquad &amp;a\backslash \ b  \qquad \qquad \qquad &amp;a\ b \qquad  \qquad&amp;1/3m宽度 \<br>&amp; 中等空格：\qquad\qquad &amp;a\backslash ; b  \qquad \qquad \qquad &amp;a; b \qquad  \qquad&amp;2/7m宽度 \<br>&amp; 小空格：\qquad\qquad &amp;a\backslash ,b      \qquad \qquad \qquad &amp;a,b \qquad   \qquad&amp;1/6m宽度 \<br>&amp; 没有空格：\qquad\qquad &amp;ab  \qquad \qquad \qquad &amp;ab \qquad \qquad \qquad&amp; 无 \<br>&amp; 紧贴：\qquad\qquad &amp;a\backslash !b   \qquad \qquad \qquad &amp;a!b \qquad   \qquad&amp;缩进1/6m宽度<br>\end{align*}\qquad<br>$$</p>
+<h3 id="空格"><a href="#空格" class="headerlink" title="空格"></a><span id="7">空格</span></h3><p>$$<br>\begin{align*}<br>&amp; 两个quad空格：\qquad\qquad &amp;a \backslash qquad \ b \qquad \qquad  \qquad &amp;a\qquad b \qquad \qquad&amp;两个m的宽度 \<br>&amp; quad空格：\qquad\qquad &amp;a \backslash quad \ b  \qquad\qquad \qquad &amp;a\quad b \qquad   \qquad&amp;一个m的宽度 \<br>&amp; 大空格：\qquad\qquad &amp;a\backslash \ b  \qquad \qquad \qquad &amp;a\ b \qquad  \qquad&amp;1&#x2F;3m宽度 \<br>&amp; 中等空格：\qquad\qquad &amp;a\backslash ; b  \qquad \qquad \qquad &amp;a; b \qquad  \qquad&amp;2&#x2F;7m宽度 \<br>&amp; 小空格：\qquad\qquad &amp;a\backslash ,b      \qquad \qquad \qquad &amp;a,b \qquad   \qquad&amp;1&#x2F;6m宽度 \<br>&amp; 没有空格：\qquad\qquad &amp;ab  \qquad \qquad \qquad &amp;ab \qquad \qquad \qquad&amp; 无 \<br>&amp; 紧贴：\qquad\qquad &amp;a\backslash !b   \qquad \qquad \qquad &amp;a!b \qquad   \qquad&amp;缩进1&#x2F;6m宽度<br>\end{align*}\qquad<br>$$</p>
 <h3 id="箭头"><a href="#箭头" class="headerlink" title="箭头"></a><span id="8">箭头</span></h3><p>$$<br>\begin{alignat*}{3}<br>\backslash leftarrow：&amp;  \leftarrow \hspace{15mm} &amp;\backslash gets ：&amp;  \gets  \hspace{15mm}&amp; \backslash rightarrow ：&amp; \rightarrow\<br>\backslash to ：&amp; \to  &amp; \backslash uparrow ：&amp; \uparrow  &amp;\backslash downarrow ：&amp; \downarrow\<br>\backslash leftrightarrow ：&amp; \leftrightarrow  &amp; \backslash leftrightarrows ：&amp; \leftrightarrows  &amp;\backslash leftarrowtail ：&amp; \leftarrowtail\<br>\backslash twoheadleftarrow ：&amp; \twoheadleftarrow  &amp;\backslash Leftarrow ：&amp; \Leftarrow  &amp;\backslash Rightarrow ：&amp; \Rightarrow\<br>\backslash Uparrow ：&amp; \Uparrow  &amp;\backslash Downarrow ：&amp; \Downarrow  &amp;\backslash implies ：&amp; \implies\<br>\backslash iff：&amp;\iff  &amp;\backslash swarrow ：&amp; \swarrow  &amp;\backslash searrow ：&amp; \searrow\<br>\backslash nearrow ：&amp; \nearrow  &amp;\backslash nwarrow ：&amp; \nwarrow  &amp;\backslash leftharpoondown：&amp;  \leftharpoondown\<br>\backslash longleftarrow ：&amp; \longleftarrow  &amp;\backslash longrightarrow ：&amp; \longrightarrow  \qquad  \qquad \qquad&amp;\backslash longleftrightarrow : &amp; \longleftrightarrow  \<br>\backslash Longleftarrow ：&amp; \Longleftarrow  &amp;\backslash Longrightarrow ：&amp; \Longrightarrow  \qquad  \qquad \qquad&amp;\backslash Longleftrightarrow: &amp; \Longleftrightarrow\<br>\backslash circlearrowleft ：&amp; \circlearrowleft  &amp;\backslash circlearrowright ：&amp; \circlearrowright  &amp;\backslash upharpoonleft ：&amp; \upharpoonleft\<br>\backslash  upharpoonleright ：&amp; \upharpoonright  &amp;\backslash  leftharpoonup：&amp; \leftharpoonup  &amp;\backslash  leftharpoondown：&amp; \leftharpoonup \<br>\backslash  rightharpoonup：&amp; \leftharpoonup  &amp; \backslash  rightharpoondown：&amp;\rightharpoondown  &amp; \backslash  rightleftharpoons：&amp; \rightleftharpoons \<br>\backslash mapsto ：&amp; \mapsto  &amp;\backslash longmapsto ：&amp; \longmapsto  &amp;\backslash hookleftarrow ：&amp; \hookleftarrow \<br> \backslash  hookrightarrow：&amp; \hookrightarrow   \<br>\end{alignat*}<br>$$</p>
 <h3 id="常见的数学字母字体"><a href="#常见的数学字母字体" class="headerlink" title="常见的数学字母字体"></a><span id="9">常见的数学字母字体</span></h3><p>$$<br>\begin{align*}<br>&amp; \backslash bold{M}：&amp;\bold{M}\qquad  \qquad<br>&amp; \backslash mathsbb{M}：&amp;\mathbb{M}\qquad  \qquad<br>&amp; \backslash mathscr{M}{M}：&amp;\mathscr{M}  \<br>&amp; \backslash mathcal{M}：&amp;\mathcal{M}\qquad  \qquad<br>&amp; \backslash mathfrak{M}：&amp;\mathfrak{M}\qquad  \qquad<br>&amp; \backslash mathrm{M}：&amp;\mathrm{M} \<br>&amp; \backslash mathbf{M}：&amp;\mathbf{M}\qquad  \qquad<br>&amp; \backslash mathsf{M}：&amp;\mathsf{M}\qquad  \qquad<br>&amp; \backslash mathtt{M}：&amp;\mathtt{M} \<br>\end{align*}<br>$$</p>
 <h3 id="特殊符号的输入"><a href="#特殊符号的输入" class="headerlink" title="特殊符号的输入"></a><a id="10">特殊符号的输入</a></h3><ul>
@@ -122,7 +122,7 @@
 
 
 
-<h4 id="二、克隆项目到本地，我克隆到-home-sky-SoftWare-目录下。"><a href="#二、克隆项目到本地，我克隆到-home-sky-SoftWare-目录下。" class="headerlink" title="二、克隆项目到本地，我克隆到/home/sky/SoftWare/目录下。"></a>二、克隆项目到本地，我克隆到/home/sky/SoftWare/目录下。</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo git clone https://github.com/lupoDharkael/flameshot.git</span><br></pre></td></tr></table></figure>
+<h4 id="二、克隆项目到本地，我克隆到-x2F-home-x2F-sky-x2F-SoftWare-x2F-目录下。"><a href="#二、克隆项目到本地，我克隆到-x2F-home-x2F-sky-x2F-SoftWare-x2F-目录下。" class="headerlink" title="二、克隆项目到本地，我克隆到&#x2F;home&#x2F;sky&#x2F;SoftWare&#x2F;目录下。"></a>二、克隆项目到本地，我克隆到&#x2F;home&#x2F;sky&#x2F;SoftWare&#x2F;目录下。</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo git clone https://github.com/lupoDharkael/flameshot.git</span><br></pre></td></tr></table></figure>
 
 
 
@@ -131,7 +131,7 @@
 
 
 <p><img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210621222006062.png" alt="image-20210621222006062"></p>
-<h4 id="四、在克隆的目录（-home-sky-SoftWare-flameshot-）下进行编译："><a href="#四、在克隆的目录（-home-sky-SoftWare-flameshot-）下进行编译：" class="headerlink" title="四、在克隆的目录（/home/sky/SoftWare/flameshot/）下进行编译："></a>四、在克隆的目录（/home/sky/SoftWare/flameshot/）下进行编译：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<h4 id="四、在克隆的目录（-x2F-home-x2F-sky-x2F-SoftWare-x2F-flameshot-x2F-）下进行编译："><a href="#四、在克隆的目录（-x2F-home-x2F-sky-x2F-SoftWare-x2F-flameshot-x2F-）下进行编译：" class="headerlink" title="四、在克隆的目录（&#x2F;home&#x2F;sky&#x2F;SoftWare&#x2F;flameshot&#x2F;）下进行编译："></a>四、在克隆的目录（&#x2F;home&#x2F;sky&#x2F;SoftWare&#x2F;flameshot&#x2F;）下进行编译：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
 
 <p>在这步有如果你用<code>sudo apt install cmake</code> 安装cmake，可能会遇到cmake版本过低的问题，在  <a href="https://cmake.org/files/">https://cmake.org/files/</a>   网站下载最新版本安装即可。</p>
 <h4 id="五、编译完成之后执行命令sudo-make-install，安装完成！"><a href="#五、编译完成之后执行命令sudo-make-install，安装完成！" class="headerlink" title="五、编译完成之后执行命令sudo make install，安装完成！"></a>五、编译完成之后执行命令<code>sudo make install</code>，安装完成！</h4><h4 id="六、使用命令which-flameshot可以得到flameshot的位置"><a href="#六、使用命令which-flameshot可以得到flameshot的位置" class="headerlink" title="六、使用命令which flameshot可以得到flameshot的位置"></a>六、使用命令<code>which flameshot</code>可以得到flameshot的位置</h4><h4 id="七、在设置中添加自定义快捷键"><a href="#七、在设置中添加自定义快捷键" class="headerlink" title="七、在设置中添加自定义快捷键"></a>七、在设置中添加自定义快捷键</h4><p><img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210621223410545.png" alt="image-20210621223410545"></p>
@@ -184,8 +184,9 @@
 
 <ol start="2">
 <li><p>将工作区和HEAD（当前工作分支）相比，会看到更多的差异。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></table></figure></li>
-<li><p>通过参数–cached或–staged调用git diff命令，看到的是提交暂存区（提交任务，stage）和版本库中文件的差异。 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过参数–cached或–staged调用git diff命令，看到的是提交暂存区（提交任务，stage）和版本库中文件的差异。</p>
 </li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure>
@@ -200,8 +201,9 @@
 </ul>
 <h3 id="git-diff扩展"><a href="#git-diff扩展" class="headerlink" title="git diff扩展"></a>git diff扩展</h3><ol>
 <li><p>文件不同版本的差异比较差异比较还可以使用路径参数，只显示不同版本间该路径下文件的差异。语法格式如下： </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff &lt;commit1&gt; &lt;commit2&gt; -- &lt;paths&gt;  </span><br></pre></td></tr></table></figure></li>
-<li><p>非Git目录/文件的差异比较命令git diff还可以在Git版本库之外执行，对非Git目录进行比较，就像GNU的diff命令一样。之所以提供这个功能是因为Git差异比较命令更为强大，提供了对二进制文件差异等的扩展支持。语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff &lt;commit1&gt; &lt;commit2&gt; -- &lt;paths&gt;  </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>非Git目录&#x2F;文件的差异比较命令git diff还可以在Git版本库之外执行，对非Git目录进行比较，就像GNU的diff命令一样。之所以提供这个功能是因为Git差异比较命令更为强大，提供了对二进制文件差异等的扩展支持。语法格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff &lt;path1&gt; &lt;path2&gt; </span><br></pre></td></tr></table></figure></li>
 <li><p>逐词比较，而非默认的逐行比较Git的差异比较默认是逐行比较，分别显示改动前的行和改动后的行，到底改动在哪里还需要仔细辨别。Git还提供一种逐词比较的输出，有的人会更喜欢。使用–word-diff参数可以显示逐词比较。 </p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git diff --word-diff diff --git a/src/book/02-use-git/080-git-history-travel.rst b/src/book/02-use-git/080-git-history-travel.rst </span><br><span class="line">index f740203..2dd3e6f 100644 </span><br><span class="line">--- a/src/book/02-use-git/080-git-history-travel.rst </span><br><span class="line">+++ b/src/book/02-use-git/080-git-history-travel.rst </span><br><span class="line">@@ -681，7 +681，7 @@</span><br><span class="line">Git的大部分命令可以使用提交版本作为参数（如：git diff），</span><br><span class="line">::</span><br><span class="line">  [-18:23:48 jiangxin@hp:~/gitwork/gitbook/src/book$-]&#123;+$+&#125; </span><br><span class="line">git log --stat --oneline  I..C</span><br><span class="line">  0cd7f2e commit C.    </span><br><span class="line">    README    |    1 +</span><br><span class="line">    doc/C.txt |    1 +</span><br></pre></td></tr></table></figure>
@@ -297,7 +299,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>用法二： git checkout [<branch>] </p>
 </li>
-<li><p>用法三： git checkout [-m] [[-b|–orphan] <new_branch>] [<start_point>]  </p>
+<li><p>用法三： git checkout [-m] [[-b|–orphan] <new_branch>] [<start_point>]</p>
 </li>
 </ul>
 </li>
@@ -311,11 +313,11 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <li><p>第二种用法（不使用路径<code>&lt;paths&gt;</code>的用法）则会改变HEAD头指针。之所以后面的参数写作<code>&lt;branch&gt;</code>，是因为只有HEAD切换到一个分支才可以对提交进行跟踪，否则仍然会进入“分离头指针”的状态。在“分离头指针”状态下的提交不能被引用关联到，从而可能丢失。所以用法二最主要的作用就是切换到分支。如果省略<code>&lt;branch&gt;</code>则相当于对工作区进行状态检查。</p>
 </li>
 <li><p>第三种用法主要是创建和切换到新的分支（<code>&lt;new_branch&gt;</code>），新的分支从<code>&lt;start_point&gt;</code>指定的提交开始创建。新分支和我们熟悉的master分支没有什么实质的不同，都是在<code>refs/heads</code>命名空间下的引用。</p>
+<p>如图2所示的版本库模型图描述了<code>git checkout</code>实际完成的操作。 </p>
+<pre><code> 图2：
+</code></pre>
 </li>
 </ul>
-<p>  如图2所示的版本库模型图描述了<code>git checkout</code>实际完成的操作。 </p>
-<pre><code>   图2：
-</code></pre>
 <p><img src="https://gitee.com/nsaction/blog_pic/raw/master/78689BA0FA5DEFE0D1ED902F9F97932A.jpg" alt="78689BA0FA5DEFE0D1ED902F9F97932A"></p>
 <ol start="3">
 <li><h4 id="git-checkout命令"><a href="#git-checkout命令" class="headerlink" title="git checkout命令"></a>git checkout命令</h4></li>
@@ -360,7 +362,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p><code>HEAD^^2</code>的含义是<code>HEAD^</code>(HEAD父提交)的多个父提交中的第二个父提交。</p>
 </li>
-<li><p>符号<del>也可以用于指代祖先提交。例如：`a573106</del>5<code>即相当于</code>a573106^^^^^`。</p>
+<li><p>符号<del>也可以用于指代祖先提交。例如：&#96;a573106</del>5<code>即相当于</code>a573106^^^^^&#96;。</p>
 </li>
 <li><p>提交所对应的树对象，可以用类似如下的语法访问：<code>a573106^&#123;tree&#125;</code></p>
 </li>
@@ -502,9 +504,9 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <li>git冲突是通过.git目录下的几个文件记录的：</li>
 </ol>
 <ul>
-<li>文件.git/MERGE_HEAD记录所合并的提交ID</li>
-<li>文件.git/MERGE_MSG记录合并失败的信息</li>
-<li>文件.git/MERGE_MODE标识合并状态</li>
+<li>文件.git&#x2F;MERGE_HEAD记录所合并的提交ID</li>
+<li>文件.git&#x2F;MERGE_MSG记录合并失败的信息</li>
+<li>文件.git&#x2F;MERGE_MODE标识合并状态</li>
 <li>可以使用<code>cat .git/MERGE_HEAD</code>,<code>cat .git/MERGE_MSG</code>,<code>cat .git/MERGE_MODE</code>来访问。</li>
 </ul>
 <ol start="2">
@@ -524,11 +526,11 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 </ul>
 <ol start="3">
-<li>工作区的版本则可能同时包含了成功合并即冲突合并，其中冲突合并会用特殊的标记（&lt;&lt;&lt;&lt;&lt;&lt;======&gt;&gt;&gt;&gt;&gt;&gt;）进行标识：</li>
+<li>工作区的版本则可能同时包含了成功合并即冲突合并，其中冲突合并会用特殊的标记（&lt;&lt;&lt;&lt;&lt;&lt;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&gt;&gt;&gt;&gt;&gt;&gt;）进行标识：</li>
 </ol>
 <ul>
-<li>特殊标识&lt;&lt;&lt;&lt;&lt;&lt;和======之间的内容是当前分支更改的内容。</li>
-<li>特殊标识======和&gt;&gt;&gt;&gt;&gt;&gt;之间的内容是所合并的版本更改的内容。</li>
+<li>特殊标识&lt;&lt;&lt;&lt;&lt;&lt;和&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;之间的内容是当前分支更改的内容。</li>
+<li>特殊标识&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;和&gt;&gt;&gt;&gt;&gt;&gt;之间的内容是所合并的版本更改的内容。</li>
 </ul>
 <p><a id=3>三. 冲突的解决</a><br>冲突解决的实质就是通过编辑操作，将冲突标识符所标识的冲突内容替换为合适的内容，并去掉冲突标识符。编辑完成后执行<code>git add</code>命令将文件添加到暂存区（标号0）,然后再提交就完成了冲突解决。</p>
 <ol>
@@ -540,7 +542,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p><code>git add -u</code>，添加到暂存区</p>
 </li>
-<li><p><code>git commit -m &quot;冲突解决&quot;</code>,提交完成后，.git目录下与合并相关的文件.git/MERGE_HEAD、.git/MERGE_MSG、.git/MERGE_MODE文件都自动删除。</p>
+<li><p><code>git commit -m &quot;冲突解决&quot;</code>,提交完成后，.git目录下与合并相关的文件.git&#x2F;MERGE_HEAD、.git&#x2F;MERGE_MSG、.git&#x2F;MERGE_MODE文件都自动删除。</p>
 </li>
 <li><p>执行推送</p>
 </li>
@@ -555,7 +557,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <p>​                C：暂存区3中的版本（他人更改的版本）<img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620212217851.png" alt="image-20210620212217851"></p>
 </li>
 </ol>
-<p>  第四步：点击标记为“合并冲突”的一行，在弹出的菜单中出现A/B/C三个选项，分别代表从A、B、C三个窗口复制相关内容到当前位置<br>  第五步：B行代表从窗口B中复制的文件，M指手工修改的行<br>    <img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620213323429.png" alt="image-20210620213323429"></p>
+<p>  第四步：点击标记为“合并冲突”的一行，在弹出的菜单中出现A&#x2F;B&#x2F;C三个选项，分别代表从A、B、C三个窗口复制相关内容到当前位置<br>  第五步：B行代表从窗口B中复制的文件，M指手工修改的行<br>    <img src="https://gitee.com/nsaction/blog_pic/raw/master/image-20210620213323429.png" alt="image-20210620213323429"></p>
 <p>  第六步：编辑完成后保存退出即完成图形化冲突解决。</p>
 <p>  第七步：<code>git status</code>显示工作区状态，会看到冲突已经解决，在工作区会遗留一个以.orig结尾的合并前的文件副本,暂存区中三个文件的副本也已经清除。</p>
 <p>  第八步：执行提交和推送，由于文件是在暂存区更改，所以不需要add，直接commit，再push。</p>
@@ -603,9 +605,11 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <p><font color=blue><strong>扩展</strong>：</font></p>
 <ul>
 <li><p>使用以下命令，提交命令的时候使用utf-8编码集提交，这样在使用<code>git commit</code>，commit对象中嵌入正确的编码说明。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global i18n.commitEncoding utf-8</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global i18n.commitEncoding utf-8</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
 <li><p>使用以下命令，将提交说明所使用的字符集设置为utf-8，这样使用<code>git log</code>查看提交说明时才能够正确显示其中的中文</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global i18n.logOutputEncoding utf-8</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -636,7 +640,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <h4 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h4><p><font size=4 color=red>windows平台下使用git add，git deploy 文件时经常出现“warning: LF will be replaced by CRLF” 的提示。</p>
 </font>
 
-<h4 id="二、分析问题"><a href="#二、分析问题" class="headerlink" title="二、分析问题"></a>二、分析问题</h4><p>其实，这是因为在文本处理中，CR（CarriageReturn），LF（LineFeed），CR/LF是不同操作系统上使用的换行符，具体如下：</p>
+<h4 id="二、分析问题"><a href="#二、分析问题" class="headerlink" title="二、分析问题"></a>二、分析问题</h4><p>其实，这是因为在文本处理中，CR（CarriageReturn），LF（LineFeed），CR&#x2F;LF是不同操作系统上使用的换行符，具体如下：</p>
 <p>换行符‘\n’和回车符‘\r’</p>
 <ul>
 <li>回车符就是回到一行的开头，用符号r表示，十进制ASCII代码是13，十六进制代码为0x0D，回车（return）；</li>
@@ -652,8 +656,8 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <p>许多 Windows 上的编辑器会悄悄把行尾的换行（LF）字符转换成回车（CR）和换行（LF），或在用户按下 Enter 键时，插入回车（CR）和换行（LF）两个字符。</p>
 <p>影响：</p>
 <ul>
-<li>一个直接后果是，Unix/Mac系统下的文件在Windows里打开的话，所有文字会变成一行；</li>
-<li>而Windows里的文件在Unix/Mac下打开的话，在每行的结尾可能会多出一个^M符号。</li>
+<li>一个直接后果是，Unix&#x2F;Mac系统下的文件在Windows里打开的话，所有文字会变成一行；</li>
+<li>而Windows里的文件在Unix&#x2F;Mac下打开的话，在每行的结尾可能会多出一个^M符号。</li>
 <li>Linux保存的文件在windows上用记事本看的话会出现黑点。</li>
 </ul>
 <p>这些问题都可以通过一定方式进行转换统一，例如，在linux下，命令unix2dos 是把linux文件格式转换成windows文件格式，命令dos2unix 是把windows格式转换成linux文件格式。</p>
@@ -680,7 +684,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 
 <h4 id="通俗解释"><a href="#通俗解释" class="headerlink" title="通俗解释"></a>通俗解释</h4><ul>
 <li><blockquote>
-<p><font size=4 color=purple>git 的 Windows 客户端基本都会默认设置 core.autocrlf=true，设置core.autocrlf=true, 只要保持工作区都是纯 CRLF 文件，编辑器用 CRLF 换行，就不会出现警告了；</font></p>
+<p><font size=4 color=purple>git 的 Windows 客户端基本都会默认设置 core.autocrlf&#x3D;true，设置core.autocrlf&#x3D;true, 只要保持工作区都是纯 CRLF 文件，编辑器用 CRLF 换行，就不会出现警告了；</font></p>
 </blockquote>
 </li>
 <li><blockquote>
@@ -688,7 +692,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </blockquote>
 </li>
 <li><blockquote>
-<p><font size=4 color=purple>Windows 上设置 core.autocrlf=false，仓库里也没有配置 .gitattributes，很容易引入 CRLF 或者混合换行符（Mixed Line Endings，一个文件里既有 LF 又有CRLF）到版本库，这样就可能产生各种奇怪的问题。</font></p>
+<p><font size=4 color=purple>Windows 上设置 core.autocrlf&#x3D;false，仓库里也没有配置 .gitattributes，很容易引入 CRLF 或者混合换行符（Mixed Line Endings，一个文件里既有 LF 又有CRLF）到版本库，这样就可能产生各种奇怪的问题。</font></p>
 </blockquote>
 </li>
 </ul>
@@ -741,9 +745,9 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>Post(post) 变量</p>
 </li>
-<li><p> 首页(index)</p>
+<li><p>首页(index)</p>
 </li>
-<li><p> 归档页(archive)</p>
+<li><p>归档页(archive)</p>
 </li>
 </ul>
 </li>
@@ -797,12 +801,13 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <li><p>jade采用缩进语法格式，和python比较类似，看上去也很舒服，我比较喜欢这种风格。在hexo中使用jade需要安装相应的模块，否则无法使用。</p>
 </li>
 <li><p>模板文件在 layout 文件夹下，layout 文件文档结构如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── _custom                           #通用布局</span><br><span class="line">├── _layout.swig                      #默认布局布局</span><br><span class="line">├── _macro                            #插件模板</span><br><span class="line">├── _partials                         #局部布局</span><br><span class="line">├── _scripts                         # script模板</span><br><span class="line">├── _third-party                      # 第三方插件模板</span><br><span class="line">├── archive.swig                      # 归档模板</span><br><span class="line">├── category.swig                     # 分类模板</span><br><span class="line">├── index.swig                        # 首页模板</span><br><span class="line">├── page.swig                         # 其他模板</span><br><span class="line">├── photo.swig                        # 照片模板（自定义）</span><br><span class="line">├── post.swig                         #文章模板</span><br><span class="line">├── schedule.swig                   # 归档模板</span><br><span class="line">└── tag.swig                          #标签模板</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── _custom                           #通用布局</span><br><span class="line">├── _layout.swig                      #默认布局布局</span><br><span class="line">├── _macro                            #插件模板</span><br><span class="line">├── _partials                         #局部布局</span><br><span class="line">├── _scripts                         # script模板</span><br><span class="line">├── _third-party                      # 第三方插件模板</span><br><span class="line">├── archive.swig                      # 归档模板</span><br><span class="line">├── category.swig                     # 分类模板</span><br><span class="line">├── index.swig                        # 首页模板</span><br><span class="line">├── page.swig                         # 其他模板</span><br><span class="line">├── photo.swig                        # 照片模板（自定义）</span><br><span class="line">├── post.swig                         #文章模板</span><br><span class="line">├── schedule.swig                   # 归档模板</span><br><span class="line">└── tag.swig                          #标签模板</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>每个模板都默认使用layout布局，您可在文章的前置申明中指定其他布局，比如“post”或者“page”或是设为false来关闭布局功能（如果不填默认是post，这个在_config.yml中可以设置默认值），您甚至可在布局中再使用其他布局来建立嵌套布局。</p>
 </li>
 <li><p>在我们新建页面或者新建文章的使用可以选定我们使用的模板。<code>hexo new [layout] &lt;title&gt;</code>就会使用对应的模板。</p>
 </li>
-<li><p> 其中 _layout.swig 是通用模板，里面引入了 head、footer 等公共组件，然后在其他的模板中会引入这个 _layout.swig 通用模板，比如 post.swig 模板</p>
+<li><p>其中 _layout.swig 是通用模板，里面引入了 head、footer 等公共组件，然后在其他的模板中会引入这个 _layout.swig 通用模板，比如 post.swig 模板</p>
 </li>
 </ul>
 <h4 id="2-数据的填充"><a href="#2-数据的填充" class="headerlink" title="2. 数据的填充"></a>2. 数据的填充</h4><p>数据的填充主要是 hexo -g 的时候将数据传递给 swig 模板，然后再由 swig 模板填充到 HTML 中。</p>
@@ -960,8 +965,8 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <span id="more"></span>
 
 
-<h3 id="一、yaml语法简介："><a href="#一、yaml语法简介：" class="headerlink" title="一、yaml语法简介："></a>一、yaml语法简介：</h3><p>YAML（/ˈjæməl/，尾音类似 camel 骆驼）是一个可读性高，用来表达数据序列化的格式。YAML 参考了其他多种语言，包括： C 语言、 Python、Perl，并从 XML、电子邮件的数据格式（RFC 2822）中获得灵感。Clark Evans 在 2001 年首次发表了这种语言 ，另外 Ingy döt Net 与 Oren Ben-Kiki 也是这语言的共同设计者 。当前已经有数种编程语言或脚本语言支持（或者说解析）这种语言。</p>
-<p>YAML (YAML Aint Markup Language)是一种标记语言，通常以.yml或者.yaml为后缀的文件，是一种直观的能够被电脑识别的数据序列化格式，并且容易被人类阅读，容易和脚本语言交互的，可以被支持YAML库的不同的编程语言程序导入，一种专门用来写配置文件的语言。可用于如： Java，C/C++, Ruby, Python, Perl, C#, PHP等。</p>
+<h3 id="一、yaml语法简介："><a href="#一、yaml语法简介：" class="headerlink" title="一、yaml语法简介："></a>一、yaml语法简介：</h3><p>YAML（&#x2F;ˈjæməl&#x2F;，尾音类似 camel 骆驼）是一个可读性高，用来表达数据序列化的格式。YAML 参考了其他多种语言，包括： C 语言、 Python、Perl，并从 XML、电子邮件的数据格式（RFC 2822）中获得灵感。Clark Evans 在 2001 年首次发表了这种语言 ，另外 Ingy döt Net 与 Oren Ben-Kiki 也是这语言的共同设计者 。当前已经有数种编程语言或脚本语言支持（或者说解析）这种语言。</p>
+<p>YAML (YAML Aint Markup Language)是一种标记语言，通常以.yml或者.yaml为后缀的文件，是一种直观的能够被电脑识别的数据序列化格式，并且容易被人类阅读，容易和脚本语言交互的，可以被支持YAML库的不同的编程语言程序导入，一种专门用来写配置文件的语言。可用于如： Java，C&#x2F;C++, Ruby, Python, Perl, C#, PHP等。</p>
 <h3 id="二、YML的优点"><a href="#二、YML的优点" class="headerlink" title="二、YML的优点"></a>二、YML的优点</h3><ol>
 <li>YAML易于人们阅读。</li>
 <li>YAML数据在编程语言之间是可移植的。</li>
@@ -1142,23 +1147,17 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <li><p>右键单击桌面上或文件浏览器中的任意位置，然后从上下文菜单中选择“新建&gt;快捷方式”。</p>
 <p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624153145.png" alt="image-20210624153138112"></p>
 </li>
-</ol>
-<ol start="2">
 <li><p>“创建快捷方式”向导的第一页上，单击“浏览”按钮以找到要固定的文件夹。 但是，选择文件夹后，请不要单击“下一步”。</p>
 <p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624153713.png" alt="image-20210624153713114"></p>
 </li>
 <li><p>现在添加“ Explorer”(不带引号)，然后在您选择的文件夹路径之前添加一个空格。 之后，继续并单击“下一步”按钮。</p>
 <p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624153835.png" alt="image-20210624153835259"></p>
 </li>
-</ol>
-<ol start="4">
 <li><p>输入快捷方式的名称，然后单击“完成”以在您选择的位置创建快捷方式。</p>
 </li>
 <li><p>更改快捷方式的图标。</p>
 <p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624154248.png" alt="image-20210624154248814"></p>
 </li>
-</ol>
-<ol start="6">
 <li><p>把图标拖到任务栏将其固定，删除桌面的快捷方式任务栏的文件夹快捷方式就建立好了。</p>
 <p><img src="https://gitee.com/nsaction/blog_pic/raw/master/20210624155528.png" alt="image-20210624155528477"></p>
 </li>
@@ -1194,7 +1193,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>七、特殊产品代码－TH湿热带，TA干热带;    </p>
 </li>
-<li><p>八、额定电压－单位KV    </p>
+<li><p>八、额定电压－单位KV</p>
 </li>
 </ul>
 <p>​    </p>
@@ -1215,7 +1214,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>8  铜丝编织    </p>
 </li>
-<li><p>9  钢丝编织    </p>
+<li><p>9  钢丝编织</p>
 </li>
 </ul>
 <p>​    </p>
@@ -1226,7 +1225,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>型号中的省略原则：电线电缆产品中铜是主要使用的导体材料，故铜芯代号T省写，但裸电线及裸导体制品除外。裸电线及裸导体制品类、电力电缆类、电磁线类产品不表明大类代号，电气装备用电线电缆类和通信电缆类也不列明，但列明小类或系列代号等。    </p>
 </li>
-<li><p>第7项是各种特殊使用场合或附加特殊使用要求的标记，在“-”后以拼音字母标记。有时为了突出该项，把此项写到最前面。如ZR-(阻燃)、NH-(耐火)、WDZ-(低烟无卤、企业标准)、-TH(湿热地区用)、FY-(防白蚁、企业标准)等。    </p>
+<li><p>第7项是各种特殊使用场合或附加特殊使用要求的标记，在“-”后以拼音字母标记。有时为了突出该项，把此项写到最前面。如ZR-(阻燃)、NH-(耐火)、WDZ-(低烟无卤、企业标准)、-TH(湿热地区用)、FY-(防白蚁、企业标准)等。</p>
 </li>
 </ul>
 <h4 id="电缆型号选型注意事项"><a href="#电缆型号选型注意事项" class="headerlink" title="电缆型号选型注意事项"></a>电缆型号选型注意事项</h4><ul>
@@ -1238,7 +1237,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>3、信号控制电缆（RVV护套线、RVVP屏蔽线）适用于楼宇对讲、防盗报警、消防、自动抄表等工程    </p>
 </li>
-<li><p>RVVP：铜芯聚氯乙烯绝缘屏蔽聚氯乙烯护套软电缆 电压300V/300V 2-24芯    </p>
+<li><p>RVVP：铜芯聚氯乙烯绝缘屏蔽聚氯乙烯护套软电缆 电压300V&#x2F;300V 2-24芯    </p>
 </li>
 <li><p>用途：仪器、仪表、对讲、监控、控制安装    </p>
 </li>
@@ -1246,7 +1245,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>5、KVVP：聚氯乙烯护套编织屏蔽电缆 用途：电器、仪表、配电装置的信号传输、控制、测量    </p>
 </li>
-<li><p>6、RVV（227IEC52/53） 聚氯乙烯绝缘软电缆 用途：家用电器、小型电动工具、仪表及动 力照明    </p>
+<li><p>6、RVV（227IEC52&#x2F;53） 聚氯乙烯绝缘软电缆 用途：家用电器、小型电动工具、仪表及动 力照明    </p>
 </li>
 <li><p>7、AVVR 聚氯乙烯护套安装用软电缆    </p>
 </li>
@@ -1276,9 +1275,9 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>所有消防用电设备线路均采用阻燃或耐火导线，    </p>
 </li>
-<li><p>电力干线采用WDZ-YJ(F)E-0.6/1kV型低烟无卤阻燃耐火电力电缆,（消防用电为矿物绝缘电缆）。    </p>
+<li><p>电力干线采用WDZ-YJ(F)E-0.6&#x2F;1kV型低烟无卤阻燃耐火电力电缆,（消防用电为矿物绝缘电缆）。    </p>
 </li>
-<li><p>由末端配电箱引出的分支线采用WDZ-BYJ(F)-450/750V型铜芯线(消防为WDZN-BYJ(F))。</p>
+<li><p>由末端配电箱引出的分支线采用WDZ-BYJ(F)-450&#x2F;750V型铜芯线(消防为WDZN-BYJ(F))。</p>
 </li>
 </ul>
 <h4 id="常用的举例"><a href="#常用的举例" class="headerlink" title="常用的举例"></a>常用的举例</h4><h4 id=""><a href="#" class="headerlink" title=""></a></h4><h5 id="W-DZ-低-烟-无-卤阻-燃-电-缆"><a href="#W-DZ-低-烟-无-卤阻-燃-电-缆" class="headerlink" title="W DZ - 低 烟 无 卤阻 燃 电 缆"></a>W DZ - 低 烟 无 卤阻 燃 电 缆</h5><ul>
@@ -1290,7 +1289,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>全称是：低烟无卤A级阻燃耐火铜芯导体辐照交联聚乙烯绝缘固定敷设用电线    </p>
 </li>
-<li><p>WDZ表示无卤低烟阻燃    </p>
+<li><p>WDZ表示无卤低烟阻燃</p>
 </li>
 </ul>
 <p>​    </p>
@@ -1307,11 +1306,11 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <li><p>交联聚乙烯绝缘电缆是一种适用于配电网等领域的电缆，具有PVC绝缘电缆无法比拟的优点。它结构简单、重量轻、耐热好、负载能力强、不熔化、耐化学腐蚀，机械强度高。    </p>
 <p>​    </p>
 </li>
-<li><p>交联聚乙烯绝缘电缆是利用化学方法或物理方法，使电缆绝缘聚乙烯分子由线性分子结构转变为主体网状分子结构，即热塑性的聚乙烯转变为热固性的交联聚乙烯，从而大大提高它的耐热性和机械性能，减少了它的收缩性，使其受热以后不再熔化，并保持了优良的电气性能。    </p>
+<li><p>交联聚乙烯绝缘电缆是利用化学方法或物理方法，使电缆绝缘聚乙烯分子由线性分子结构转变为主体网状分子结构，即热塑性的聚乙烯转变为热固性的交联聚乙烯，从而大大提高它的耐热性和机械性能，减少了它的收缩性，使其受热以后不再熔化，并保持了优良的电气性能。</p>
 </li>
 </ul>
 <p>​    </p>
-<h5 id="RVS-BVS"><a href="#RVS-BVS" class="headerlink" title="RVS/BVS"></a>RVS/BVS</h5><ul>
+<h5 id="RVS-x2F-BVS"><a href="#RVS-x2F-BVS" class="headerlink" title="RVS&#x2F;BVS"></a>RVS&#x2F;BVS</h5><ul>
 <li><p>R－连接用软电缆（电线），软结构。    </p>
 </li>
 <li><p>V－绝缘聚氯乙烯。    </p>
@@ -1347,9 +1346,9 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>WC:暗敷设在墙内    </p>
 </li>
-<li><p>MR/JDG20:是沿MR(金属线槽),JDG20(紧定式金属直径20的电线管)敷设,    </p>
+<li><p>MR&#x2F;JDG20:是沿MR(金属线槽),JDG20(紧定式金属直径20的电线管)敷设,    </p>
 </li>
-<li><p>JDG20:是20的焊接钢管。    </p>
+<li><p>JDG20:是20的焊接钢管。</p>
 </li>
 </ul>
 ]]></content>
