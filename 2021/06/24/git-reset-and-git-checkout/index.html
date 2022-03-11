@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/4A8334536628F5AE791CDEEE34205B70.jpg">
 <meta property="og:image" content="https://gitee.com/nsaction/blog_pic/raw/master/78689BA0FA5DEFE0D1ED902F9F97932A.jpg">
 <meta property="article:published_time" content="2021-06-24T09:03:35.000Z">
-<meta property="article:modified_time" content="2022-01-31T17:16:50.551Z">
+<meta property="article:modified_time" content="2022-03-11T17:16:48.956Z">
 <meta property="article:author" content="养家河">
 <meta property="article:tag" content="git checkout">
 <meta property="article:tag" content="git reset">
@@ -334,7 +334,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p>用法二： git checkout [<branch>] </p>
 </li>
-<li><p>用法三： git checkout [-m] [[-b|–orphan] <new_branch>] [<start_point>]</p>
+<li><p>用法三： git checkout [-m] [[-b|–orphan] <new_branch>] [<start_point>]  </p>
 </li>
 </ul>
 </li>
@@ -348,11 +348,11 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <li><p>第二种用法（不使用路径<code>&lt;paths&gt;</code>的用法）则会改变HEAD头指针。之所以后面的参数写作<code>&lt;branch&gt;</code>，是因为只有HEAD切换到一个分支才可以对提交进行跟踪，否则仍然会进入“分离头指针”的状态。在“分离头指针”状态下的提交不能被引用关联到，从而可能丢失。所以用法二最主要的作用就是切换到分支。如果省略<code>&lt;branch&gt;</code>则相当于对工作区进行状态检查。</p>
 </li>
 <li><p>第三种用法主要是创建和切换到新的分支（<code>&lt;new_branch&gt;</code>），新的分支从<code>&lt;start_point&gt;</code>指定的提交开始创建。新分支和我们熟悉的master分支没有什么实质的不同，都是在<code>refs/heads</code>命名空间下的引用。</p>
-<p>如图2所示的版本库模型图描述了<code>git checkout</code>实际完成的操作。 </p>
-<pre><code> 图2：
-</code></pre>
 </li>
 </ul>
+<p>  如图2所示的版本库模型图描述了<code>git checkout</code>实际完成的操作。 </p>
+<pre><code>   图2：
+</code></pre>
 <p><img src="https://gitee.com/nsaction/blog_pic/raw/master/78689BA0FA5DEFE0D1ED902F9F97932A.jpg" alt="78689BA0FA5DEFE0D1ED902F9F97932A"></p>
 <ol start="3">
 <li><h4 id="git-checkout命令"><a href="#git-checkout命令" class="headerlink" title="git checkout命令"></a>git checkout命令</h4></li>
@@ -397,7 +397,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </li>
 <li><p><code>HEAD^^2</code>的含义是<code>HEAD^</code>(HEAD父提交)的多个父提交中的第二个父提交。</p>
 </li>
-<li><p>符号<del>也可以用于指代祖先提交。例如：&#96;a573106</del>5<code>即相当于</code>a573106^^^^^&#96;。</p>
+<li><p>符号<del>也可以用于指代祖先提交。例如：`a573106</del>5<code>即相当于</code>a573106^^^^^`。</p>
 </li>
 <li><p>提交所对应的树对象，可以用类似如下的语法访问：<code>a573106^&#123;tree&#125;</code></p>
 </li>

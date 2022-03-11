@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="解决git中文显示问题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-23T11:43:11.000Z">
-<meta property="article:modified_time" content="2022-01-31T17:16:50.551Z">
+<meta property="article:modified_time" content="2022-03-11T17:16:48.956Z">
 <meta property="article:author" content="养家河">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="中文显示">
@@ -276,11 +276,9 @@
 <p><font color=blue><strong>扩展</strong>：</font></p>
 <ul>
 <li><p>使用以下命令，提交命令的时候使用utf-8编码集提交，这样在使用<code>git commit</code>，commit对象中嵌入正确的编码说明。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global i18n.commitEncoding utf-8</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global i18n.commitEncoding utf-8</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
 <li><p>使用以下命令，将提交说明所使用的字符集设置为utf-8，这样使用<code>git log</code>查看提交说明时才能够正确显示其中的中文</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global i18n.logOutputEncoding utf-8</span><br></pre></td></tr></table></figure></li>
 </ul>
