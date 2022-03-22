@@ -779,7 +779,7 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 <h4 id="2-Hexo-的工作原理"><a href="#2-Hexo-的工作原理" class="headerlink" title="2. Hexo 的工作原理"></a>2. Hexo 的工作原理</h4><h5 id="1-hexo最基本的功能是将Markdown程序转成HTML页面，而这个转换并不是一次完成的，要经历两步"><a href="#1-hexo最基本的功能是将Markdown程序转成HTML页面，而这个转换并不是一次完成的，要经历两步" class="headerlink" title="1) hexo最基本的功能是将Markdown程序转成HTML页面，而这个转换并不是一次完成的，要经历两步:"></a>1) hexo最基本的功能是将Markdown程序转成HTML页面，而这个转换并不是一次完成的，要经历两步:</h5><ul>
 <li>第一步，将Markdown翻译成下面格式的JSON对象：</li>
 </ul>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">article: &#123;</span><br><span class="line">  title:</span><br><span class="line">  date:</span><br><span class="line">  tags:</span><br><span class="line">  categories:</span><br><span class="line">  content:</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">article: &#123;</span><br><span class="line">  title:</span><br><span class="line">  date:</span><br><span class="line">  tags:</span><br><span class="line">  categories:</span><br><span class="line">  content:</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>第二步，根据上面生成的JSON对象生成 HTML 页面。</p>
 <p>对于我们来说，清楚了上面hexo将Markdown转HTML页面的过程后，我们就很容易理解hexo 在执行不同命令时它都在做什么事儿了。</p>
 <p>下面我们再来看看<strong>hexo</strong>的组成，它由三部分组成: <strong>hexo-cli</strong>、<strong>hexo-core</strong>以及<strong>hexo plugs</strong>。在这三部分中最核心的是hexo-core模块，它的作用就是执行上面讲的两步转换，从而生成目标文件；hexo-cli为我们供了一些非常方便的命令。当我们敲入命令时，它会根据命令调用不同的模块；hexo plugin是hexo的扩展，当hexo本身不能完成某项任务时，它允许你自己开发一个插件来完成。当然你也可以使用其它人写好的插件。</p>
@@ -818,11 +818,11 @@ $ git commit -e -F .git/COMMIT_EDITMSG
 </ul>
 <p>Hexo 的配置文件 _config.yml 使用 yml语法 。例如博客的名字、副标题等等之类。这些数据项组织在 config 对象中。可以数字、字符串、对象、数组。</p>
 <h4 id="4-配置文件中数据的使用"><a href="#4-配置文件中数据的使用" class="headerlink" title="4. 配置文件中数据的使用"></a>4. 配置文件中数据的使用</h4><p>如果要在模板中使用某个具体的值，比如字符串、数字、逻辑变量或者对象的某个成员，可以在主题的模板文件 swig 中直接使用：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% block title %&#125; &#123;&#123; page.title &#125;&#125; | &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% block title %&#125; &#123;&#123; page.title &#125;&#125; | &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-使用markdown编写的博客文章"><a href="#5-使用markdown编写的博客文章" class="headerlink" title="5. 使用markdown编写的博客文章"></a>5. 使用markdown编写的博客文章</h4><p>之所以选择hexo做博客一个原因就是它支持markdown。用markdown写文章感觉特别爽，只需要记住简单的几个语法，而且可以把全部的注意力放在文字本身上，而不用去过多的关注排版。</p>
 <h2 id="三、hexo发布页面"><a href="#三、hexo发布页面" class="headerlink" title="三、hexo发布页面"></a>三、<strong>hexo发布页面</strong></h2><p>我们可以使用<code>hexo d</code>命令将生成的目标文件发布出来，但在使用它之前，你需要在站节点的_config.yml文件中配置发布的方法。我们举个例子：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git #leancloud_counter_security_sync #git</span><br><span class="line">  repo: git@github.com:avdance/avdance.github.io.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git #leancloud_counter_security_sync #git</span><br><span class="line">  repo: git@github.com:avdance/avdance.github.io.git</span><br></pre></td></tr></table></figure>
 
 <p>当我们执行<code>hexo d</code>命令时，它会调用 hexo 中的 <code>hexo-deployer-git</code> 插件。在该插件内部会启动一个进程调用<code>git</code>命令，从而将生成的html等代码上传到 github上。</p>
 <p>这里可能有些同学会有疑问，为什么上传到github上就算是发布了呢？这是因为github为我们提供了免费的个人博客空间。只要你在github上创建一个<code>用户名.github.io</code>的项目，github就会自动将这个项目中的文件发布出来。</p>
